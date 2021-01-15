@@ -1,0 +1,79 @@
+#DEFAULT_VOLATILE
+
+Nonvolatile String sOnceBoot[ 64 ];
+DIGITAL_INPUT RESET_BOOT_ONCE;
+DIGITAL_OUTPUT BOOT_ONCE, BOOT_ONCE_DONE_FB, BOOT_FIRST;
+
+DIGITAL_INPUT BOOT_ONCE_TRIG, BOOT_TRIG, BOOT_NOT_TRIG, BOOT_DELAY_TRIG, BOOT_FIRST_TRIG;
+
+PUSH RESET_BOOT_ONCE
+{
+	sOnceBoot = "";
+	BOOT_ONCE_DONE_FB = 0;	
+}
+
+PUSH BOOT_ONCE_TRIG
+{
+	Print( "PUSH BOOT_ONCE\n" );
+}
+
+RELEASE BOOT_ONCE_TRIG
+{
+	Print( "RELEASE BOOT_ONCE\n" );
+}
+
+PUSH BOOT_TRIG
+{
+	Print( "PUSH BOOT\n" );
+}
+
+RELEASE BOOT_TRIG
+{
+	Print( "RELEASE BOOT\n" );
+}
+
+PUSH BOOT_NOT_TRIG
+{
+	Print( "PUSH BOOT_NOT\n" );
+}
+
+RELEASE BOOT_NOT_TRIG
+{
+	Print( "RELEASE BOOT_NOT\n" );
+}
+
+PUSH BOOT_DELAY_TRIG
+{
+	Print( "PUSH BOOT_DELAY\n" );
+}
+
+RELEASE BOOT_DELAY_TRIG
+{
+	Print( "RELEASE BOOT_DELAY\n" );
+}
+
+PUSH BOOT_FIRST_TRIG
+{
+	Print( "PUSH BOOT_FIRST\n" );
+}
+
+RELEASE BOOT_FIRST_TRIG
+{
+	Print( "RELEASE BOOT_FIRST\n" );
+}
+
+Function Main( )
+{
+	If( sOnceBoot != "I Have Booted For The First Time Already!!" )
+	{
+		Pulse( 1, BOOT_ONCE );
+		BOOT_ONCE_DONE_FB = 1;
+		sOnceBoot = "I Have Booted For The First Time Already!!";		
+	}
+	Else
+	{
+		BOOT_ONCE_DONE_FB = 1;
+	}
+	
+	Pulse( 1, BOOT_FIRST );
+}

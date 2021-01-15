@@ -1,0 +1,1707 @@
+[
+Version=1
+]
+[
+ObjTp=FSgntr
+Sgntr=UserMacro
+RelVrs=2.12.31
+IntStrVrs=2
+MinSMWVrs=0
+MinTIOVrs=0
+SavedBy=SMW2.12.31
+]
+[
+ObjTp=Hd
+S0Nd=1
+S1Nd=2
+SLNd=3
+PrNm=INDEX TRANSLATOR 24x32 V-0.1.umc
+DbVr=21.03.028.00
+DvcDbVr=27.00.001.00
+PgmNm=DCI
+Incl=362,378,380,405,407,408,409,478,522,537,554,586,590,611,624,767,830,883,1032,1062,1079,1134,1157,1199,1220,1348,
+McNm=INDEX TRANSLATOR V-0_1
+SmVr=660
+DvVr=660
+TpN1=1
+TpN2=2
+TpN3=3
+TpN4=4
+TpN5=5
+APg=1
+FltTmp=1
+FpCS=0
+Cmn1=The Master Macro with the optional smart switcher. \\\\This Module||1
+Cmn2=is the Master Macro with optional smart switching capabilities and||1
+Cmn3=cool down timer. \\\\This module is designed to control 1 device.
+Cmn4=||1This macro will control input switching, "POWER OFF" and "POWER||1
+Cmn5=ON" command. The optional use of the "Smart Switcher" will regulate||1
+Cmn6=the output pulse to the device's input. This module will evaluate||1
+Cmn7=the current state of the device before the outputs are processed.
+Cmn8=||1If the device is off and this module receives an input request,||1
+Cmn9=the module will send the "POWER ON" command then wait the specified||1
+Cmn10=time (warm up time) before triggering the corresponding output.\\
+Cmn11=\\The purpose of the "Smart Switcher" is some devices will pause||1
+Cmn12=or flash when it receives an input command. The "Smart Switcher"||1
+Cmn13=will regulate the output from this module. Example: If {enable_smart_switcher}||1
+Cmn14=is enabled (with a 1) and the program has already switched the input||1
+Cmn15=on the monitor to "Component 1" the program will NOT switch to "Component||1
+Cmn16=1" again until the input has been changed to something else.\\\\
+Cmn17=\\\\Inputs:\\\\{power_on_sense} \\\\**optional**connect power on||1
+Cmn18=here so the module will know if the device has been commanded on||1
+Cmn19=from another part of the program\\\\power_off_sense\\\\**required**||1
+Cmn20=connect power off here so the module will know when the device has||1
+Cmn21=been commanded off from another part of the program.\\\\{enable_smart_switcher}\\
+Cmn22=\\**optional** Place a "1" here to enable this feature of this module.
+Cmn23=||1If this module receives an input command and smart switcher is||1
+Cmn24=enabled it will only send the corresponding output if it is different||1
+Cmn25=from the last input switch command received. This is nice if you||1
+Cmn26=have a device that flashes or pauses when it receives an input command.
+Cmn27=||1(i.e. The end user selects DVD which is routed to input 1 on the||1
+Cmn28=plasma through a switcher, then decides to watch HD-SAT which is||1
+Cmn29=also routed to input 1 on the plasma through the same switcher,||1
+Cmn30=and the plasma screen will not flash).\\\\**Optional** {enable_retrigger_power}\\
+Cmn31=\\If a "1" is placed here after the input has been selected, "{device_power_on}"||1
+Cmn32=will pulse again at a logical time depending on the current state||1
+Cmn33=and the value of "{enable_smart_switcher}". "{device_power_on}"||1
+Cmn34=will pulse again.\\\\{input_select_1} - {input_select_9} \\\\All||1
+Cmn35=input commands from the program are routed here, usually from a||1
+Cmn36=stepper. After sending an input switch here there will be two different||1
+Cmn37=results. \\First result will be if the device is off. If the device||1
+Cmn38=is off this module will pulse power on for the duration of "pulse"||1
+Cmn39=(parameter value) time, then wait "warm up time" (parameter value)||1
+Cmn40=before sending the corresponding output for the duration of "pulse".
+Cmn41=\\Second result will be if the device is on. If this device is on||1
+Cmn42=the module will pulse the corresponding output for the duration||1
+Cmn43=of "pulse" immediately.\\\\Outputs:\\\\POWER ON\\\\Connect this||1
+Cmn44=signal to your device driver "POWER ON" If this module has received||1
+Cmn45="Power_off_sense" command,  the next time it receives an input command||1
+Cmn46="{input_select_1} - {input_select_9}", this module will pulse "device_power_on"||1
+Cmn47=for the duration of the parameter value "pulse"\\\\POWER OFF\\\\
+Cmn48=When this module receives a trigger on the "Power_off_sense" line||1
+Cmn49=the output {POWER OFF} will pulse high for the duration of pulse.
+Cmn50=\\\\Connect this signal to your device driver "POWER OFF" \\\\**Optional**||1
+Cmn51={please_wait_warm_up_fb}\\\\After the output "device_power_on" is||1
+Cmn52=pulsed, "{please_wait_warm_up_fb}" will hold in it's active state||1
+Cmn53=for the duration of the parameter value "warm up time".\\\\**Optional**||1
+Cmn54={please_wait_cool_down_fb}\\\\After the input ""device_power_off_sense"||1
+Cmn55=||1is received, "{please_wait_cool_down_fb}"\\will hold in it's active||1
+Cmn56=state for the duration of the parameter value "cool down". Use a||1
+Cmn57=the default value "0s" if not needed.\\\\{input_switch_1} - {input_switch_9}\\
+Cmn58=\\If allowed by the module these outputs will pulse the corresponding||1
+Cmn59=input for the duration of the parameter value "pulse" \\\\\\Parameter||1
+Cmn60=values:\\\\"Pulse" \\\\This is the output pulse time\\\\"Warm Up||1
+Cmn61=Time" \\\\This is the time the device needs from ON before it will||1
+Cmn62=process an input command.\\\\"Cool Down" \\\\This is the time the||1
+Cmn63=device needs before it can be powered up again after powering off.
+Cmn64=||1This is mostly used for projectors and their cool down cycle. \\
+Cmn65=\\\\Note:\\\\This module will remember all input commands a process||1
+Cmn66=them as a last in first out sequence. In other words if in the cool||1
+Cmn67=down cycle and input 1 is received before the cool down time has||1
+Cmn68=expired, this module will remember the request and execute "Power||1
+Cmn69=On" and then the requested input after the warm up time has expired.
+Cmn70=||1The same is true if an input switch is received while in the warm||1
+Cmn71=up period.\\
+]
+[
+ObjTp=Bk
+Nm1=\
+Sx1=0
+Sy1=0
+Mx1=1
+]
+[
+ObjTp=Bw
+H=1
+Lx=864
+Ly=0
+Rx=1728
+Ry=717
+Xm=-1
+Ym=-1
+SH=8
+Z=75
+Ht=1
+Hi=14
+]
+[
+ObjTp=Bw
+H=1
+Lx=864
+Ly=717
+Rx=1728
+Ry=1434
+Xm=-1
+Ym=-1
+SH=12
+Z=75
+Ht=4
+Hi=32
+]
+[
+ObjTp=Bw
+H=1
+Lx=20
+Ly=20
+Rx=280
+Ry=220
+Xm=-1
+Ym=-1
+SH=7
+Z=75
+Ht=1
+Hi=1
+]
+[
+ObjTp=Bw
+H=1
+Lx=0
+Ly=717
+Rx=864
+Ry=1434
+Xm=-1
+Ym=-1
+SH=6
+Z=75
+Ht=1
+Hi=24
+]
+[
+ObjTp=Symbol
+Name=INDEX TRANSLATOR 24x32 V-0.1
+Code=1
+SmplCName=INDEX TRANSLATOR 24x32 V-0.1.umc
+Smpl-C=3
+CompilerTimePrecision=Single_Or_Double_Precision
+Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,718,756,854,
+SMWRev=0
+TIORev=0
+S+=1
+HelpID=1055
+APg=1
+StdCmd=0
+FltTmp=1
+FpCS=0
+NumFixedInputs=24
+NumFixedOutputs=24
+NumFixedParams=32
+MinVariableInputs=0
+MinVariableInputsList2=0
+MinVariableInputsList3=0
+MinVariableOutputs=0
+MinVariableOutputsList2=0
+MinVariableOutputsList3=0
+MinVariableParams=0
+SymbolTree=32
+InputSigType1=Analog
+OutputSigType1=Analog
+ParamSigType1=Constant
+ParamSigType2=Constant
+ParamSigType3=Constant
+ParamSigType4=Constant
+ParamSigType5=Constant
+ParamSigType6=Constant
+ParamSigType7=Constant
+ParamSigType8=Constant
+ParamSigType9=Constant
+ParamSigType10=Constant
+ParamSigType11=Constant
+ParamSigType12=Constant
+ParamSigType13=Constant
+ParamSigType14=Constant
+ParamSigType15=Constant
+ParamSigType16=Constant
+ParamSigType17=Constant
+ParamSigType18=Constant
+ParamSigType19=Constant
+ParamSigType20=Constant
+ParamSigType21=Constant
+ParamSigType22=Constant
+ParamSigType23=Constant
+ParamSigType24=Constant
+ParamSigType25=Constant
+ParamSigType26=Constant
+ParamSigType27=Constant
+ParamSigType28=Constant
+ParamSigType29=Constant
+ParamSigType30=Constant
+ParamSigType31=Constant
+ParamSigType32=Constant
+InputCue1=[INDEX_1]
+InputCue2=[INDEX_2]
+InputCue3=[INDEX_3]
+InputCue4=[INDEX_4]
+InputCue5=[INDEX_5]
+InputCue6=[INDEX_6]
+InputCue7=[INDEX_7]
+InputCue8=[INDEX_8]
+InputCue9=[INDEX_9]
+InputCue10=[INDEX_10]
+InputCue11=[INDEX_11]
+InputCue12=[INDEX_12]
+InputCue13=[INDEX_13]
+InputCue14=[INDEX_14]
+InputCue15=[INDEX_15]
+InputCue16=[INDEX_16]
+InputCue17=[INDEX_17]
+InputCue18=[INDEX_18]
+InputCue19=[INDEX_19]
+InputCue20=[INDEX_20]
+InputCue21=[INDEX_21]
+InputCue22=[INDEX_22]
+InputCue23=[INDEX_23]
+InputCue24=[INDEX_24]
+OutputCue1=[OUTPUT_1]
+OutputCue2=[OUTPUT_2]
+OutputCue3=[OUTPUT_3]
+OutputCue4=[OUTPUT_4]
+OutputCue5=[OUTPUT_5]
+OutputCue6=[OUTPUT_6]
+OutputCue7=[OUTPUT_7]
+OutputCue8=[OUTPUT_8]
+OutputCue9=[OUTPUT_9]
+OutputCue10=[OUTPUT_10]
+OutputCue11=[OUTPUT_11]
+OutputCue12=[OUTPUT_12]
+OutputCue13=[OUTPUT_13]
+OutputCue14=[OUTPUT_14]
+OutputCue15=[OUTPUT_15]
+OutputCue16=[OUTPUT_16]
+OutputCue17=[OUTPUT_17]
+OutputCue18=[OUTPUT_18]
+OutputCue19=[OUTPUT_19]
+OutputCue20=[OUTPUT_20]
+OutputCue21=[OUTPUT_21]
+OutputCue22=[OUTPUT_22]
+OutputCue23=[OUTPUT_23]
+OutputCue24=[OUTPUT_24]
+ParamCue1=INDEX = 1 TRANSLATION
+ParamCue2=INDEX = 2 TRANSLATION
+ParamCue3=INDEX = 3 TRANSLATION
+ParamCue4=INDEX = 4 TRANSLATION
+ParamCue5=INDEX = 5 TRANSLATION
+ParamCue6=INDEX = 6 TRANSLATION
+ParamCue7=INDEX = 7 TRANSLATION
+ParamCue8=INDEX = 8 TRANSLATION
+ParamCue9=INDEX = 9 TRANSLATION
+ParamCue10=INDEX = 10 TRANSLATION
+ParamCue11=INDEX = 11 TRANSLATION
+ParamCue12=INDEX = 12 TRANSLATION
+ParamCue13=INDEX = 13 TRANSLATION
+ParamCue14=INDEX = 14 TRANSLATION
+ParamCue15=INDEX = 15 TRANSLATION
+ParamCue16=INDEX = 16 TRANSLATION
+ParamCue17=INDEX = 17 TRANSLATION
+ParamCue18=INDEX = 18 TRANSLATION
+ParamCue19=INDEX = 19 TRANSLATION
+ParamCue20=INDEX = 20 TRANSLATION
+ParamCue21=INDEX = 21 TRANSLATION
+ParamCue22=INDEX = 22 TRANSLATION
+ParamCue23=INDEX = 23 TRANSLATION
+ParamCue24=INDEX = 24 TRANSLATION
+ParamCue25=INDEX = 25 TRANSLATION
+ParamCue26=INDEX = 26 TRANSLATION
+ParamCue27=INDEX = 27 TRANSLATION
+ParamCue28=INDEX = 28 TRANSLATION
+ParamCue29=INDEX = 29 TRANSLATION
+ParamCue30=INDEX = 30 TRANSLATION
+ParamCue31=INDEX = 31 TRANSLATION
+ParamCue32=INDEX = 32 TRANSLATION
+MPp=32
+Pp1=4
+Pp2=5
+Pp3=6
+Pp4=7
+Pp5=8
+Pp6=9
+Pp7=10
+Pp8=11
+Pp9=12
+Pp10=13
+Pp11=14
+Pp12=15
+Pp13=16
+Pp14=17
+Pp15=18
+Pp16=19
+Pp17=20
+Pp18=21
+Pp19=22
+Pp20=23
+Pp21=24
+Pp22=25
+Pp23=26
+Pp24=27
+Pp25=28
+Pp26=29
+Pp27=30
+Pp28=31
+Pp29=32
+Pp30=33
+Pp31=34
+Pp32=35
+FileName=INDEX TRANSLATOR 24x32 V-0.1.umc
+]
+[
+ObjTp=Sm
+H=1
+SmC=157
+Nm=Central Control Modules
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=2
+SmC=157
+Nm=Network Modules
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=3
+SmC=157
+Nm=Ethernet
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=4
+SmC=156
+Nm=Logic
+ObjVer=1
+CF=2
+mC=3
+C1=7
+C2=12
+C3=8
+]
+[
+ObjTp=Sm
+H=5
+SmC=157
+Nm=DefineArguments
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mC=1
+C1=6
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=6
+SmC=55
+ObjVer=1
+PrH=5
+CF=2
+n1I=24
+n1O=24
+mI=24
+I1=101
+I2=102
+I3=103
+I4=104
+I5=105
+I6=106
+I7=107
+I8=108
+I9=109
+I10=110
+I11=111
+I12=112
+I13=113
+I14=114
+I15=115
+I16=116
+I17=117
+I18=118
+I19=119
+I20=120
+I21=121
+I22=122
+I23=123
+I24=124
+mO=24
+tO=24
+O1=133
+O2=5
+O3=134
+O4=135
+O5=136
+O6=137
+O7=138
+O8=139
+O9=140
+O10=141
+O11=142
+O12=143
+O13=144
+O14=145
+O15=146
+O16=147
+O17=148
+O18=149
+O19=150
+O20=151
+O21=152
+O22=153
+O23=154
+O24=155
+mP=32
+P1=INDEX = 1 TRANSLATION
+P2=INDEX = 2 TRANSLATION
+P3=INDEX = 3 TRANSLATION
+P4=INDEX = 4 TRANSLATION
+P5=INDEX = 5 TRANSLATION
+P6=INDEX = 6 TRANSLATION
+P7=INDEX = 7 TRANSLATION
+P8=INDEX = 8 TRANSLATION
+P9=INDEX = 9 TRANSLATION
+P10=INDEX = 10 TRANSLATION
+P11=INDEX = 11 TRANSLATION
+P12=INDEX = 12 TRANSLATION
+P13=INDEX = 13 TRANSLATION
+P14=INDEX = 14 TRANSLATION
+P15=INDEX = 15 TRANSLATION
+P16=INDEX = 16 TRANSLATION
+P17=INDEX = 17 TRANSLATION
+P18=INDEX = 18 TRANSLATION
+P19=INDEX = 19 TRANSLATION
+P20=INDEX = 20 TRANSLATION
+P21=INDEX = 21 TRANSLATION
+P22=INDEX = 22 TRANSLATION
+P23=INDEX = 23 TRANSLATION
+P24=INDEX = 24 TRANSLATION
+P25=INDEX = 25 TRANSLATION
+P26=INDEX = 26 TRANSLATION
+P27=INDEX = 27 TRANSLATION
+P28=INDEX = 28 TRANSLATION
+P29=INDEX = 29 TRANSLATION
+P30=INDEX = 30 TRANSLATION
+P31=INDEX = 31 TRANSLATION
+P32=INDEX = 32 TRANSLATION
+MPp=32
+Pp1=4
+Pp2=5
+Pp3=6
+Pp4=7
+Pp5=8
+Pp6=9
+Pp7=10
+Pp8=11
+Pp9=12
+Pp10=13
+Pp11=14
+Pp12=15
+Pp13=16
+Pp14=17
+Pp15=18
+Pp16=19
+Pp17=20
+Pp18=21
+Pp19=22
+Pp20=23
+Pp21=24
+Pp22=25
+Pp23=26
+Pp24=27
+Pp25=28
+Pp26=29
+Pp27=30
+Pp28=31
+Pp29=32
+Pp30=33
+Pp31=34
+Pp32=35
+]
+[
+ObjTp=Sm
+H=7
+SmC=103
+Nm=INDEX TRANSLATOR 24x32 V-0.1.usp
+ObjVer=1
+PrH=4
+CF=2
+n2I=56
+mI=56
+I1=4
+I2=28
+I3=40
+I4=44
+I5=45
+I6=46
+I7=47
+I8=48
+I9=49
+I10=50
+I11=51
+I12=52
+I13=53
+I14=54
+I15=55
+I16=56
+I17=57
+I18=58
+I19=59
+I20=60
+I21=61
+I22=62
+I23=63
+I24=65
+I25=66
+I26=67
+I27=68
+I28=69
+I29=70
+I30=71
+I31=72
+I32=73
+I33=101
+I34=102
+I35=103
+I36=104
+I37=105
+I38=106
+I39=107
+I40=108
+I41=109
+I42=110
+I43=111
+I44=112
+I45=113
+I46=114
+I47=115
+I48=116
+I49=117
+I50=118
+I51=119
+I52=120
+I53=121
+I54=122
+I55=123
+I56=124
+mO=24
+tO=24
+O1=133
+O2=5
+O3=134
+O4=135
+O5=136
+O6=137
+O7=138
+O8=139
+O9=140
+O10=141
+O11=142
+O12=143
+O13=144
+O14=145
+O15=146
+O16=147
+O17=148
+O18=149
+O19=150
+O20=151
+O21=152
+O22=153
+O23=154
+O24=155
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=8
+SmC=46
+ObjVer=1
+PrH=4
+CF=2
+n1I=25
+n1O=24
+mI=25
+I1=1
+I2=133
+I3=5
+I4=134
+I5=135
+I6=136
+I7=137
+I8=138
+I9=139
+I10=140
+I11=141
+I12=142
+I13=143
+I14=144
+I15=145
+I16=146
+I17=147
+I18=148
+I19=149
+I20=150
+I21=151
+I22=152
+I23=153
+I24=154
+I25=155
+mO=24
+tO=24
+O1=101
+O2=102
+O3=103
+O4=104
+O5=105
+O6=106
+O7=107
+O8=108
+O9=109
+O10=110
+O11=111
+O12=112
+O13=113
+O14=114
+O15=115
+O16=116
+O17=117
+O18=118
+O19=119
+O20=120
+O21=121
+O22=122
+O23=123
+O24=124
+]
+[
+ObjTp=Sm
+H=12
+SmC=32
+ObjVer=1
+PrH=4
+CF=2
+n1I=1
+n1O=32
+mI=1
+I1=2
+mO=32
+tO=32
+O1=4
+O2=28
+O3=40
+O4=44
+O5=45
+O6=46
+O7=47
+O8=48
+O9=49
+O10=50
+O11=51
+O12=52
+O13=53
+O14=54
+O15=55
+O16=56
+O17=57
+O18=58
+O19=59
+O20=60
+O21=61
+O22=62
+O23=63
+O24=65
+O25=66
+O26=67
+O27=68
+O28=69
+O29=70
+O30=71
+O31=72
+O32=73
+mP=32
+P1=#INDEX = 1 TRANSLATION
+P2=#INDEX = 2 TRANSLATION
+P3=#INDEX = 3 TRANSLATION
+P4=#INDEX = 4 TRANSLATION
+P5=#INDEX = 5 TRANSLATION
+P6=#INDEX = 6 TRANSLATION
+P7=#INDEX = 7 TRANSLATION
+P8=#INDEX = 8 TRANSLATION
+P9=#INDEX = 9 TRANSLATION
+P10=#INDEX = 10 TRANSLATION
+P11=#INDEX = 11 TRANSLATION
+P12=#INDEX = 12 TRANSLATION
+P13=#INDEX = 13 TRANSLATION
+P14=#INDEX = 14 TRANSLATION
+P15=#INDEX = 15 TRANSLATION
+P16=#INDEX = 16 TRANSLATION
+P17=#INDEX = 17 TRANSLATION
+P18=#INDEX = 18 TRANSLATION
+P19=#INDEX = 19 TRANSLATION
+P20=#INDEX = 20 TRANSLATION
+P21=#INDEX = 21 TRANSLATION
+P22=#INDEX = 22 TRANSLATION
+P23=#INDEX = 23 TRANSLATION
+P24=#INDEX = 24 TRANSLATION
+P25=#INDEX = 25 TRANSLATION
+P26=#INDEX = 26 TRANSLATION
+P27=#INDEX = 27 TRANSLATION
+P28=#INDEX = 28 TRANSLATION
+P29=#INDEX = 29 TRANSLATION
+P30=#INDEX = 30 TRANSLATION
+P31=#INDEX = 31 TRANSLATION
+P32=#INDEX = 32 TRANSLATION
+]
+[
+ObjTp=Sg
+H=4
+Nm=INDEX_=_1_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=5
+Nm=[OUTPUT_2]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=28
+Nm=INDEX_=_2_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=40
+Nm=INDEX_=_3_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=44
+Nm=INDEX_=_4_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=45
+Nm=INDEX_=_5_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=46
+Nm=INDEX_=_6_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=47
+Nm=INDEX_=_7_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=48
+Nm=INDEX_=_8_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=49
+Nm=INDEX_=_9_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=50
+Nm=INDEX_=_10_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=51
+Nm=INDEX_=_11_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=52
+Nm=INDEX_=_12_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=53
+Nm=INDEX_=_13_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=54
+Nm=INDEX_=_14_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=55
+Nm=INDEX_=_15_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=56
+Nm=INDEX_=_16_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=57
+Nm=INDEX_=_17_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=58
+Nm=INDEX_=_18_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=59
+Nm=INDEX_=_19_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=60
+Nm=INDEX_=_20_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=61
+Nm=INDEX_=_21_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=62
+Nm=INDEX_=_22_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=63
+Nm=INDEX_=_23_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=65
+Nm=INDEX_=_24_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=66
+Nm=INDEX_=_25_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=67
+Nm=INDEX_=_26_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=68
+Nm=INDEX_=_27_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=69
+Nm=INDEX_=_28_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=70
+Nm=INDEX_=_29_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=71
+Nm=INDEX_=_30_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=72
+Nm=INDEX_=_31_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=73
+Nm=INDEX_=_32_TRANSLATION
+SgTp=2
+]
+[
+ObjTp=Sg
+H=101
+Nm=[INDEX_1]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=102
+Nm=[INDEX_2]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=103
+Nm=[INDEX_3]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=104
+Nm=[INDEX_4]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=105
+Nm=[INDEX_5]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=106
+Nm=[INDEX_6]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=107
+Nm=[INDEX_7]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=108
+Nm=[INDEX_8]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=109
+Nm=[INDEX_9]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=110
+Nm=[INDEX_10]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=111
+Nm=[INDEX_11]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=112
+Nm=[INDEX_12]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=113
+Nm=[INDEX_13]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=114
+Nm=[INDEX_14]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=115
+Nm=[INDEX_15]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=116
+Nm=[INDEX_16]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=117
+Nm=[INDEX_17]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=118
+Nm=[INDEX_18]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=119
+Nm=[INDEX_19]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=120
+Nm=[INDEX_20]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=121
+Nm=[INDEX_21]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=122
+Nm=[INDEX_22]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=123
+Nm=[INDEX_23]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=124
+Nm=[INDEX_24]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=133
+Nm=[OUTPUT_1]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=134
+Nm=[OUTPUT_3]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=135
+Nm=[OUTPUT_4]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=136
+Nm=[OUTPUT_5]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=137
+Nm=[OUTPUT_6]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=138
+Nm=[OUTPUT_7]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=139
+Nm=[OUTPUT_8]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=140
+Nm=[OUTPUT_9]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=141
+Nm=[OUTPUT_10]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=142
+Nm=[OUTPUT_11]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=143
+Nm=[OUTPUT_12]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=144
+Nm=[OUTPUT_13]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=145
+Nm=[OUTPUT_14]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=146
+Nm=[OUTPUT_15]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=147
+Nm=[OUTPUT_16]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=148
+Nm=[OUTPUT_17]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=149
+Nm=[OUTPUT_18]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=150
+Nm=[OUTPUT_19]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=151
+Nm=[OUTPUT_20]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=152
+Nm=[OUTPUT_21]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=153
+Nm=[OUTPUT_22]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=154
+Nm=[OUTPUT_23]
+SgTp=2
+]
+[
+ObjTp=Sg
+H=155
+Nm=[OUTPUT_24]
+SgTp=2
+]
+[
+ObjTp=Dp
+H=1
+Tp=1
+HD=TRUE
+DV=.5s
+NF=48
+DNF=16
+Sgn=0
+]
+[
+ObjTp=Dp
+H=2
+Tp=1
+HD=TRUE
+DV=7s
+NF=48
+DNF=16
+Sgn=0
+]
+[
+ObjTp=Dp
+H=3
+Tp=1
+HD=TRUE
+DV=5s
+NF=48
+DNF=16
+Sgn=0
+]
+[
+ObjTp=Dp
+H=4
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=5
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=6
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=7
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=8
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=9
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=10
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=11
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=12
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=13
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=14
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=15
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=16
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=17
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=18
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=19
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=20
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=21
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=22
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=23
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=24
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=25
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=26
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=27
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=28
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=29
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=30
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=31
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=32
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=33
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=34
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]
+[
+ObjTp=Dp
+H=35
+Tp=1
+HD=TRUE
+DV=0d
+NF=1
+DNF=1
+VVS=1
+LR=0d
+HR=32d
+Sgn=0
+]

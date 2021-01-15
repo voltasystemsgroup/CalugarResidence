@@ -1,0 +1,610 @@
+/*******************************************************************************************
+*******************************************************************************************/
+#ENABLE_DYNAMIC
+#SYMBOL_NAME "HMAC SHA-256 Engine"
+#DEFINE_CONSTANT DEBUG_ENABLE 0
+#DEFINE_CONSTANT SHA256_DEBUG_OUTPUT_ENABLE 0
+#DEFINE_CONSTANT MESSAGE_MAX_SIZE 10000   
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+
+#HELP_BEGIN
+
+This module will generate a keyed-Hash Message Authentication Code (HMAC)
+calculated using a SHA-256 cryptographic hash function in combination with a secret key.
+
+SERIAL INPUTS:
+
+<Message$>    The message to be processed by the HMAC and SHA-256 functions
+
+<SecretKey$>  The secret key used for calculating the HMAC
+  
+ANALOG INPUT
+  
+<ArraySize>		Size of the message to be hashed
+
+SERIAL OUTPUTS:
+
+<HMAC_SHA256> 	This output will be updated when the <Message$> input changes.
+			  	It corresponds to the Messae$ string processed by the HMAC function
+			  	using the Secret Key and SHA-256 for the hash function.
+				The Secret Key needs to be provided for the HMAC to be calculated.
+
+<SHA256_Debug$>	  This output will be updated when the <Message$> input changes if SHA256_DEBUG_OUTPUT_ENABLE is set to 1
+				  (in the compiler directives of the module).
+			  	  It corresponds to the Message$ string processed by the SHA-256 hash function.
+
+- For information about the SHA-256 hash function: http://en.wikipedia.org/wiki/SHA_hash_functions
+It includes a pseudocode of the SHA-256 algorithm
+
+- For information about the HMAC (keyed-Hash Message Authentication Code):
+http://en.wikipedia.org/wiki/HMAC
+It includes a pseudocode implementation of the HMAC
+
+Other resources:
+- HMAC RFC: http://www.faqs.org/rfcs/rfc2104.html)
+- Online encryption tool to Generate a SHA-256, provides also the option to use a Secret Key:
+http://hash.online-convert.com/sha256-generator
+
+
+#HELP_END
+
+
+/*******************************************************************************************
+IO Variables
+*******************************************************************************************/  
+
+ANALOG_INPUT ArraySize;
+STRING_INPUT _SKIP_, SecretKey$[256];
+BUFFER_INPUT Message$[MESSAGE_MAX_SIZE]; 
+    
+STRING_OUTPUT _SKIP_,HMAC_SHA256,_SKIP_,SHA256_Debug$; 
+
+/*******************************************************************************************
+  Global Variables
+*******************************************************************************************/
+DYNAMIC LONG_INTEGER Message[1];
+DYNAMIC LONG_INTEGER MessageChunk[1][16];
+LONG_INTEGER h0, h1, h2, h3, h4, h5, h6, h7;
+LONG_INTEGER k[63];
+
+/*******************************************************************************************
+  Functions
+*******************************************************************************************/
+
+// RotateRight and RotateLeft Functions
+LONG_INTEGER_FUNCTION ROTR(LONG_INTEGER x, INTEGER n)
+{
+	RETURN((x >> n) | (x << (32-n)) );
+}
+
+LONG_INTEGER_FUNCTION ROTL(LONG_INTEGER x, INTEGER n)
+{
+	RETURN((x << n) | (x >> (32-n)));
+}
+
+// Functions used to 
+// extend the sixteen 32-bit words into sixty-four 32-bit words
+LONG_INTEGER_FUNCTION s_0(LONG_INTEGER x)
+{
+	RETURN(ROTR(x,7) ^ ROTR(x,18) ^ (x >> 3));
+}
+
+LONG_INTEGER_FUNCTION s_1(LONG_INTEGER x)
+{
+	RETURN(ROTR(x,17) ^ ROTR(x,19) ^ (x >> 10));
+}
+
+// Functions used in Main Loop
+LONG_INTEGER_FUNCTION s0(LONG_INTEGER a)
+{
+	RETURN(ROTR(a,2) ^ ROTR(a,13) ^ ROTR(a,22));
+}
+
+LONG_INTEGER_FUNCTION maj(LONG_INTEGER a, LONG_INTEGER b, LONG_INTEGER c)
+{
+	RETURN((a & b) ^ (a & c) ^ (b & c));
+}
+
+LONG_INTEGER_FUNCTION s1(LONG_INTEGER e)
+{
+	RETURN(ROTR(e,6) ^ ROTR(e,11) ^ ROTR(e,25));
+}
+
+LONG_INTEGER_FUNCTION ch(LONG_INTEGER e, LONG_INTEGER f, LONG_INTEGER g)
+{
+	RETURN((e & f) ^ (NOT(e) & g));
+}
+
+STRING_FUNCTION ConvertToString(LONG_INTEGER val)
+{
+	INTEGER i, ReturnValue;
+	STRING h[4];
+	h = Chr(High(HighWord(val))) + Chr(Low(HighWord(val))) + Chr(High(LowWord(val))) + Chr(Low(LowWord(val)));    
+	RETURN(h);
+}
+
+STRING_FUNCTION Convert32bitArrayToString(LONG_INTEGER word[], INTEGER NumElements)
+{
+	INTEGER i;
+	STRING word$[4], output_string$[64];
+	
+	output_string$ = "";
+	
+	FOR (i = 0 TO (NumElements -1))
+	{
+		word$ = Chr(High(HighWord(word[i]))) + Chr(Low(HighWord(word[i]))) + Chr(High(LowWord(word[i]))) + Chr(Low(LowWord(word[i])));		
+		output_string$ = output_string$ + word$;
+	}		
+    RETURN(output_string$);
+}
+
+
+// Print to debugger the current content of the 32 bit Word Array in Hexadecimal format
+FUNCTION Print32bitWordArray(LONG_INTEGER word[], INTEGER NumElements, STRING array_name$)
+{
+	INTEGER i;
+	
+	IF (DEBUG_ENABLE = 1)
+	{
+		FOR (i=0 TO (NumElements-1))
+		{
+			TRACE("%s[%d] = 0x%x%x\n",array_name$,i,HighWord(word[i]),LowWord(word[i]));
+		}
+	}	
+}
+
+// Print to debugger the current content of MessageChunk[] array in Hexadecimal format
+FUNCTION PrintMessageChunkArray(INTEGER NumChunks)
+{
+	INTEGER c_index, w_index;
+
+	IF (DEBUG_ENABLE = 1)
+	{
+		FOR (c_index = 0 TO (NumChunks -1))
+		{
+			FOR (w_index = 0 TO 15)
+			{
+				TRACE("Message[%d][%d] = 0x%x%x\n",c_index,w_index,
+						HighWord(MessageChunk[c_index][w_index]),LowWord(MessageChunk[c_index][w_index]));
+			}
+		}
+	}
+}
+
+FUNCTION PrintHashVal(STRING name$, LONG_INTEGER value)
+{
+		TRACE("%s = 0x%x%x\n",name$,HighWord(value),LowWord(value));
+}
+
+// Convert and ASCII string to a binary sequence and place it in an LONG_INTEGER Array of 32 bit words (4 byte words)
+INTEGER_FUNCTION ConvertTo32bitWordArray(STRING Message$, LONG_INTEGER word[])
+{
+	INTEGER message_len;
+	SIGNED_INTEGER status;
+	INTEGER NewNumElements;
+	INTEGER i;
+	INTEGER byte#;
+
+// Resize the 32 bit word Array which will receive the message	
+	message_len = LEN(Message$);
+	
+    IF (DEBUG_ENABLE = 1)
+		TRACE("Length of message in Bytes: %d\n", message_len);
+	
+	IF ((message_len MOD 4) = 0) 			//the message length is a multiple of 4
+	{
+		NewNumElements = (message_len / 4);
+	}
+	ELSE									//the message length is not a mutiple of 4 
+	{
+		NewNumElements = (message_len / 4) + 1;
+	}
+	// TRACE("New Array size: %d\n",NewNumElements);		 	
+	
+	status = ResizeArray(word, NewNumElements);
+	// TRACE("Resize Array Status: %x\n",status);
+
+// Initialize each element of the Array to 0x00000000
+	SetArray(word, 0x00000000);
+
+
+// Place chunks of 4 characters (32 bit word) from source Message$ into each element of the Array 
+		
+	FOR (i=0 TO (message_len -1))
+	{		
+        byte# = (i MOD 4); //Determine the Byte number
+		word[i/4] = word[i/4] + (  BYTE(Message$,i+1) << ((3 - byte#) * 8) );
+	}
+ 	Print32bitWordArray(Message, NewNumElements, "source_message");
+
+            
+RETURN(message_len);
+}
+		
+
+// Pre-Processing Function: the input message of arbitrary length is padded
+// - append the bit '1' to the message
+// - append k bits '0', where k is the minimum number >= 0 such that the resulting message
+//    length (in bits) is congruent to 448 (mod 512)
+// - append length of message (before pre-processing), in bits, as 64-bit big-endian integer
+INTEGER_FUNCTION PreProcess(INTEGER num_bytes)
+{
+	INTEGER index, byte#, bit#;
+	INTEGER num_bits;
+	SIGNED_INTEGER status;
+	INTEGER num_512bit_chunks;
+
+// append the bit '1' to the message
+	index = ((num_bytes -1) / 4);    //last index in the Array for which the element is not equal to 0x00000000
+	byte# = ((num_bytes -1) MOD 4);  //last byte for that index to be occupied by a character from the Message
+
+	CSWITCH(byte#) 
+	{
+    	CASE (0): 
+     	{
+          	Message[index] = Message[index] + 0x00800000;
+          	break;
+     	}
+    	CASE (1): 
+     	{
+          	Message[index] = Message[index] + 0x00008000;
+          	break;
+     	}
+    	CASE (2): 
+     	{
+          	Message[index] = Message[index] + 0x00000080;
+          	break;
+     	}
+    	CASE (3): 
+     	{
+          	Message[index + 1] = 0x80000000;
+          	break;
+     	}
+     	DEFAULT: 
+     	{
+          	PRINT("Cannot append bit '1'\n");
+          	break;
+     	}
+	}
+//append k bits '0', where k is the minimum number >= 0 such that the resulting message
+//    length (in bits) is congruent to 448 (mod 512)
+// Note 1: 448 bits represents 56 Bytes
+// Note 2: current message length is num_bytes +1 (because we added 1 byte above). 
+
+		IF ( (num_bytes + 1) <= 56 ) // If the current message length is less then or equal 56 Bytes
+		{
+            num_512bit_chunks = 1;
+		}
+		ELSE						// If the current message length is greater then 56 Bytes
+		{
+         	// Calculate the number of 512-bit chunks needed (64-byte chunks)
+			num_512bit_chunks = ( (num_bytes -56) / 64) + 2;
+		}
+
+//append length of message (before pre-processing), in bits, as 64-bit big-endian integer
+
+		status = ResizeArray(Message, (16 * num_512bit_chunks) );	//Resize array to hold '0' padding and length
+		//TRACE("Resize Array Status: %x\n",status);
+
+		Message[(16 * num_512bit_chunks) -1] = num_bytes * 8;
+		
+   		// Print array to debug console
+		Print32bitWordArray(Message, (16 * num_512bit_chunks), "preProcessed_message");
+
+		RETURN(num_512bit_chunks);
+}
+
+//Process the message in successive 512-bit chunks:
+STRING_FUNCTION Process(INTEGER num_chunks)
+{
+	INTEGER Status;
+	INTEGER c_index, w_index;
+	LONG_INTEGER a,b,c,d,e,f,g,h;
+	LONG_INTEGER s0_val, maj_val, t2_val, s1_val, ch_val, t1_val;  
+	STRING digest$[32];
+	LONG_INTEGER h0_val,h1_val,h2_val,h3_val,h4_val,h5_val,h6_val,h7_val;
+
+	// Resize Message Chunk Array
+	Status = ResizeArray(MessageChunk, num_chunks, 64);
+	//TRACE("Resize Chunk Array Status: %x\n",status);
+
+	SetArray(MessageChunk, 0x00000000);
+
+	//Fill Message Chunk Array with data from Message Array
+	FOR (c_index = 0 TO (num_chunks -1))
+	{
+		FOR (w_index = 0 TO 15)
+		{
+			MessageChunk[c_index][w_index] = Message[(c_index * 16) + w_index];
+		}
+	}
+
+	//Print to debug console
+    PrintMessageChunkArray(num_chunks);
+
+
+	//Initialize hash values for this process:
+    h0_val = h0;
+    h1_val = h1;
+    h2_val = h2;
+    h3_val = h3;
+    h4_val = h4;
+    h5_val = h5;
+    h6_val = h6;
+    h7_val = h7;
+
+	FOR (c_index = 0 TO (num_chunks -1))		// For each Chunk:
+	{
+		//Extend the sixteen 32-bit words into sixty-four 32-bit words for this chunk:
+		FOR (w_index=16 TO 63)
+		{
+			MessageChunk[c_index][w_index] =
+				MessageChunk[c_index][w_index - 16]
+			+ 	s_0(MessageChunk[c_index][w_index - 15])
+			+   MessageChunk[c_index][w_index - 7]
+			+ 	s_1(MessageChunk[c_index][w_index - 2]);
+		}		
+
+		//Initialize hash value for this chunk:
+		a = h0_val;
+		b = h1_val;
+		c = h2_val;
+    	d = h3_val;
+    	e = h4_val;
+    	f = h5_val;
+    	g = h6_val;
+    	h = h7_val;
+
+		//Main loop for this chunk:
+		FOR (w_index = 0 TO 63)
+		{
+			s0_val  = s0(a);
+        	maj_val = maj(a,b,c);
+        	t2_val  = s0_val + maj_val;
+        	s1_val  = s1(e);
+        	ch_val  = ch(e,f,g);
+        	t1_val  = h + s1_val + ch_val + k[w_index] + MessageChunk[c_index][w_index];
+		
+		    h = g;
+        	g = f;
+        	f = e;
+        	e = d + t1_val;
+        	d = c;
+        	c = b;
+        	b = a;
+        	a = t1_val + t2_val;
+		}
+
+		//Add this chunk's hash to result so far:
+    	h0_val = h0_val + a;
+    	h1_val = h1_val + b;
+    	h2_val = h2_val + c;
+    	h3_val = h3_val + d;
+    	h4_val = h4_val + e;
+    	h5_val = h5_val + f;
+    	h6_val = h6_val + g;
+    	h7_val = h7_val + h;
+        
+
+		IF (DEBUG_ENABLE = 1)
+		{
+			//Print to debug console hash values so far
+        	TRACE("New hash values after adding Chunk %d:\n",c_index);
+			PrintHashVal("h0",h0_val);
+			PrintHashVal("h1",h1_val);
+			PrintHashVal("h2",h2_val);
+			PrintHashVal("h3",h3_val);
+			PrintHashVal("h4",h4_val);
+			PrintHashVal("h5",h5_val);
+			PrintHashVal("h6",h6_val);
+			PrintHashVal("h7",h7_val); 
+		}
+ 	}
+
+//Produce the final hash value (big-endian):
+//digest = hash = h0 append h1 append h2 append h3 append h4 append h5 append h6 append h7
+    
+	digest$ =
+  				ConvertToString(h0_val)
+				+ ConvertToString(h1_val)
+				+ ConvertToString(h2_val)
+				+ ConvertToString(h3_val)
+				+ ConvertToString(h4_val)
+				+ ConvertToString(h5_val)
+				+ ConvertToString(h6_val)
+				+ ConvertToString(h7_val);
+
+
+RETURN(digest$);
+} 
+
+// hash function - for reference see:
+// http://en.wikipedia.org/wiki/SHA_hash_functions
+STRING_FUNCTION hash(STRING message_string$)
+{
+	INTEGER message_length, nchunks;
+	STRING string_digest[32];
+
+	message_length = ConvertTo32bitWordArray(message_string$, Message);
+	nchunks = PreProcess(message_length);
+	string_digest = Process(nchunks);
+	RETURN(string_digest);
+}
+
+// HMAC function - for reference see:
+// http://en.wikipedia.org/wiki/HMAC
+// http://www.ietf.org/rfc/rfc2104.txt
+STRING_FUNCTION hmac(STRING key_string$, STRING message_string$)
+{
+	LONG_INTEGER opad[16], ipad[16], key[16];
+	STRING opad$[64], ipad$[64], h_ipad$[32], h_opad$[32];
+	INTEGER i, key_len;
+	STRING temp_string$[10000];
+
+	IF (SecretKey$ = "")   // If there is no Secret Key do not calculate the HMAC
+	{
+		RETURN("");
+	}
+	ELSE                  // If the Secret Key is present, calculate the HMAC
+	{	  
+    
+		// Blocksize = 512 bits
+		// 			 = 64 bytes
+		//			 = 16 Words of 32 bits (4 bytes) each
+
+		// Initialize outer padding and inner padding to be two one-block–long (512 bits) hexadecimal constants					
+		FOR (i = 0 TO 15)
+		{
+			opad[i] = 0x5c5c5c5c;
+			ipad[i] = 0x36363636;
+		}    
+    
+		// Keys longer than blocksize (64 bytes) are shortened
+    	IF (LEN(key_string$) > 64)
+		{
+        	key_string$ = hash(key_string$); 
+    	}
+    
+		// Convert and ASCII key_string$ to a binary sequence and place it in an LONG_INTEGER Array (key[]) of 32 bit words (4 byte words)
+		key_len = ConvertTo32bitWordArray(key_string$,key); 
+
+
+		//  Keys shorter than blocksize are padded to the right with extra zeros to the block size of the hash function
+    	// to do ....
+    
+		Print32bitWordArray(key,16,"key");
+
+    	FOR (i=0 TO 15)
+		{
+        	ipad[i] = ipad[i] ^ key[i]; // Where ^ is exclusive or (XOR)
+        	opad[i] = opad[i] ^ key[i];
+    	}
+
+		ipad$ = Convert32bitArrayToString(ipad, 16);
+		opad$ = Convert32bitArrayToString(opad, 16);
+    
+		// Generate the hmac output:
+		temp_string$ = ipad$ + message_string$;
+		temp_string$ = hash(temp_string$);
+		temp_string$ = opad$ + temp_string$;
+		temp_string$ = hash(temp_string$);
+	
+		RETURN(temp_string$);
+	}
+}
+
+
+/*******************************************************************************************
+  Event Handlers
+*******************************************************************************************/
+
+CHANGE Message$
+{
+	IF(len(Message$) = ArraySize)
+	{
+		HMAC_SHA256 = hmac(SecretKey$, Message$); 
+		CLEARBUFFER(Message$);
+		IF (SHA256_DEBUG_OUTPUT_ENABLE = 1)
+			SHA256_Debug$ = hash(Message$);
+	}	
+}
+
+/*******************************************************************************************
+  Main()
+  Uncomment and place one-time startup code here
+  (This code will get called when the system starts up)
+*******************************************************************************************/
+
+Function Main()
+{
+
+//	Initialize variables
+//  (first 32 bits of the fractional parts of the square roots of the first 8 primes 2..19):
+h0 = 0x6a09e667;
+h1 = 0xbb67ae85;
+h2 = 0x3c6ef372;
+h3 = 0xa54ff53a;
+h4 = 0x510e527f;
+h5 = 0x9b05688c;
+h6 = 0x1f83d9ab;
+h7 = 0x5be0cd19;
+
+//Initialize table of round constants
+//(first 32 bits of the fractional parts of the cube roots of the first 64 primes 2..311):
+//k[0..63]
+
+k[0] = 0x428a2f98;
+k[1] = 0x71374491;
+k[2] = 0xb5c0fbcf;
+k[3] = 0xe9b5dba5;
+k[4] = 0x3956c25b;
+k[5] = 0x59f111f1;
+k[6] = 0x923f82a4;
+k[7] = 0xab1c5ed5;
+k[8] = 0xd807aa98;
+k[9] = 0x12835b01;
+
+k[10] = 0x243185be;
+k[11] = 0x550c7dc3;
+k[12] = 0x72be5d74;
+k[13] = 0x80deb1fe;
+k[14] = 0x9bdc06a7;
+k[15] = 0xc19bf174;
+k[16] = 0xe49b69c1;
+k[17] = 0xefbe4786;
+k[18] = 0x0fc19dc6;
+k[19] = 0x240ca1cc;
+
+k[20] = 0x2de92c6f;
+k[21] = 0x4a7484aa;
+k[22] = 0x5cb0a9dc;
+k[23] = 0x76f988da;
+k[24] = 0x983e5152;
+k[25] = 0xa831c66d;
+k[26] = 0xb00327c8;
+k[27] = 0xbf597fc7;
+k[28] = 0xc6e00bf3;
+k[29] = 0xd5a79147;
+
+k[30] = 0x06ca6351;
+k[31] = 0x14292967;
+k[32] = 0x27b70a85;
+k[33] = 0x2e1b2138;
+k[34] = 0x4d2c6dfc;
+k[35] = 0x53380d13;
+k[36] = 0x650a7354;
+k[37] = 0x766a0abb;
+k[38] = 0x81c2c92e;
+k[39] = 0x92722c85;
+
+k[40] = 0xa2bfe8a1;
+k[41] = 0xa81a664b;
+k[42] = 0xc24b8b70;
+k[43] = 0xc76c51a3;
+k[44] = 0xd192e819;
+k[45] = 0xd6990624;
+k[46] = 0xf40e3585;
+k[47] = 0x106aa070;
+k[48] = 0x19a4c116;
+k[49] = 0x1e376c08;
+
+k[50] = 0x2748774c;
+k[51] = 0x34b0bcb5;
+k[52] = 0x391c0cb3;
+k[53] = 0x4ed8aa4a;
+k[54] = 0x5b9cca4f;
+k[55] = 0x682e6ff3;
+k[56] = 0x748f82ee;
+k[57] = 0x78a5636f;
+k[58] = 0x84c87814;
+k[59] = 0x8cc70208;
+
+k[60] = 0x90befffa;
+k[61] = 0xa4506ceb;
+k[62] = 0xbef9a3f7;
+k[63] = 0xc67178f2;
+
+}
+

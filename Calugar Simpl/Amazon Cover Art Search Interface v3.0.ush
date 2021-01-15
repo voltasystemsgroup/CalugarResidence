@@ -1,0 +1,134 @@
+[BEGIN]
+  Version=1
+[END]
+[BEGIN]
+  ObjTp=FSgntr
+  Sgntr=UserSPlus
+  RelVrs=1
+  IntStrVrs=1
+  SPlusVrs=4.02.20
+  CrossCplrVrs=1.3
+[END]
+[BEGIN]
+  ObjTp=Hd
+  Cmn1=||2This module requires .cuz 4.0 or greater\\	\\  This module uses||1
+  Cmn2=Amazon's XML database to retrieve an HREF link\\  to an album art||1
+  Cmn3=image. In order to use this module, you must provide\\  an AWS Access||1
+  Cmn4=Key ID, as well as a host name. The Access Key ID\\  is obtained||1
+  Cmn5=by registering with Amazon at:\\  \\  http://aws.amazon.com/\\||2
+  Cmn6=\\  Note: Since multiple album names can exist for any given artist,\\
+  Cmn7=||2the art that is returned may not be the exact cover desired.\\
+  Cmn8=||2\\  \\  Crestron Electronics, Inc. is not responsible for the||1
+  Cmn9=use of the album\\  art image. Please refer to the Amazon license||1
+  Cmn10=agreement for information\\  regarding content use from their website.
+  Cmn11=\\  \\  \\  The actual URL required for searching is based on the||1
+  Cmn12=local region:\\  \\  Local\\  \\  CA = ecs.amazonaws.ca\\  DE =||1
+  Cmn13=ecs.amazonaws.de\\  FR = ecs.amazonaws.fr\\  JP = ecs.amazonaws.
+  Cmn14=jp\\  UK = ecs.amazonaws.uk\\  US = ecs.amazonaws.com\\  \\  The||1
+  Cmn15=URL should be entered into the processor IP table for the TCP Client||1
+  Cmn16=connection. Remember\\  to properly configure the DNS server in||1
+  Cmn17=the control system.\\  \\	Timestamp = Connects to time.nist.gov||1
+  Cmn18=and updates time using the Daytime Protocol (RFC-867) Open the connection||1
+  Cmn19=and the server\\	will supply the time string.  No need to send anything.
+  Cmn20=\\	Connection: TCP/IP||[
+  Cmn21=||7\\	Servers: 132.163.4.101, 132.163.4.102, 132.163.4.103\\
+  Cmn22=	use port: 13  \\||2
+[END]
+[BEGIN]
+  ObjTp=Symbol
+  Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,718,756,854,
+  Exclusions_CDS=6
+  Inclusions_CDS=5
+  Name=Amazon Cover Art Search Interface v3.0
+  SmplCName=Amazon Cover Art Search Interface v3.0.usp
+  Code=1
+  SysRev5=4.000
+  SMWRev=2.02.05
+  InputCue1=Search_Timeout
+  InputSigType1=Digital
+  OutputCue1=Search_Busy
+  OutputSigType1=Digital
+  OutputCue2=[~UNUSED~]
+  OutputSigType2=Digital
+  OutputCue3=Image_Found
+  OutputSigType3=Digital
+  OutputCue4=No_Image_Found
+  OutputSigType4=Digital
+  OutputCue5=Data_Missing
+  OutputSigType5=Digital
+  OutputCue6=Data_Same_As_Previous
+  OutputSigType6=Digital
+  OutputCue7=Search_Error
+  OutputSigType7=Digital
+  InputList2Cue1=[~UNUSED~]
+  InputList2SigType1=Serial
+  InputList2Cue2=Subscript_ID
+  InputList2SigType2=Serial
+  InputList2Cue3=Encoded_Signature
+  InputList2SigType3=Serial
+  InputList2Cue4=Host_Name
+  InputList2SigType4=Serial
+  InputList2Cue5=Artist_Name
+  InputList2SigType5=Serial
+  InputList2Cue6=Album_Title
+  InputList2SigType6=Serial
+  OutputList2Cue1=[~UNUSED~]
+  OutputList2SigType1=Analog
+  OutputList2Cue2=arraySize
+  OutputList2SigType2=Analog
+  OutputList2Cue3=[~UNUSED~]
+  OutputList2SigType3=Serial
+  OutputList2Cue4=SignatureRequest
+  OutputList2SigType4=Serial
+  OutputList2Cue5=[~UNUSED~]
+  OutputList2SigType5=Serial
+  OutputList2Cue6=Best_HREF
+  OutputList2SigType6=Serial
+  OutputList2Cue7=Small_HREF
+  OutputList2SigType7=Serial
+  OutputList2Cue8=Medium_HREF
+  OutputList2SigType8=Serial
+  OutputList2Cue9=Large_HREF
+  OutputList2SigType9=Serial
+  ParamCue1=[Reference Name]
+  MinVariableInputs=1
+  MaxVariableInputs=1
+  MinVariableInputsList2=6
+  MaxVariableInputsList2=6
+  MinVariableOutputs=7
+  MaxVariableOutputs=7
+  MinVariableOutputsList2=9
+  MaxVariableOutputsList2=9
+  MinVariableParams=0
+  MaxVariableParams=0
+  Expand=expand_separately
+  Expand2=expand_separately
+  ProgramTree=Logic
+  SymbolTree=32
+  Hint=
+  PdfHelp=
+  HelpID= 
+  Render=4
+  Smpl-C=16
+  CompilerCode=-48
+  CompilerParamCode=27
+  CompilerParamCode5=14
+  NumFixedParams=1
+  Pp1=1
+  MPp=1
+  NVStorage=10
+  ParamSigType1=String
+  SmplCInputCue1=o#
+  SmplCOutputCue1=i#
+  SmplCInputList2Cue1=an#
+  SmplCOutputList2Cue1=ai#
+  SPlus2CompiledName=S2_Amazon_Cover_Art_Search_Interface_v3_0
+  SymJam=NonExclusive
+  FileName=Amazon Cover Art Search Interface v3.0.ush
+[END]
+[BEGIN]
+  ObjTp=Dp
+  H=1
+  Tp=1
+  NoS=False
+[END]

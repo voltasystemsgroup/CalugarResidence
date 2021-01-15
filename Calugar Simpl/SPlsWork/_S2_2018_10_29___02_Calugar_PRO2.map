@@ -1,0 +1,767 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ram              0x80000000         0x00500000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00000000                __DYNAMIC=0x0
+                0x00400000                PROVIDE (__stack, 0x400000)
+                0x00000000                PROVIDE (hardware_init_hook, 0x0)
+                0x00000000                PROVIDE (_hardware_init_hook, 0x0)
+                0x00000000                PROVIDE (software_init_hook, 0x0)
+                0x00000000                PROVIDE (_software_init_hook, 0x0)
+
+.text           0x80000000    0x35090
+ *(.text)
+ .text          0x80000000     0x14d0 S2_DynDNS_Update_Client_v1_00.o
+                0x80000418                S2_DynDNS_Update_Client_v1_00EventHandler00002
+                0x800013b8                S2_DynDNS_Update_Client_v1_00_main
+                0x80000564                S2_DynDNS_Update_Client_v1_00EventHandler00003
+                0x80000ba6                S2_DynDNS_Update_Client_v1_00EventHandler00006
+                0x800002aa                S2_DynDNS_Update_Client_v1_00EventHandler00001
+                0x8000121a                S2_DynDNS_Update_Client_v1_00_EventHandler
+                0x800006b0                S2_DynDNS_Update_Client_v1_00EventHandler00004
+                0x800010b8                S2_DynDNS_Update_Client_v1_00EventHandler00007
+                0x80000926                S2_DynDNS_Update_Client_v1_00EventHandler00005
+                0x8000015e                S2_DynDNS_Update_Client_v1_00EventHandler00000
+ .text          0x800014d0      0x874 S2_BOOT_V_0_1.o
+                0x80001770                S2_BOOT_V_0_1_main
+                0x80001c0c                S2_BOOT_V_0_1EventHandler00007
+                0x80001ca8                S2_BOOT_V_0_1EventHandler00009
+                0x80001cf6                S2_BOOT_V_0_1EventHandler0000A
+                0x80001a38                S2_BOOT_V_0_1EventHandler00001
+                0x80001ad4                S2_BOOT_V_0_1EventHandler00003
+                0x80001b22                S2_BOOT_V_0_1EventHandler00004
+                0x800019ae                S2_BOOT_V_0_1_EventHandler
+                0x80001bbe                S2_BOOT_V_0_1EventHandler00006
+                0x80001a86                S2_BOOT_V_0_1EventHandler00002
+                0x80001b70                S2_BOOT_V_0_1EventHandler00005
+                0x80001c5a                S2_BOOT_V_0_1EventHandler00008
+                0x800014d0                S2_BOOT_V_0_1EventHandler00000
+ .text          0x80001d44      0x330 S2_INDEX_TRANSLATOR_24x32_V_0_1.o
+                0x80001d44                S2_INDEX_TRANSLATOR_24x32_V_0_1EventHandler00000
+                0x80001ecc                S2_INDEX_TRANSLATOR_24x32_V_0_1_EventHandler
+                0x80001f96                S2_INDEX_TRANSLATOR_24x32_V_0_1_main
+ .text          0x80002074      0x22a S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0.o
+                0x80002074                S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0_EventHandler
+                0x8000215e                S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0_main
+                0x80002114                S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0POWER_OFF_DELAY
+                0x800021a4                S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0EventHandler00000
+ *fill*         0x8000229e        0x2
+ .text          0x800022a0      0x3e4 S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1.o
+                0x80002530                S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1EventHandler00001
+                0x800022a0                S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1EventHandler00000
+                0x800024ea                S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1_main
+                0x800025d8                S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1EventHandler00002
+                0x8000240e                S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1_EventHandler
+ .text          0x80002684      0xe1c S2_MANAGED_SWITCHER_V_2_0.o
+                0x800031a4                S2_MANAGED_SWITCHER_V_2_0_EventHandler
+                0x80002c68                S2_MANAGED_SWITCHER_V_2_0EventHandler00002
+                0x80002992                S2_MANAGED_SWITCHER_V_2_0EventHandler00000
+                0x80002f22                S2_MANAGED_SWITCHER_V_2_0EventHandler00004
+                0x80002ae2                S2_MANAGED_SWITCHER_V_2_0EventHandler00001
+                0x80003334                S2_MANAGED_SWITCHER_V_2_0EventHandler00003
+                0x800033f0                S2_MANAGED_SWITCHER_V_2_0EventHandler00005
+                0x80003252                S2_MANAGED_SWITCHER_V_2_0_main
+ .text          0x800034a0      0x33c S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0.o
+                0x800034a0                S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0EventHandler00000
+                0x80003632                S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0_EventHandler
+                0x800036fc                S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0_main
+ .text          0x800037dc      0x3d4 S2_ANALOG_PASSTHRU_V_1_0.o
+                0x80003ada                S2_ANALOG_PASSTHRU_V_1_0EventHandler00000
+                0x80003a1a                S2_ANALOG_PASSTHRU_V_1_0_main
+                0x80003b44                S2_ANALOG_PASSTHRU_V_1_0EventHandler00001
+                0x80003944                S2_ANALOG_PASSTHRU_V_1_0_EventHandler
+ .text          0x80003bb0      0x564 S2_A2D_V_0_1.o
+                0x8000409a                S2_A2D_V_0_1_main
+                0x80003ffa                S2_A2D_V_0_1_EventHandler
+                0x80003bb0                S2_A2D_V_0_1EventHandler00000
+ .text          0x80004114      0x196 S2_DIGITAL_DETECT_V_0_1.o
+                0x80004114                S2_DIGITAL_DETECT_V_0_1_EventHandler
+                0x800041ce                S2_DIGITAL_DETECT_V_0_1_main
+                0x80004214                S2_DIGITAL_DETECT_V_0_1EventHandler00000
+                0x8000425e                S2_DIGITAL_DETECT_V_0_1EventHandler00001
+ *fill*         0x800042aa        0x2
+ .text          0x800042ac      0x446 S2_MANAGED_POWER_V_0_1.o
+                0x8000459c                S2_MANAGED_POWER_V_0_1EventHandler00001
+                0x80004686                S2_MANAGED_POWER_V_0_1EventHandler00004
+                0x8000455c                S2_MANAGED_POWER_V_0_1EventHandler00000
+                0x80004646                S2_MANAGED_POWER_V_0_1EventHandler00003
+                0x800045dc                S2_MANAGED_POWER_V_0_1EventHandler00002
+                0x8000448c                S2_MANAGED_POWER_V_0_1_main
+                0x800044d2                S2_MANAGED_POWER_V_0_1_EventHandler
+ *fill*         0x800046f2        0x2
+ .text          0x800046f4      0xb9a S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1.o
+                0x80004fa0                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1_main
+                0x8000497e                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1EventHandler00001
+                0x800051b6                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1EventHandler00005
+                0x800050ec                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1EventHandler00002
+                0x8000517a                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1EventHandler00004
+                0x80005088                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1EventHandler00000
+                0x8000513e                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1EventHandler00003
+                0x80004e8a                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1_EventHandler
+ *fill*         0x8000528e        0x2
+ .text          0x80005290      0xea6 S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1.o
+                0x80005870                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00004
+                0x80005f94                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00002
+                0x80005d22                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1_EventHandler
+                0x8000605e                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00007
+                0x80005e1a                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1_main
+                0x80005736                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00003
+                0x80006022                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00006
+                0x80005fe6                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00005
+                0x8000551a                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00001
+                0x80005f30                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1EventHandler00000
+ *fill*         0x80006136        0x2
+ .text          0x80006138      0xdf4 S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1.o
+                0x80006ddc                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1EventHandler00003
+                0x80006e18                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1EventHandler00004
+                0x80006af0                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1_EventHandler
+                0x80006492                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1EventHandler00001
+                0x80006e54                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1EventHandler00005
+                0x80006d8a                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1EventHandler00002
+                0x80006c28                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1_main
+                0x80006d26                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1EventHandler00000
+ .text          0x80006f2c      0x294 S2_CHANNEL_LINEUP_INTERFACE_V_0_1.o
+                0x80006f2c                S2_CHANNEL_LINEUP_INTERFACE_V_0_1EventHandler00000
+                0x8000712c                S2_CHANNEL_LINEUP_INTERFACE_V_0_1_main
+                0x80007076                S2_CHANNEL_LINEUP_INTERFACE_V_0_1_EventHandler
+ .text          0x800071c0      0xfec S2_CHANNEL_LINEUP_PRESET_V_0_1.o
+                0x80007a30                S2_CHANNEL_LINEUP_PRESET_V_0_1_EventHandler
+                0x80007384                S2_CHANNEL_LINEUP_PRESET_V_0_1EventHandler00000
+                0x80007b3c                S2_CHANNEL_LINEUP_PRESET_V_0_1_main
+                0x8000773c                S2_CHANNEL_LINEUP_PRESET_V_0_1EventHandler00001
+                0x80008170                S2_CHANNEL_LINEUP_PRESET_V_0_1EventHandler00002
+ .text          0x800081ac      0x310 S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1.o
+                0x80008476                S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1_main
+                0x800082ac                S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1EventHandler00001
+                0x800081ac                S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1EventHandler00000
+                0x800083ac                S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1_EventHandler
+ .text          0x800084bc      0x78c S2_NUMERIC_KEYPAD_V_1_0.o
+                0x800088e0                S2_NUMERIC_KEYPAD_V_1_0EventHandler00001
+                0x80008af4                S2_NUMERIC_KEYPAD_V_1_0_EventHandler
+                0x8000868a                S2_NUMERIC_KEYPAD_V_1_0EventHandler00000
+                0x80008b94                S2_NUMERIC_KEYPAD_V_1_0_main
+                0x80008c0c                S2_NUMERIC_KEYPAD_V_1_0EventHandler00002
+ .text          0x80008c48      0x276 S2_ANALOG_TO_SERIAL_V_0_1.o
+                0x80008c48                S2_ANALOG_TO_SERIAL_V_0_1EventHandler00000
+                0x80008e40                S2_ANALOG_TO_SERIAL_V_0_1_main
+                0x80008d8a                S2_ANALOG_TO_SERIAL_V_0_1_EventHandler
+ *fill*         0x80008ebe        0x2
+ .text          0x80008ec0      0x3e4 S2_TWO_WAY_ABUF_V_0_1.o
+                0x8000910a                S2_TWO_WAY_ABUF_V_0_1_main
+                0x80009150                S2_TWO_WAY_ABUF_V_0_1EventHandler00001
+                0x8000902e                S2_TWO_WAY_ABUF_V_0_1_EventHandler
+                0x80008ec0                S2_TWO_WAY_ABUF_V_0_1EventHandler00000
+                0x800091f8                S2_TWO_WAY_ABUF_V_0_1EventHandler00002
+ .text          0x800092a4      0xbbc S2_RING_COUNTER_V_0_2.o
+                0x800094aa                S2_RING_COUNTER_V_0_2EventHandler00000
+                0x8000996a                S2_RING_COUNTER_V_0_2EventHandler00003
+                0x80009dd6                S2_RING_COUNTER_V_0_2EventHandler00004
+                0x80009d9a                S2_RING_COUNTER_V_0_2EventHandler00002
+                0x80009b2a                S2_RING_COUNTER_V_0_2_EventHandler
+                0x80009bf2                S2_RING_COUNTER_V_0_2_main
+                0x80009702                S2_RING_COUNTER_V_0_2EventHandler00001
+ .text          0x80009e60      0x9a4 S2_IDOC_PAGE_HANDLER_V_0_1.o
+                0x8000a71c                S2_IDOC_PAGE_HANDLER_V_0_1EventHandler00003
+                0x8000a192                S2_IDOC_PAGE_HANDLER_V_0_1EventHandler00000
+                0x8000a506                S2_IDOC_PAGE_HANDLER_V_0_1WWAIT
+                0x8000a544                S2_IDOC_PAGE_HANDLER_V_0_1_main
+                0x8000a2ee                S2_IDOC_PAGE_HANDLER_V_0_1EventHandler00002
+                0x8000a614                S2_IDOC_PAGE_HANDLER_V_0_1EventHandler00001
+                0x8000a58a                S2_IDOC_PAGE_HANDLER_V_0_1_EventHandler
+ .text          0x8000a804     0x4b76 S2_Amazon_Cover_Art_Search_Interface_v3_0.o
+                0x8000ed74                S2_Amazon_Cover_Art_Search_Interface_v3_0_main
+                0x8000f25c                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00000
+                0x8000f2a6                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00003
+                0x8000ebda                S2_Amazon_Cover_Art_Search_Interface_v3_0_EventHandler
+                0x8000e08a                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00007
+                0x8000dc64                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00004
+                0x8000d6fc                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00002
+                0x8000d47e                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00001
+                0x8000de64                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00006
+                0x8000f302                S2_Amazon_Cover_Art_Search_Interface_v3_0EventHandler00005
+ *fill*         0x8000f37a        0x2
+ .text          0x8000f37c     0x8f52 S2_HMAC_SHA_256_Engine.o
+                0x80013f76                S2_HMAC_SHA_256_EngineEventHandler00000
+                0x800140fa                S2_HMAC_SHA_256_Engine_EventHandler
+                0x800141bc                S2_HMAC_SHA_256_Engine_main
+ *fill*         0x800182ce        0x2
+ .text          0x800182d0     0x1ce8 S2_Base_64_Bit_Encoder_v1_0.o
+                0x80019982                S2_Base_64_Bit_Encoder_v1_0EventHandler00000
+                0x80019c9c                S2_Base_64_Bit_Encoder_v1_0_main
+                0x80019be0                S2_Base_64_Bit_Encoder_v1_0_EventHandler
+ .text          0x80019fb8      0x71c S2_tstat_temp_display.o
+                0x8001a0bc                S2_tstat_temp_displayEventHandler00000
+                0x8001a4ac                S2_tstat_temp_display_EventHandler
+                0x8001a554                S2_tstat_temp_display_main
+ .text          0x8001a6d4     0x1456 S2_FILE_IO_ANALOG_V_0_2.o
+                0x8001b832                S2_FILE_IO_ANALOG_V_0_2EventHandler00002
+                0x8001b760                S2_FILE_IO_ANALOG_V_0_2EventHandler00001
+                0x8001ba30                S2_FILE_IO_ANALOG_V_0_2EventHandler00004
+                0x8001b2e2                S2_FILE_IO_ANALOG_V_0_2_EventHandler
+                0x8001b3ec                S2_FILE_IO_ANALOG_V_0_2_main
+                0x8001b696                S2_FILE_IO_ANALOG_V_0_2EventHandler00000
+                0x8001b936                S2_FILE_IO_ANALOG_V_0_2EventHandler00003
+ *fill*         0x8001bb2a        0x2
+ .text          0x8001bb2c      0x51e S2_TOD_Seconds_Stripped_V_0_1.o
+                0x8001bdfa                S2_TOD_Seconds_Stripped_V_0_1_EventHandler
+                0x8001bb2c                S2_TOD_Seconds_Stripped_V_0_1EventHandler00000
+                0x8001beb6                S2_TOD_Seconds_Stripped_V_0_1_main
+ *fill*         0x8001c04a        0x2
+ .text          0x8001c04c      0x1e6 S2_AToI_V_0_1.o
+                0x8001c04c                S2_AToI_V_0_1_EventHandler
+                0x8001c1b0                S2_AToI_V_0_1EventHandler00000
+                0x8001c11c                S2_AToI_V_0_1_main
+ *fill*         0x8001c232        0x2
+ .text          0x8001c234      0xcac S2_CLOCK_DISPLAY_V_0_2.o
+                0x8001ce8c                S2_CLOCK_DISPLAY_V_0_2EventHandler00001
+                0x8001ccc4                S2_CLOCK_DISPLAY_V_0_2_main
+                0x8001cd96                S2_CLOCK_DISPLAY_V_0_2EventHandler00000
+                0x8001cc02                S2_CLOCK_DISPLAY_V_0_2_EventHandler
+ .text          0x8001cee0      0x142 S2_ANALOG_x10_V_0_1.o
+                0x8001cee0                S2_ANALOG_x10_V_0_1_EventHandler
+                0x8001cf80                S2_ANALOG_x10_V_0_1_main
+                0x8001cfc6                S2_ANALOG_x10_V_0_1EventHandler00000
+ *fill*         0x8001d022        0x2
+ .text          0x8001d024      0x59c S2_DATA_SELECTOR_SERIAL_24x24_V_0_1.o
+                0x8001d218                S2_DATA_SELECTOR_SERIAL_24x24_V_0_1EventHandler00001
+                0x8001d3cc                S2_DATA_SELECTOR_SERIAL_24x24_V_0_1_EventHandler
+                0x8001d4ca                S2_DATA_SELECTOR_SERIAL_24x24_V_0_1_main
+                0x8001d024                S2_DATA_SELECTOR_SERIAL_24x24_V_0_1EventHandler00000
+ .text          0x8001d5c0      0x4e2 S2_DATA_SELECTOR_ANALOG_32x48_V_0_1.o
+                0x8001d5c0                S2_DATA_SELECTOR_ANALOG_32x48_V_0_1EventHandler00000
+                0x8001d9ca                S2_DATA_SELECTOR_ANALOG_32x48_V_0_1_main
+                0x8001d8e8                S2_DATA_SELECTOR_ANALOG_32x48_V_0_1_EventHandler
+                0x8001d774                S2_DATA_SELECTOR_ANALOG_32x48_V_0_1EventHandler00001
+ *fill*         0x8001daa2        0x2
+ .text          0x8001daa4      0x48c S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1.o
+                0x8001daa4                S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1EventHandler00000
+                0x8001de5c                S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1_main
+                0x8001dd7e                S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1_EventHandler
+                0x8001dc30                S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1EventHandler00001
+ .text          0x8001df30      0x6ce S2_CLOCK_VALS_V_0_1.o
+                0x8001df30                S2_CLOCK_VALS_V_0_1EventHandler00000
+                0x8001e32c                S2_CLOCK_VALS_V_0_1_EventHandler
+                0x8001e3e8                S2_CLOCK_VALS_V_0_1_main
+ *fill*         0x8001e5fe        0x2
+ .text          0x8001e600      0xd24 S2_COUNTDOWN_TIMER_V_0_2.o
+                0x8001f0d8                S2_COUNTDOWN_TIMER_V_0_2_main
+                0x8001f18c                S2_COUNTDOWN_TIMER_V_0_2EventHandler00001
+                0x8001f1fe                S2_COUNTDOWN_TIMER_V_0_2EventHandler00005
+                0x8001efd8                S2_COUNTDOWN_TIMER_V_0_2_EventHandler
+                0x8001ede4                S2_COUNTDOWN_TIMER_V_0_2EventHandler00004
+                0x8001eb48                S2_COUNTDOWN_TIMER_V_0_2EventHandler00002
+                0x8001eca6                S2_COUNTDOWN_TIMER_V_0_2EventHandler00003
+                0x8001f274                S2_COUNTDOWN_TIMER_V_0_2EventHandler00006
+                0x8001f2e8                S2_COUNTDOWN_TIMER_V_0_2EventHandler00007
+                0x8001e7ec                S2_COUNTDOWN_TIMER_V_0_2EventHandler00000
+ .text          0x8001f324      0x778 S2_INDEX_SELECTOR_V_0_1.o
+                0x8001f440                S2_INDEX_SELECTOR_V_0_1EventHandler00003
+                0x8001f7e8                S2_INDEX_SELECTOR_V_0_1_EventHandler
+                0x8001f8b0                S2_INDEX_SELECTOR_V_0_1_main
+                0x8001f324                S2_INDEX_SELECTOR_V_0_1EventHandler00000
+                0x8001fa50                S2_INDEX_SELECTOR_V_0_1EventHandler00002
+                0x8001f95c                S2_INDEX_SELECTOR_V_0_1EventHandler00001
+                0x8001f636                S2_INDEX_SELECTOR_V_0_1EventHandler00004
+ .text          0x8001fa9c      0x880 S2_I_HVAC_PAGE_HANDLER_V_0_5.o
+                0x80020218                S2_I_HVAC_PAGE_HANDLER_V_0_5_main
+                0x80020144                S2_I_HVAC_PAGE_HANDLER_V_0_5_EventHandler
+                0x8002027a                S2_I_HVAC_PAGE_HANDLER_V_0_5EventHandler00000
+ .text          0x8002031c      0x95e S2_SUBPAGE_HANDLER_V_0_2.o
+                0x8002031c                S2_SUBPAGE_HANDLER_V_0_2EventHandler00001
+                0x8002099e                S2_SUBPAGE_HANDLER_V_0_2_main
+                0x800208b4                S2_SUBPAGE_HANDLER_V_0_2_EventHandler
+                0x80020bea                S2_SUBPAGE_HANDLER_V_0_2EventHandler00000
+ *fill*         0x80020c7a        0x2
+ .text          0x80020c7c      0x34e S2_SUBPAGE_SET_INTERFACE_V_0_1.o
+                0x80020c7c                S2_SUBPAGE_SET_INTERFACE_V_0_1EventHandler00000
+                0x80020e6a                S2_SUBPAGE_SET_INTERFACE_V_0_1_EventHandler
+                0x80020f34                S2_SUBPAGE_SET_INTERFACE_V_0_1_main
+ *fill*         0x80020fca        0x2
+ .text          0x80020fcc     0x6072 S2_iPhone_XML_Processor_v1_0_0.o
+                0x80025eca                S2_iPhone_XML_Processor_v1_0_0EventHandler00002
+                0x8002620e                S2_iPhone_XML_Processor_v1_0_0EventHandler00003
+                0x8002653a                S2_iPhone_XML_Processor_v1_0_0_main
+                0x80026ff4                S2_iPhone_XML_Processor_v1_0_0EventHandler00005
+                0x800263a0                S2_iPhone_XML_Processor_v1_0_0_EventHandler
+                0x80025c6a                S2_iPhone_XML_Processor_v1_0_0EventHandler00001
+                0x80024166                S2_iPhone_XML_Processor_v1_0_0EventHandler00000
+                0x80026f6e                S2_iPhone_XML_Processor_v1_0_0EventHandler00004
+ *fill*         0x8002703e        0x2
+ .text          0x80027040     0x5836 library.o
+                0x8002b22c                RotateRightLong
+                0x8002b83a                IsSystem
+                0x8002b190                Seed
+                0x80028a88                Remove
+                0x8002ae0c                Ltoa
+                0x8002ab38                Atoi
+                0x80029ea0                InitRampInfoArray
+                0x8002b5e6                Right
+                0x8002c616                LockInputSema
+                0x8002b0ba                Mod
+                0x8002b2a2                Getc
+                0x8002afee                SMuldiv
+                0x8002b81c                IsHidden
+                0x8002aed2                Min
+                0x8002c42a                hextosi
+                0x8002b9c0                WriteIntegerArray
+                0x8002bf36                GetSignedIntArrayElementPtr
+                0x8002a85a                CheckStructArray
+                0x8002c43e                hextosl
+                0x8002bb46                WriteSignedIntegerArray
+                0x8002a522                InitStringParamArray
+                0x800297f4                ReadSignedLongIntegerArray
+                0x80028716                GatherToDelimiter
+                0x8002a346                InitStringArray
+                0x8002aeac                Max
+                0x8002b876                IsReadOnly
+                0x8002afb6                SMax
+                0x800288ba                GatherByLength
+                0x8002ad46                Chr
+                0x8002b998                ReadSignedLongInteger
+                0x8002adc4                Itohex
+                0x8002a7cc                GetStructArrayElement
+                0x8002aac0                UNS_SetByte
+                0x8002b5ba                ReverseFindi
+                0x80029c9c                ReadStringArray
+                0x8002bd46                GetIntArrayElementPtr
+                0x8002b3f6                Lower
+                0x8002b1ac                RotateLeft
+                0x8002c55e                ResizeIfAutogrow
+                0x80029fcc                CheckInputArray
+                0x800275ae                ResizeStringArray
+                0x8002acd8                Atosl
+                0x8002ab00                High
+                0x8002b15c                Rnd
+                0x8002b07e                UMod
+                0x8002b202                RotateLeftLong
+                0x8002c68a                FindNumericChar
+                0x8002c18e                CheckIOArrayBounds2
+                0x8002b7d4                MakeProgramFilename
+                0x8002afd2                SMin
+                0x8002b32a                Left
+                0x8002b26c                CheckBufferThreshold
+                0x8002b950                ReadSignedInteger
+                0x8002ab2a                LowWord
+                0x80027040                Bit
+                0x8002b900                ReadLongInteger
+                0x8002a93e                Byte
+                0x8002be3e                GetLongArrayElementPtr
+                0x8002b58c                ReverseFind
+                0x8002b7ea                GetSeries
+                0x8002c756                InitTcpServer
+                0x8002b3de                Len
+                0x8002c25e                InitializeRampInfoInternal
+                0x8002aef8                Divide
+                0x8002ac44                Atol
+                0x8002b7e0                GetModelNumber
+                0x8002c126                CheckIOArrayBounds
+                0x8002a026                CheckStringInputArray
+                0x8002bc08                WriteSignedLongIntegerArray
+                0x8002a716                GetStringArrayElement
+                0x8002ae50                Ltohex
+                0x8002ad7c                Itoa
+                0x8002b1d6                RotateRight
+                0x80028d76                InternalReverseFind
+                0x8002b8e0                WriteLongInteger
+                0x8002a24a                InitDynamicStringStruct
+                0x8002a13c                SetStringArray
+                0x800295d2                ReadSignedIntegerArray
+                0x8002a080                SetOutputArray
+                0x8002b890                WriteInteger
+                0x8002a6aa                InitStructDynamicArray
+                0x80029000                SetString
+                0x8002b0f6                Random
+                0x8002b928                WriteSignedInteger
+                0x800272a4                Find
+                0x8002b7f4                GetProgramNumber
+                0x8002b4ca                Mid
+                0x8002c6c8                InitTcpClient
+                0x80028192                ResizeStructArray
+                0x8002c02e                GetSignedLongArrayElementPtr
+                0x8002c450                hextol
+                0x80029a16                ReadString
+                0x8002a3dc                InitDynamicStringArray
+                0x8002c536                UpperChar
+                0x8002abd4                Atosi
+                0x8002b8b8                ReadInteger
+                0x8002af6a                Muldiv
+                0x8002a0ee                SetStringOutputArray
+                0x8002bccc                WriteString
+                0x80027c06                ResizeIntegerArray
+                0x80029f94                InitInOutArray
+                0x8002a5ea                InitNvramStringArray
+                0x8002ae94                Abs
+                0x8002b03a                SDivide
+                0x80029190                ReadIntegerArray
+                0x80027150                CompareStrings
+                0x8002c50e                LowerChar
+                0x8002c7e6                InitUdpSocket
+                0x8002b254                ClearBuffer
+                0x8002b6a2                Upper
+                0x8002a686                InitStructArray
+                0x8002b778                MakeLower
+                0x8002b858                IsVolume
+                0x80028be2                RemoveByLength
+                0x8002a8d6                CheckStringOutputArrayIndex
+                0x8002ba82                WriteLongIntegerArray
+                0x8002c30a                InitRampInfoStructArray
+                0x8002ab1c                HighWord
+                0x80027418                ResizeString
+                0x8002b7fe                IsDirectory
+                0x800293b0                ReadLongIntegerArray
+                0x8002ab0e                Low
+                0x800285bc                Gather
+                0x8002b7a6                MakeUpper
+                0x8002a20c                InitStringStruct
+                0x8002c1f6                CheckStringArrayBounds
+                0x8002af3c                CheckDenominator
+                0x8002c412                hextoi
+                0x80029b34                WriteStringArray
+                0x8002a9fe                SetByte
+                0x8002c2b4                InitializeRampInfo
+                0x8002c650                UnLockInputSema
+                0x8002b978                WriteSignedLongInteger
+                0x8002a2fe                InitNvramStringStruct
+ *fill*         0x8002c876        0xa
+                0x8002c880                .=ALIGN(0x10)
+ *(.eh_frame)
+                0x8002c880                .=ALIGN(0x10)
+ *(.gnu.linkonce.t.*)
+                0x8002c880                .=ALIGN(0x4)
+                0x8002c880                __CTOR_LIST__=.
+                0x8002c880                ___CTOR_LIST__=.
+                0x8002c880        0x4 LONG 0x0 (((__CTOR_END__-__CTOR_LIST__)/0x4)-0x2)
+ *(.ctors)
+                0x8002c884        0x4 LONG 0x0
+                0x8002c888                __CTOR_END__=.
+                0x8002c888                __DTOR_LIST__=.
+                0x8002c888                ___DTOR_LIST__=.
+                0x8002c888        0x4 LONG 0x0 (((__DTOR_END__-__DTOR_LIST__)/0x4)-0x2)
+ *(.dtors)
+                0x8002c88c        0x4 LONG 0x0
+                0x8002c890                __DTOR_END__=.
+ *(.rodata)
+ .rodata        0x8002c890      0x4a4 S2_DynDNS_Update_Client_v1_00.o
+ .rodata        0x8002cd34      0x386 S2_BOOT_V_0_1.o
+ .rodata        0x8002d0ba      0x240 S2_INDEX_TRANSLATOR_24x32_V_0_1.o
+ .rodata        0x8002d2fa      0x23f S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0.o
+ .rodata        0x8002d539      0x22f S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1.o
+ .rodata        0x8002d768      0x24f S2_MANAGED_SWITCHER_V_2_0.o
+ .rodata        0x8002d9b7      0x240 S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0.o
+ .rodata        0x8002dbf7      0x245 S2_ANALOG_PASSTHRU_V_1_0.o
+ .rodata        0x8002de3c      0x235 S2_A2D_V_0_1.o
+ .rodata        0x8002e071      0x22f S2_DIGITAL_DETECT_V_0_1.o
+ .rodata        0x8002e2a0      0x22f S2_MANAGED_POWER_V_0_1.o
+ .rodata        0x8002e4cf      0x264 S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1.o
+ .rodata        0x8002e733      0x289 S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1.o
+ .rodata        0x8002e9bc      0x2af S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1.o
+ .rodata        0x8002ec6b      0x257 S2_CHANNEL_LINEUP_INTERFACE_V_0_1.o
+ .rodata        0x8002eec2      0x383 S2_CHANNEL_LINEUP_PRESET_V_0_1.o
+ .rodata        0x8002f245      0x22f S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1.o
+ .rodata        0x8002f474      0x2b4 S2_NUMERIC_KEYPAD_V_1_0.o
+ .rodata        0x8002f728      0x27b S2_ANALOG_TO_SERIAL_V_0_1.o
+ .rodata        0x8002f9a3      0x22f S2_TWO_WAY_ABUF_V_0_1.o
+ .rodata        0x8002fbd2      0x235 S2_RING_COUNTER_V_0_2.o
+ .rodata        0x8002fe07      0x235 S2_IDOC_PAGE_HANDLER_V_0_1.o
+ .rodata        0x8003003c      0x7f3 S2_Amazon_Cover_Art_Search_Interface_v3_0.o
+ .rodata        0x8003082f      0x58f S2_HMAC_SHA_256_Engine.o
+ .rodata        0x80030dbe      0x387 S2_Base_64_Bit_Encoder_v1_0.o
+ .rodata        0x80031145      0x2cd S2_tstat_temp_display.o
+ .rodata        0x80031412      0x359 S2_FILE_IO_ANALOG_V_0_2.o
+ .rodata        0x8003176b      0x2f1 S2_TOD_Seconds_Stripped_V_0_1.o
+ .rodata        0x80031a5c      0x23a S2_AToI_V_0_1.o
+ .rodata        0x80031c96      0x349 S2_CLOCK_DISPLAY_V_0_2.o
+ .rodata        0x80031fdf      0x22f S2_ANALOG_x10_V_0_1.o
+ .rodata        0x8003220e      0x2b3 S2_DATA_SELECTOR_SERIAL_24x24_V_0_1.o
+ .rodata        0x800324c1      0x2b0 S2_DATA_SELECTOR_ANALOG_32x48_V_0_1.o
+ .rodata        0x80032771      0x2b0 S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1.o
+ .rodata        0x80032a21      0x273 S2_CLOCK_VALS_V_0_1.o
+ .rodata        0x80032c94      0x23e S2_COUNTDOWN_TIMER_V_0_2.o
+ .rodata        0x80032ed2      0x237 S2_INDEX_SELECTOR_V_0_1.o
+ .rodata        0x80033109      0x23b S2_I_HVAC_PAGE_HANDLER_V_0_5.o
+ .rodata        0x80033344      0x2a6 S2_SUBPAGE_HANDLER_V_0_2.o
+ .rodata        0x800335ea      0x29c S2_SUBPAGE_SET_INTERFACE_V_0_1.o
+ .rodata        0x80033886      0xb9a S2_iPhone_XML_Processor_v1_0_0.o
+ .rodata        0x80034420      0xc54 library.o
+ *(.gcc_except_table)
+                0x80035074                .=ALIGN(0x2)
+                0x80035074                __INIT_SECTION__=.
+                0x80035074        0x4 LONG 0x4e560000
+ *(.init)
+                0x80035078        0x2 SHORT 0x4e5e
+                0x8003507a        0x2 SHORT 0x4e75
+                0x8003507c                __FINI_SECTION__=.
+                0x8003507c        0x4 LONG 0x4e560000
+ *(.fini)
+                0x80035080        0x2 SHORT 0x4e5e
+                0x80035082        0x2 SHORT 0x4e75
+ *(.lit)
+ *fill*         0x80035084        0xc
+                0x80035090                .=ALIGN(0x10)
+                0x80035090                _etext=.
+                0x80035090                etext=.
+
+.data           0x80035090        0x0
+                0x80035090                copy_start=.
+ *(.shdata)
+ *(.data)
+ *(.gnu.linkonce.d.*)
+                0x80035090                .=ALIGN(0x10)
+                0x80035090                _edata=.
+                0x80035090                copy_end=.
+
+.got
+ *(.got.plt)
+ *(.got)
+
+EntryList       0x80035090     0x2b90
+ *(EntryList)
+ EntryList      0x80035090      0x110 S2_DynDNS_Update_Client_v1_00.o
+                0x80035090                S2_DynDNS_Update_Client_v1_00_Entry
+ EntryList      0x800351a0      0x110 S2_BOOT_V_0_1.o
+                0x800351a0                S2_BOOT_V_0_1_Entry
+ EntryList      0x800352b0      0x110 S2_INDEX_TRANSLATOR_24x32_V_0_1.o
+                0x800352b0                S2_INDEX_TRANSLATOR_24x32_V_0_1_Entry
+ EntryList      0x800353c0      0x110 S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0.o
+                0x800353c0                S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0_Entry
+ EntryList      0x800354d0      0x110 S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1.o
+                0x800354d0                S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1_Entry
+ EntryList      0x800355e0      0x110 S2_MANAGED_SWITCHER_V_2_0.o
+                0x800355e0                S2_MANAGED_SWITCHER_V_2_0_Entry
+ EntryList      0x800356f0      0x110 S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0.o
+                0x800356f0                S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0_Entry
+ EntryList      0x80035800      0x110 S2_ANALOG_PASSTHRU_V_1_0.o
+                0x80035800                S2_ANALOG_PASSTHRU_V_1_0_Entry
+ EntryList      0x80035910      0x110 S2_A2D_V_0_1.o
+                0x80035910                S2_A2D_V_0_1_Entry
+ EntryList      0x80035a20      0x110 S2_DIGITAL_DETECT_V_0_1.o
+                0x80035a20                S2_DIGITAL_DETECT_V_0_1_Entry
+ EntryList      0x80035b30      0x110 S2_MANAGED_POWER_V_0_1.o
+                0x80035b30                S2_MANAGED_POWER_V_0_1_Entry
+ EntryList      0x80035c40      0x110 S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1.o
+                0x80035c40                S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1_Entry
+ EntryList      0x80035d50      0x110 S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1.o
+                0x80035d50                S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1_Entry
+ EntryList      0x80035e60      0x110 S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1.o
+                0x80035e60                S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1_Entry
+ EntryList      0x80035f70      0x110 S2_CHANNEL_LINEUP_INTERFACE_V_0_1.o
+                0x80035f70                S2_CHANNEL_LINEUP_INTERFACE_V_0_1_Entry
+ EntryList      0x80036080      0x110 S2_CHANNEL_LINEUP_PRESET_V_0_1.o
+                0x80036080                S2_CHANNEL_LINEUP_PRESET_V_0_1_Entry
+ EntryList      0x80036190      0x110 S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1.o
+                0x80036190                S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1_Entry
+ EntryList      0x800362a0      0x110 S2_NUMERIC_KEYPAD_V_1_0.o
+                0x800362a0                S2_NUMERIC_KEYPAD_V_1_0_Entry
+ EntryList      0x800363b0      0x110 S2_ANALOG_TO_SERIAL_V_0_1.o
+                0x800363b0                S2_ANALOG_TO_SERIAL_V_0_1_Entry
+ EntryList      0x800364c0      0x110 S2_TWO_WAY_ABUF_V_0_1.o
+                0x800364c0                S2_TWO_WAY_ABUF_V_0_1_Entry
+ EntryList      0x800365d0      0x110 S2_RING_COUNTER_V_0_2.o
+                0x800365d0                S2_RING_COUNTER_V_0_2_Entry
+ EntryList      0x800366e0      0x110 S2_IDOC_PAGE_HANDLER_V_0_1.o
+                0x800366e0                S2_IDOC_PAGE_HANDLER_V_0_1_Entry
+ EntryList      0x800367f0      0x110 S2_Amazon_Cover_Art_Search_Interface_v3_0.o
+                0x800367f0                S2_Amazon_Cover_Art_Search_Interface_v3_0_Entry
+ EntryList      0x80036900      0x110 S2_HMAC_SHA_256_Engine.o
+                0x80036900                S2_HMAC_SHA_256_Engine_Entry
+ EntryList      0x80036a10      0x110 S2_Base_64_Bit_Encoder_v1_0.o
+                0x80036a10                S2_Base_64_Bit_Encoder_v1_0_Entry
+ EntryList      0x80036b20      0x110 S2_tstat_temp_display.o
+                0x80036b20                S2_tstat_temp_display_Entry
+ EntryList      0x80036c30      0x110 S2_FILE_IO_ANALOG_V_0_2.o
+                0x80036c30                S2_FILE_IO_ANALOG_V_0_2_Entry
+ EntryList      0x80036d40      0x110 S2_TOD_Seconds_Stripped_V_0_1.o
+                0x80036d40                S2_TOD_Seconds_Stripped_V_0_1_Entry
+ EntryList      0x80036e50      0x110 S2_AToI_V_0_1.o
+                0x80036e50                S2_AToI_V_0_1_Entry
+ EntryList      0x80036f60      0x110 S2_CLOCK_DISPLAY_V_0_2.o
+                0x80036f60                S2_CLOCK_DISPLAY_V_0_2_Entry
+ EntryList      0x80037070      0x110 S2_ANALOG_x10_V_0_1.o
+                0x80037070                S2_ANALOG_x10_V_0_1_Entry
+ EntryList      0x80037180      0x110 S2_DATA_SELECTOR_SERIAL_24x24_V_0_1.o
+                0x80037180                S2_DATA_SELECTOR_SERIAL_24x24_V_0_1_Entry
+ EntryList      0x80037290      0x110 S2_DATA_SELECTOR_ANALOG_32x48_V_0_1.o
+                0x80037290                S2_DATA_SELECTOR_ANALOG_32x48_V_0_1_Entry
+ EntryList      0x800373a0      0x110 S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1.o
+                0x800373a0                S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1_Entry
+ EntryList      0x800374b0      0x110 S2_CLOCK_VALS_V_0_1.o
+                0x800374b0                S2_CLOCK_VALS_V_0_1_Entry
+ EntryList      0x800375c0      0x110 S2_COUNTDOWN_TIMER_V_0_2.o
+                0x800375c0                S2_COUNTDOWN_TIMER_V_0_2_Entry
+ EntryList      0x800376d0      0x110 S2_INDEX_SELECTOR_V_0_1.o
+                0x800376d0                S2_INDEX_SELECTOR_V_0_1_Entry
+ EntryList      0x800377e0      0x110 S2_I_HVAC_PAGE_HANDLER_V_0_5.o
+                0x800377e0                S2_I_HVAC_PAGE_HANDLER_V_0_5_Entry
+ EntryList      0x800378f0      0x110 S2_SUBPAGE_HANDLER_V_0_2.o
+                0x800378f0                S2_SUBPAGE_HANDLER_V_0_2_Entry
+ EntryList      0x80037a00      0x110 S2_SUBPAGE_SET_INTERFACE_V_0_1.o
+                0x80037a00                S2_SUBPAGE_SET_INTERFACE_V_0_1_Entry
+ EntryList      0x80037b10      0x110 S2_iPhone_XML_Processor_v1_0_0.o
+                0x80037b10                S2_iPhone_XML_Processor_v1_0_0_Entry
+                0x80037c20                .=ALIGN(0x4)
+
+FunctionList    0x80037c20        0x4
+ *(FunctionList)
+ FunctionList   0x80037c20        0x4 globals.o
+                0x80037c20                g_pFunctions
+                0x80037c24                .=ALIGN(0x4)
+
+.bss            0x80037c24        0x0
+                0x80037c24                .=ALIGN(0x4)
+                0x80037c24                __bss_start=.
+ *(.shbss)
+ *(.bss)
+ *(COMMON)
+                0x80037c28                _end=ALIGN(0x8)
+                0x80037c28                __end=_end
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+LOAD S2_DynDNS_Update_Client_v1_00.o
+LOAD S2_BOOT_V_0_1.o
+LOAD S2_INDEX_TRANSLATOR_24x32_V_0_1.o
+LOAD S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0.o
+LOAD S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1.o
+LOAD S2_MANAGED_SWITCHER_V_2_0.o
+LOAD S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0.o
+LOAD S2_ANALOG_PASSTHRU_V_1_0.o
+LOAD S2_A2D_V_0_1.o
+LOAD S2_DIGITAL_DETECT_V_0_1.o
+LOAD S2_MANAGED_POWER_V_0_1.o
+LOAD S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1.o
+LOAD S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1.o
+LOAD S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1.o
+LOAD S2_CHANNEL_LINEUP_INTERFACE_V_0_1.o
+LOAD S2_CHANNEL_LINEUP_PRESET_V_0_1.o
+LOAD S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1.o
+LOAD S2_NUMERIC_KEYPAD_V_1_0.o
+LOAD S2_ANALOG_TO_SERIAL_V_0_1.o
+LOAD S2_TWO_WAY_ABUF_V_0_1.o
+LOAD S2_RING_COUNTER_V_0_2.o
+LOAD S2_IDOC_PAGE_HANDLER_V_0_1.o
+LOAD S2_Amazon_Cover_Art_Search_Interface_v3_0.o
+LOAD S2_HMAC_SHA_256_Engine.o
+LOAD S2_Base_64_Bit_Encoder_v1_0.o
+LOAD S2_tstat_temp_display.o
+LOAD S2_FILE_IO_ANALOG_V_0_2.o
+LOAD S2_TOD_Seconds_Stripped_V_0_1.o
+LOAD S2_AToI_V_0_1.o
+LOAD S2_CLOCK_DISPLAY_V_0_2.o
+LOAD S2_ANALOG_x10_V_0_1.o
+LOAD S2_DATA_SELECTOR_SERIAL_24x24_V_0_1.o
+LOAD S2_DATA_SELECTOR_ANALOG_32x48_V_0_1.o
+LOAD S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1.o
+LOAD S2_CLOCK_VALS_V_0_1.o
+LOAD S2_COUNTDOWN_TIMER_V_0_2.o
+LOAD S2_INDEX_SELECTOR_V_0_1.o
+LOAD S2_I_HVAC_PAGE_HANDLER_V_0_5.o
+LOAD S2_SUBPAGE_HANDLER_V_0_2.o
+LOAD S2_SUBPAGE_SET_INTERFACE_V_0_1.o
+LOAD S2_iPhone_XML_Processor_v1_0_0.o
+LOAD globals.o
+LOAD library.o
+OUTPUT(_S2_2018_10_29___02_Calugar_PRO2.spl elf32-m68k)
+
+.comment        0x80037c24      0x662
+ .comment       0x80037c24       0x26 S2_DynDNS_Update_Client_v1_00.o
+ .comment       0x80037c4a       0x26 S2_BOOT_V_0_1.o
+ .comment       0x80037c70       0x26 S2_INDEX_TRANSLATOR_24x32_V_0_1.o
+ .comment       0x80037c96       0x26 S2_BIPAD_OUTPUT_ZERO_DELAY_V_2_0.o
+ .comment       0x80037cbc       0x26 S2_BIPAD_OUTPUT_TWO_WAY_ABUF_V_0_1.o
+ .comment       0x80037ce2       0x26 S2_MANAGED_SWITCHER_V_2_0.o
+ .comment       0x80037d08       0x26 S2_MANAGED_SWITCHER_INDEX_TRANSLATOR_V_2_0.o
+ .comment       0x80037d2e       0x26 S2_ANALOG_PASSTHRU_V_1_0.o
+ .comment       0x80037d54       0x26 S2_A2D_V_0_1.o
+ .comment       0x80037d7a       0x26 S2_DIGITAL_DETECT_V_0_1.o
+ .comment       0x80037da0       0x26 S2_MANAGED_POWER_V_0_1.o
+ .comment       0x80037dc6       0x26 S2_CHANNEL_LINEUP_SCROLL_ANALOG_V_0_1.o
+ .comment       0x80037dec       0x26 S2_CHANNEL_LINEUP_SCROLL_DIGITAL_V_0_1.o
+ .comment       0x80037e12       0x26 S2_CHANNEL_LINEUP_SCROLL_SERIAL_V_0_1.o
+ .comment       0x80037e38       0x26 S2_CHANNEL_LINEUP_INTERFACE_V_0_1.o
+ .comment       0x80037e5e       0x26 S2_CHANNEL_LINEUP_PRESET_V_0_1.o
+ .comment       0x80037e84       0x26 S2_CHANNEL_LINEUP_INTERFACE_SCROLL_INCREMENT_V_0_1.o
+ .comment       0x80037eaa       0x26 S2_NUMERIC_KEYPAD_V_1_0.o
+ .comment       0x80037ed0       0x26 S2_ANALOG_TO_SERIAL_V_0_1.o
+ .comment       0x80037ef6       0x26 S2_TWO_WAY_ABUF_V_0_1.o
+ .comment       0x80037f1c       0x26 S2_RING_COUNTER_V_0_2.o
+ .comment       0x80037f42       0x26 S2_IDOC_PAGE_HANDLER_V_0_1.o
+ .comment       0x80037f68       0x26 S2_Amazon_Cover_Art_Search_Interface_v3_0.o
+ .comment       0x80037f8e       0x26 S2_HMAC_SHA_256_Engine.o
+ .comment       0x80037fb4       0x26 S2_Base_64_Bit_Encoder_v1_0.o
+ .comment       0x80037fda       0x26 S2_tstat_temp_display.o
+ .comment       0x80038000       0x26 S2_FILE_IO_ANALOG_V_0_2.o
+ .comment       0x80038026       0x26 S2_TOD_Seconds_Stripped_V_0_1.o
+ .comment       0x8003804c       0x26 S2_AToI_V_0_1.o
+ .comment       0x80038072       0x26 S2_CLOCK_DISPLAY_V_0_2.o
+ .comment       0x80038098       0x26 S2_ANALOG_x10_V_0_1.o
+ .comment       0x800380be       0x26 S2_DATA_SELECTOR_SERIAL_24x24_V_0_1.o
+ .comment       0x800380e4       0x26 S2_DATA_SELECTOR_ANALOG_32x48_V_0_1.o
+ .comment       0x8003810a       0x26 S2_DATA_SELECTOR_DIGITAL_32X48_V_0_1.o
+ .comment       0x80038130       0x26 S2_CLOCK_VALS_V_0_1.o
+ .comment       0x80038156       0x26 S2_COUNTDOWN_TIMER_V_0_2.o
+ .comment       0x8003817c       0x26 S2_INDEX_SELECTOR_V_0_1.o
+ .comment       0x800381a2       0x26 S2_I_HVAC_PAGE_HANDLER_V_0_5.o
+ .comment       0x800381c8       0x26 S2_SUBPAGE_HANDLER_V_0_2.o
+ .comment       0x800381ee       0x26 S2_SUBPAGE_SET_INTERFACE_V_0_1.o
+ .comment       0x80038214       0x26 S2_iPhone_XML_Processor_v1_0_0.o
+ .comment       0x8003823a       0x26 globals.o
+ .comment       0x80038260       0x26 library.o
