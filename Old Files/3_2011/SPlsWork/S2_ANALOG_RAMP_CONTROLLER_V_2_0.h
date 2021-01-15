@@ -1,0 +1,119 @@
+#ifndef __S2_ANALOG_RAMP_CONTROLLER_V_2_0_H__
+#define __S2_ANALOG_RAMP_CONTROLLER_V_2_0_H__
+
+
+
+
+/*
+* Constructor and Destructor
+*/
+
+/*
+* DIGITAL_INPUT
+*/
+#define __S2_ANALOG_RAMP_CONTROLLER_V_2_0_PRESS_DIG_INPUT 0
+
+
+/*
+* ANALOG_INPUT
+*/
+#define __S2_ANALOG_RAMP_CONTROLLER_V_2_0_ANALOG_IN_ANALOG_INPUT 0
+
+
+
+
+/*
+* DIGITAL_OUTPUT
+*/
+#define __S2_ANALOG_RAMP_CONTROLLER_V_2_0_UP_DIG_OUTPUT 0
+#define __S2_ANALOG_RAMP_CONTROLLER_V_2_0_DOWN_DIG_OUTPUT 1
+
+
+/*
+* ANALOG_OUTPUT
+*/
+
+
+
+/*
+* Direct Socket Variables
+*/
+
+
+
+
+/*
+* INTEGER_PARAMETER
+*/
+/*
+* SIGNED_INTEGER_PARAMETER
+*/
+/*
+* LONG_INTEGER_PARAMETER
+*/
+/*
+* SIGNED_LONG_INTEGER_PARAMETER
+*/
+/*
+* INTEGER_PARAMETER
+*/
+/*
+* SIGNED_INTEGER_PARAMETER
+*/
+/*
+* LONG_INTEGER_PARAMETER
+*/
+/*
+* SIGNED_LONG_INTEGER_PARAMETER
+*/
+/*
+* STRING_PARAMETER
+*/
+
+
+/*
+* INTEGER
+*/
+
+
+/*
+* LONG_INTEGER
+*/
+
+
+/*
+* SIGNED_INTEGER
+*/
+
+
+/*
+* SIGNED_LONG_INTEGER
+*/
+
+
+/*
+* STRING
+*/
+
+/*
+* STRUCTURE
+*/
+
+START_GLOBAL_VAR_STRUCT( S2_ANALOG_RAMP_CONTROLLER_V_2_0 )
+{
+   void* InstancePtr;
+   struct GenericOutputString_s sGenericOutStr;
+   unsigned short LastModifiedArrayIndex;
+
+};
+
+START_NVRAM_VAR_STRUCT( S2_ANALOG_RAMP_CONTROLLER_V_2_0 )
+{
+   unsigned short __FLAG;
+   unsigned short __BUSY;
+};
+
+
+
+#endif //__S2_ANALOG_RAMP_CONTROLLER_V_2_0_H__
+

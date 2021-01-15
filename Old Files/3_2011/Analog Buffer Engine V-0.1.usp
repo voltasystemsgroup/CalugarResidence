@@ -1,0 +1,20 @@
+#DEFINE_CONSTANT MAXARRAY 48
+
+
+Digital_Input Enable[MAXARRAY];
+Analog_Input ANA_IN[MAXARRAY];
+Analog_Output ANA_OUT[MAXARRAY];
+
+
+Function PassVal(Integer Index, Integer Val)
+{
+	If(Enable[Index])
+		ANA_OUT[Index] = Val;	
+}
+Change ANA_IN
+{          
+	Integer Index; 
+	Index = GetLastModifiedArrayIndex();
+	
+		PassVal(Index, ANA_IN[Index]);
+}

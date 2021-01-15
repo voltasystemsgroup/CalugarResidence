@@ -1,0 +1,245 @@
+//Programmed by JFP
+// Purpose is to take 3 octets and encode them into 4 sextets and transmit following the RFC1113 Base64 Encoding
+// and to encodes a percent encoded string following RFC 3986 
+           
+#symbol_name "Base 64 Bit Encoder v1.0" 
+#default_volatile
+#enable_stack_checking
+
+#help_begin
+	This module will encode any string input into it and will output a straight base 64 encoded string as well as
+	a percent encoded base 64 string.  This module is intended to be used only with the Dynamic Cover Art v3.0.umc module
+#help_end
+
+//IO variables
+
+string_input	strToEncode[2000];
+
+string_output	encodedString;
+string_output	signatureString;
+
+
+//global variables
+
+string hex[255][3];			//percent encoding array
+  
+//Functions
+ 
+
+integer_function encodeByte(integer u)
+{
+	if(u < 26)  return('A'+ u);
+  	if(u < 52)  return('a'+(u - 26));
+  	if(u < 62)  return('0'+(u - 52));
+  	if(u = 62) 	return('+');
+	else
+	{  
+  		return('/');
+  	}
+
+}
+ 
+//this functions takes the 3 byte block and converts it to a 4 byte block
+ 
+string_function encodeData(string	blockToCode)
+{
+	integer dataLen, b1 , b2, b3, e1, e2, e3, e4;
+	integer sextetB1, sextetB2, sextetB3, sextetB4;
+	string	blockToTransmit[4];
+		
+    dataLen = len(blockToCode);
+    
+    cswitch(dataLen)
+    {
+    	case(3):
+    	{
+    		b1 = getc(blockToCode);
+    		b2 = getc(blockToCode);
+    		b3 = getc(blockToCode);
+    		break;
+    	}
+    	case(2):
+    	{
+    		b1 = getc(blockToCode);
+    		b2 = getc(blockToCode);
+    		b3 = 0x00;
+    		break;
+    	}
+    	case(1):
+    	{
+    		b1 = getc(blockToCode);
+    		b2 = 0x00;
+    		b3 = 0x00;
+    		break;
+    	}
+    }
+    
+    e1 = b1 >> 2; 
+    e2 = (b1 & 0x03) << 4 | b2 >> 4; 
+    e3 = (b2 & 0x0F) << 2 | b3 >> 6; 
+    e4 = b3 & 0x3F;
+    
+	sextetB1 = encodeByte(e1);																	
+	sextetB2 = encodeByte(e2);																	
+																								
+																								
+	if(dataLen > 1)																				
+	{
+		sextetB3 = encodeByte(e3);																																								
+	}																							
+		else																						
+	{
+		sextetB3 = '=';
+	}
+	
+	if(dataLen > 2)
+	{																							
+		sextetB4 = encodeByte(e4); 																	
+	}
+	else
+	{
+		sextetB4 = '=';		
+	}		
+	
+	blockToTransmit = chr(sextetB1) + chr(sextetB2) + chr(sextetB3) + chr(sextetB4);  			 
+	
+	return(blockToTransmit);
+	 
+}  
+ 
+//this function breaks up the string to encode into 3 byte blocks and readys them for encoding
+
+string_function enCode (string asciiIn)
+{
+	integer iB1, iB2, iB3, dataLen;
+	string	block$[3], tempStringOut[512], codedStringOut[512];
+	
+	while(len(asciiIN) <> 0)
+	{
+		cswitch(len(asciiIN))
+		{
+			case(3):
+			{
+				iB1 = getc(asciiIn);
+				iB2 = getc(asciiIn);
+				iB3 = getc(asciiIn);
+				
+				block$ = chr(iB1) + chr(iB2) + chr(iB3);
+				tempStringOut = tempStringOut + encodeData(block$);
+				codedStringOut = tempStringOut;	
+				break;						
+			}
+			case(2):
+			{
+				iB1 = getc(asciiIn);
+				iB2 = getc(asciiIn);
+			
+				block$ = chr(iB1) + chr(iB2);
+				tempStringOut = tempStringOut + encodeData(block$);	
+				codedStringOut = tempStringOut;						
+				break;
+			}
+			case(1):
+			{
+				iB1 = getc(asciiIn);
+				
+				block$ = chr(iB1);
+				tempStringOut = tempStringOut + encodeData(block$);
+				codedStringOut = tempStringOut;							
+				break;
+			}
+			default:																		
+			{
+				iB1 = getc(asciiIn);
+				iB2 = getc(asciiIn);
+				iB3 = getc(asciiIn);
+				
+				block$ = chr(iB1) + chr(iB2) + chr(iB3);
+				tempStringOut = tempStringOut + encodeData(block$);							
+				break;
+			}
+		}
+	}
+	return(codedStringOut);
+}
+
+//This function incorporates special attributes for bulding encoded signatures for amazon api.
+
+string_function percentEncode(string s)
+{
+	string 	rS[2000];
+	integer x;
+	integer ch;  
+	    
+	for(x = 1 to len(s))											//convert all char into decimal equivalent.
+	{
+		ch = byte(s, x);    
+		
+		if('A' <= ch && ch <= 'Z') 
+		{															// 'A'..'Z'
+        	rS = rS + chr(ch);
+        } 
+        else if('a' <= ch && ch <= 'z') 
+        {															// 'a'..'z'
+	       	rS = rS + chr(ch);
+	    } 
+	    else if('0' <= ch && ch <= '9') 
+	    {															// '0'..'9'
+	       	rS = rS + chr(ch);
+	    } 
+	    else if(ch = 0x20) 
+	    {															// space
+	       	rS = rS + "+";
+	    } 
+	    else if(ch = '-' || ch = '_' || ch = '.' || ch = '!' || ch = '~' || ch = '*' || ch = '(' || ch = ')' || ch = atoi("\x5C"))                                                                                                                                                         
+	   	{                      										// unreserved
+        	rS = rS + chr(ch);
+        } 
+        else if(ch <= 0x007F) 
+        {															//Other ascii "=", "+", "/"
+        	rS = rS + hex[ch];
+   	    } 
+	    else if(ch <= 0x07FF) 
+	    {															// non-ASCII <= 0x7FF
+	       rS = rS + hex[0xC0 | (ch >> 6)];
+	       rS = rS + hex[0x80 | (ch & 0x3F)];
+	    } 
+	    else 
+	    {															// 0x7FF < ch <= 0xFFFF
+	       rS = rS + hex[0xE0 | (ch >> 12)];
+	       rS = rS + hex[0x80 | ((ch >> 6) & 0x3F)];
+	       rS = rS + hex[0x80 | (ch & 0x3F)];
+      	} 	
+	}
+	
+	return(rS);                                      
+}           
+
+//events
+
+change strToEncode
+{ 
+	string wrkStr[2000];          
+	             
+	wrkStr = encode(strToEncode);             
+	encodedString = wrkStr;
+	signatureString = percentEncode(wrkStr);	
+}
+
+function main()
+{
+	integer x;
+	
+	for(x = 0 to 255)
+	{
+		if(x < 0x10)
+		{
+			hex[x] = "%0" + itohex(x);
+		}
+		else
+		{
+			hex[x] = "%" + itohex(x);
+		}  
+	}
+}
+           

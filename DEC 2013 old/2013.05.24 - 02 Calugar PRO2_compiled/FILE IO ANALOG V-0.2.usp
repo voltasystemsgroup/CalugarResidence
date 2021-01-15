@@ -1,0 +1,181 @@
+
+#DEFINE_CONSTANT MAX_IO 	33
+#DEFINE_CONSTANT MAX_CHARS 	16
+#DEFINE_CONSTANT MAX_BUF 	1024
+
+//MODULE INPUT AND OUTPUT
+DIGITAL_INPUT 	ENABLE, AUTO_WRITE, AUTO_WRITE_DELAY_FB, READ, WRITE;
+DIGITAL_OUTPUT 	VALUE_CHANGE, READ_FB, WRITE_FB;
+STRING_INPUT 	PATH[ 128 ];
+
+//FILE DATA MODULE IN AND OUTS
+STRING_INPUT 	FIELD[ MAX_IO ][ MAX_CHARS ];
+ANALOG_INPUT 	VALUE_IN[ MAX_IO ];
+ANALOG_OUTPUT	VALUE_OUT[ MAX_IO ];
+
+
+//MODULE INPUT AND OUTPUT GLOBAL STORAGE
+Volatile String 	gsPath[ 128 ];
+
+Volatile String 	gsBuf[ MAX_BUF ];	//TEMP BUF FOR FILE CREATION
+Volatile Integer gnReadFB, gnWriteFB, gnDumping;
+
+Integer gnInitComplete;
+
+Function CreateBuf( )
+{
+	Integer nCount;
+
+	gsBuf = "";
+	
+	For( nCount = 1 To MAX_IO )
+	{
+    	gsBuf = gsBuf + FIELD[ nCount ] + "=" + IToA( VALUE_IN[ nCount ] ) + "\n";
+	}
+}
+                                         
+Function DumpBuf( )
+{
+	Integer nCount;
+	String sGarbage[ MAX_CHARS ], sValue[ MAX_CHARS ];
+	
+	gnDumping = 1;
+	
+	For( nCount = 1 To MAX_IO )
+	{                                                                                            
+    	sGarbage = Remove( "=", gsBuf );
+    	sValue = Remove( "\n", gsBuf );
+    	sValue = Left( sValue, Len( sValue )-2 );
+       	If( Len( sValue ) > 0 )
+       	{
+       		VALUE_OUT[ nCount ] = AToI( sValue );
+       	}
+       	Else
+       	{
+       		VALUE_OUT[ nCount ] = VALUE_IN[ nCount ];
+       	}
+	}
+	
+	gnDumping = 0;					
+}
+
+Function WriteFile( )
+{	
+	Signed_Integer nFileHandle;
+
+	StartFileOperations( );
+	nFileHandle = FileOpen( gsPath, _O_WRONLY | _O_CREAT | _O_TRUNC );
+	
+	If( nFileHandle >=0 )
+	{
+		CreateBuf( );
+		FileWrite( nFileHandle, gsBuf, Len( gsBuf ) );				
+	}
+	Else
+	{
+		Print( "Error Opening File %s\n", gsPath );
+	}
+	
+	FileClose( nFileHandle );
+	EndFileOperations( );
+}
+
+Function ReadFile( )
+{
+	Signed_Integer nFileHandle;
+	
+	StartFileOperations( );
+	nFileHandle = FileOpen( gsPath, _O_RDONLY );
+	
+	If( nFileHandle >=0 )
+	{
+		gsBuf = "";
+		FileRead( nFileHandle, gsBuf, MAX_BUF );
+		DumpBuf( );
+		
+		FileClose( nFileHandle );
+		EndFileOperations( );
+	}
+	Else
+	{
+		FileClose( nFileHandle );
+		EndFileOperations( );
+
+		WriteFile( );
+		DumpBuf( );
+	}                
+	
+}
+
+CHANGE PATH
+{
+	gsPath = PATH;
+}
+
+CHANGE VALUE_IN
+{
+	Integer nFieldIndex;
+	
+	If( gnInitComplete )
+	{
+		If( !gnDumping )
+		{
+			nFieldIndex = GetLastModifiedArrayIndex( );
+			
+			If( AUTO_WRITE && ENABLE )
+			{
+				Pulse( 1, VALUE_CHANGE );
+			}
+		}
+	}
+}
+
+RELEASE AUTO_WRITE_DELAY_FB
+{
+	If( AUTO_WRITE && ENABLE )
+	{
+		gnWriteFB = 1;
+		WRITE_FB = 1;
+		WriteFile( );
+		WRITE_FB = 0;
+		gnWriteFB = 0;
+	}
+}
+
+PUSH WRITE
+{
+	If( !gnReadFB && !gnWriteFB && ENABLE )
+	{
+		gnWriteFB = 1;
+		WRITE_FB = 1;
+		WriteFile( );
+		WRITE_FB = 0;
+		gnWriteFB = 0;
+	}	
+}
+
+PUSH READ
+{
+	If( !gnReadFB && !gnWriteFB && ENABLE )
+	{
+		gnReadFB = 1;
+		READ_FB = 1;
+		ReadFile( );
+		READ_FB = 0;
+		gnReadFB = 0;
+	}
+}
+
+
+Function Main( )
+{
+	gnInitComplete = 0;
+	gnInitComplete = !WaitForInitializationComplete( );
+	
+	gnReadFB = 0;
+	gnWriteFB = 0;
+	gnDumping = 0;
+	gsBuf = "";
+}
+
+

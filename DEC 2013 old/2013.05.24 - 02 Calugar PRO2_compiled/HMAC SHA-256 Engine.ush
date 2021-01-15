@@ -1,0 +1,105 @@
+[BEGIN]
+  Version=1
+[END]
+[BEGIN]
+  ObjTp=FSgntr
+  Sgntr=UserSPlus
+  RelVrs=1
+  IntStrVrs=1
+  SPlusVrs=4.02.20
+  CrossCplrVrs=1.3
+[END]
+[BEGIN]
+  ObjTp=Hd
+  Cmn1=This module will generate a keyed-Hash Message Authentication Code||1
+  Cmn2=(HMAC)\\calculated using a SHA-256 cryptographic hash function in||1
+  Cmn3=combination with a secret key.\\\\SERIAL INPUTS:\\\\<Message$>||2
+  Cmn4=||2The message to be processed by the HMAC and SHA-256 functions\\
+  Cmn5=\\<SecretKey$>  The secret key used for calculating the HMAC\\||2
+  Cmn6=\\ANALOG INPUT\\  \\<ArraySize>		Size of the message to be hashed\\
+  Cmn7=\\SERIAL OUTPUTS:\\\\<HMAC_SHA256> 	This output will be updated||1
+  Cmn8=when the <Message$> input changes.\\			  	It corresponds to the||1
+  Cmn9=Messae$ string processed by the HMAC function\\			  	using the Secret||1
+  Cmn10=Key and SHA-256 for the hash function.\\				The Secret Key needs||1
+  Cmn11=to be provided for the HMAC to be calculated.\\\\<SHA256_Debug$>	
+  Cmn12=||2This output will be updated when the <Message$> input changes||1
+  Cmn13=if SHA256_DEBUG_OUTPUT_ENABLE is set to 1\\				  (in the compiler||1
+  Cmn14=directives of the module).\\			  	  It corresponds to the Message$||1
+  Cmn15=string processed by the SHA-256 hash function.\\\\- For information||1
+  Cmn16=about the SHA-256 hash function: http://en.wikipedia.org/wiki/SHA_hash_functions\\
+  Cmn17=It includes a pseudocode of the SHA-256 algorithm\\\\- For information||1
+  Cmn18=about the HMAC (keyed-Hash Message Authentication Code):\\http://en.
+  Cmn19=wikipedia.org/wiki/HMAC\\It includes a pseudocode implementation||1
+  Cmn20=of the HMAC\\\\Other resources:\\- HMAC RFC: http://www.faqs.org/rfcs/rfc2104.
+  Cmn21=html)\\- Online encryption tool to Generate a SHA-256, provides||1
+  Cmn22=also the option to use a Secret Key:\\http://hash.online-convert.
+  Cmn23=com/sha256-generator\\\\
+[END]
+[BEGIN]
+  ObjTp=Symbol
+  Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,718,756,854,
+  Exclusions_CDS=6
+  Inclusions_CDS=5
+  Name=HMAC SHA-256 Engine
+  SmplCName=HMAC SHA-256 Engine.usp
+  Code=1
+  SysRev5=4.000
+  SMWRev=2.02.05
+  InputList2Cue1=ArraySize
+  InputList2SigType1=Analog
+  InputList2Cue2=[~UNUSED~]
+  InputList2SigType2=Serial
+  InputList2Cue3=SecretKey$
+  InputList2SigType3=Serial
+  InputList2Cue4=Message$
+  InputList2SigType4=Serial
+  OutputList2Cue1=[~UNUSED~]
+  OutputList2SigType1=Serial
+  OutputList2Cue2=HMAC_SHA256
+  OutputList2SigType2=Serial
+  OutputList2Cue3=[~UNUSED~]
+  OutputList2SigType3=Serial
+  OutputList2Cue4=SHA256_Debug$
+  OutputList2SigType4=Serial
+  ParamCue1=[Reference Name]
+  MinVariableInputs=0
+  MaxVariableInputs=0
+  MinVariableInputsList2=4
+  MaxVariableInputsList2=4
+  MinVariableOutputs=0
+  MaxVariableOutputs=0
+  MinVariableOutputsList2=4
+  MaxVariableOutputsList2=4
+  MinVariableParams=0
+  MaxVariableParams=0
+  Expand=expand_separately
+  Expand2=expand_separately
+  ProgramTree=Logic
+  SymbolTree=32
+  Hint=
+  PdfHelp=
+  HelpID= 
+  Render=4
+  Smpl-C=16
+  CompilerCode=-48
+  CompilerParamCode=27
+  CompilerParamCode5=14
+  NumFixedParams=1
+  Pp1=1
+  MPp=1
+  NVStorage=10
+  ParamSigType1=String
+  SmplCInputCue1=o#
+  SmplCOutputCue1=i#
+  SmplCInputList2Cue1=an#
+  SmplCOutputList2Cue1=ai#
+  SPlus2CompiledName=S2_HMAC_SHA_256_Engine
+  SymJam=NonExclusive
+  FileName=HMAC SHA-256 Engine.ush
+[END]
+[BEGIN]
+  ObjTp=Dp
+  H=1
+  Tp=1
+  NoS=False
+[END]

@@ -1,0 +1,26 @@
+#DEFAULT_VOLATILE
+
+STRING_INPUT TOD[ 20 ];
+
+STRING_OUTPUT TOD_STRIPPED;
+
+String gsTODStripped[ 20 ];
+
+CHANGE TOD
+{
+    String sTODStripped[ 20 ];
+    
+    sTODStripped = Left( TOD, 12 ) + "000000";
+    
+    If( sTODStripped != gsTODStripped )
+    {
+    	gsTODStripped = sTODStripped;
+    	TOD_STRIPPED = gsTODStripped;
+    }
+	
+}
+
+Function Main( )
+{
+	gsTODStripped = "000000000000000000";
+}

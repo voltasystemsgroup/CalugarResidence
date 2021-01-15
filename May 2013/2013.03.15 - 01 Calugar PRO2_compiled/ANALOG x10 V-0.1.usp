@@ -1,0 +1,12 @@
+
+
+ANALOG_INPUT IN;
+
+ANALOG_OUTPUT OUT;
+
+
+
+CHANGE IN
+{
+	OUT = IN * 10;
+}

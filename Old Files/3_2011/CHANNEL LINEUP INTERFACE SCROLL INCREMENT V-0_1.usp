@@ -1,0 +1,36 @@
+
+
+DIGITAL_INPUT UP, DOWN;
+
+ANALOG_INPUT INCREMENT;
+ANALOG_INPUT MIN_VAL, MAX_VAL;
+
+ANALOG_INPUT IN;
+ANALOG_OUTPUT OUT;
+
+
+
+
+PUSH UP
+{
+	Integer n;
+	
+	n = IN + INCREMENT;
+	
+	If( n >= MIN_VAL && n <= MAX_VAL )
+		OUT = n;
+	Else
+		OUT = MAX_VAL;
+}
+
+PUSH DOWN
+{
+	Integer n;
+	
+	n = IN - INCREMENT;
+	
+	If( n >= MIN_VAL && n <= MAX_VAL )
+		OUT = n;
+	Else
+		OUT = MIN_VAL;
+}

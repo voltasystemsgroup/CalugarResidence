@@ -1,0 +1,126 @@
+#ifndef __S2_RING_COUNTER_V_0_2_H__
+#define __S2_RING_COUNTER_V_0_2_H__
+
+
+
+
+/*
+* Constructor and Destructor
+*/
+
+/*
+* DIGITAL_INPUT
+*/
+#define __S2_RING_COUNTER_V_0_2_RESET_DIG_INPUT 0
+#define __S2_RING_COUNTER_V_0_2_PREVIOUS_DIG_INPUT 1
+#define __S2_RING_COUNTER_V_0_2_NEXT_DIG_INPUT 2
+
+
+/*
+* ANALOG_INPUT
+*/
+#define __S2_RING_COUNTER_V_0_2_FORCE_ANALOG_INPUT 0
+#define __S2_RING_COUNTER_V_0_2_RANGE_ANALOG_INPUT 1
+
+
+
+
+/*
+* DIGITAL_OUTPUT
+*/
+
+#define __S2_RING_COUNTER_V_0_2_OUT_DIG_OUTPUT 0
+#define __S2_RING_COUNTER_V_0_2_OUT_ARRAY_LENGTH 32
+
+/*
+* ANALOG_OUTPUT
+*/
+
+
+
+/*
+* Direct Socket Variables
+*/
+
+
+
+
+/*
+* INTEGER_PARAMETER
+*/
+#define __S2_RING_COUNTER_V_0_2_WRAP_AROUND_INTEGER_PARAMETER 10
+#define __S2_RING_COUNTER_V_0_2_START_POS_INTEGER_PARAMETER 11
+/*
+* SIGNED_INTEGER_PARAMETER
+*/
+/*
+* LONG_INTEGER_PARAMETER
+*/
+/*
+* SIGNED_LONG_INTEGER_PARAMETER
+*/
+/*
+* INTEGER_PARAMETER
+*/
+/*
+* SIGNED_INTEGER_PARAMETER
+*/
+/*
+* LONG_INTEGER_PARAMETER
+*/
+/*
+* SIGNED_LONG_INTEGER_PARAMETER
+*/
+/*
+* STRING_PARAMETER
+*/
+
+
+/*
+* INTEGER
+*/
+
+
+/*
+* LONG_INTEGER
+*/
+
+
+/*
+* SIGNED_INTEGER
+*/
+
+
+/*
+* SIGNED_LONG_INTEGER
+*/
+
+
+/*
+* STRING
+*/
+
+/*
+* STRUCTURE
+*/
+
+START_GLOBAL_VAR_STRUCT( S2_RING_COUNTER_V_0_2 )
+{
+   void* InstancePtr;
+   struct GenericOutputString_s sGenericOutStr;
+   unsigned short LastModifiedArrayIndex;
+
+   DECLARE_IO_ARRAY( __OUT );
+   unsigned short __GNINITCOMPLETE;
+   unsigned short __GNOUTPUT;
+   unsigned short __GNLASTOUTPUT;
+};
+
+START_NVRAM_VAR_STRUCT( S2_RING_COUNTER_V_0_2 )
+{
+};
+
+
+
+#endif //__S2_RING_COUNTER_V_0_2_H__
+

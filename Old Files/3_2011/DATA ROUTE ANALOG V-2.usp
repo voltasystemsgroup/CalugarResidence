@@ -1,0 +1,51 @@
+#DEFINE_CONSTANT MAXARRAY 48
+
+
+Digital_Input SLOT_ENABLE[MAXARRAY];
+Analog_Input VAL_IN;    
+
+Analog_Output VAL_OUT[MAXARRAY];
+
+
+
+
+Integer SLOTMAX;
+
+Function CalcMAX()
+{
+	Integer Index, Count; 
+	Count = 0;
+	
+    For(Index = 1 To MAXARRAY)
+	{
+		IF(IsSignalDefined(SLOT_ENABLE[Index]))  
+			Count = Count + 1;	
+	} 
+
+    SLOTMAX = Count;
+
+
+}
+
+Function PassOutput()
+{
+	Integer Index;
+	
+	For(Index = 1 to SLOTMAX)
+	{
+		If(SLOT_ENABLE[Index])
+			 VAL_OUT[Index] = VAL_IN;
+	}
+
+
+
+}
+Change VAL_IN
+{	
+	PassOutput();
+}
+  
+Function Main()
+{
+	CalcMAX();
+}

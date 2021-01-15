@@ -1,0 +1,41 @@
+
+
+
+#DEFINE_CONSTANT MAX_ARRAY 200
+
+
+ANALOG_INPUT CHANNEL_FB;
+
+
+ANALOG_INPUT CHANNEL_LINEUP_CH[ MAX_ARRAY ]; 
+
+DIGITAL_OUTPUT CHANNEL_LINEUP_FB[ MAX_ARRAY ];
+
+
+Integer gnIndex;
+
+
+CHANGE CHANNEL_FB
+{
+	Integer nCount;	
+	
+	For( nCount = 1 To MAX_ARRAY )
+	{
+		If( CHANNEL_LINEUP_CH[ nCount ] = CHANNEL_FB )
+		{
+			If( gnIndex )
+			{
+				CHANNEL_LINEUP_FB[ gnIndex ] = OFF;
+			}
+			
+			gnIndex = nCount;
+			
+			CHANNEL_LINEUP_FB[ gnIndex ] = ON;						
+		}
+	}
+}
+
+Function Main( )
+{
+	gnIndex = 0;
+}

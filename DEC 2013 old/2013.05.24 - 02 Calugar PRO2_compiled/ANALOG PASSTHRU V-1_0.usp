@@ -1,0 +1,65 @@
+
+
+#DEFINE_CONSTANT MAX_IO 32
+				
+DIGITAL_INPUT _SKIP_, ENABLE, _SKIP_, REPROP_ON_ENABLE, _SKIP_;
+
+DIGITAL_INPUT DISABLE_VALUE_0;
+
+DIGITAL_INPUT DISABLE_VALUE[ MAX_IO, MAX_IO ];                
+
+ANALOG_INPUT _SKIP_, IN;
+
+DIGITAL_OUTPUT 	_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_;
+
+ANALOG_OUTPUT _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, OUT[ MAX_IO ];
+
+INTEGER_PARAMETER DELAY_TIME;
+#BEGIN_PARAMETER_PROPERTIES DELAY_TIME
+
+	PropDefaultUnit 	= 	UnitTime;
+	PropDefaultValue 	= 	0s;
+	
+#END_PARAMETER_PROPERTIES
+
+
+Integer gnInitComplete;
+
+Function Passthru( )
+{
+	Integer nCount;
+	
+	Delay( DELAY_TIME );
+	For( nCount = 1 To MAX_IO )
+	{			
+		If( IsSignalDefined( OUT[ nCount ] ) && ( ( IN && !DISABLE_VALUE[ IN ] ) || ( !IN && !DISABLE_VALUE_0 ) ) )
+		{
+			OUT[ nCount ] = IN;
+		}
+	}	
+}
+
+CHANGE IN
+{
+	If( gnInitComplete && ENABLE )
+	{
+		Passthru( );
+	}
+}
+
+PUSH ENABLE
+{
+	If( gnInitComplete && REPROP_ON_ENABLE )
+	{
+		Passthru( );
+	}
+}
+
+Function Main( )
+{
+    gnInitComplete = 0;
+	gnInitComplete = !WaitForInitializationComplete( );
+}

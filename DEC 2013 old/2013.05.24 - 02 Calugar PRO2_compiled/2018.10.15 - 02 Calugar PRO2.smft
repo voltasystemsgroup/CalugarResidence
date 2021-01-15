@@ -1,0 +1,130 @@
+<Device Model="PRO2">
+   <Network Type="Ethernet" Id="08">
+      <Device Model="DM-MD8x8" DeviceId="50"/>
+      <Device Model="CEN-IDOCV" DeviceId="51"/>
+      <Device Model="CEN-RFGW-EX" DeviceId="C1" Name="CEN-RFGW-EX (Ethernet) [GYM]">
+         <Network Type="RF">
+            <Device Model="MTX-3" DeviceId="0A" Name="MTX-3 [GYM]"/>
+            <Device Model="MTX-3" DeviceId="0B" Name="MTX-3 [FAMILY]"/>
+         </Network>
+      </Device>
+      <Device Model="CEN-RFGW-EX" DeviceId="C2" Name="CEN-RFGW-EX (Ethernet) [LIVING]">
+         <Network Type="RF">
+            <Device Model="MTX-3" DeviceId="0B" Name="MTX-3 [LIVING]"/>
+            <Device Model="MTX-3" DeviceId="0C" Name="MTX-3 [BILLIARD]"/>
+         </Network>
+      </Device>
+      <Device Model="CEN-RFGW-EX" DeviceId="C3" Name="CEN-RFGW-EX (Ethernet) [MASTER BED]">
+         <Network Type="RF">
+            <Device Model="MTX-3" DeviceId="09" Name="MTX-3 [MASTER]"/>
+         </Network>
+      </Device>
+   </Network>
+   <Network Type="Cresnet" Id="09">
+      <Device Model="CNX-BIPAD-8,CNX-BIPAD8" DeviceId="41" Name="CNX-BIPAD8"/>
+      <Device Model="CNX-BIPAD-8,CNX-BIPAD8" DeviceId="42" Name="CNX-BIPAD8"/>
+      <Device Model="CNAMPX-16X60" DeviceId="51" Name="CNAMPX-16x60"/>
+      <Device Model="CNAMPX-16X60" DeviceId="52" Name="CNAMPX-16x60"/>
+      <Device Model="C2N-MNETGW" DeviceId="61">
+         <Network Type="RF">
+            <Device Model="CLW-DIM1RF" DeviceId="03" Name="LIGHTING_CIRCUIT_001 [UTILITY CLOSET]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="04" Name="LIGHTING_CIRCUIT_002 [GUEST HALL]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="05" Name="LIGHTING_CIRCUIT_003 [WEST GUEST ROOM]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="06" Name="LIGHTING_CIRCUIT_004 [WEST GUEST CLOSET]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="07" Name="LIGHTING_CIRCUIT_005 [WEST GUEST BATH]"/>
+            <Device Model="CLW-SW1RF" DeviceId="08" Name="LIGHTING_CIRCUIT_006 [WEST GUEST BATH FAN] 115"/>
+            <Device Model="CLW-DIM1RF" DeviceId="09" Name="LIGHTING_CIRCUIT_007 [EAST GUEST ROOM]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0A" Name="LIGHTING_CIRCUIT_008 [EAST GUEST CLOSET]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0B" Name="LIGHTING_CIRCUIT_009 [EAST GUEST BATH]"/>
+            <Device Model="CLW-SW1RF" DeviceId="0C" Name="LIGHTING_CIRCUIT_010 [EAST GUEST BATH FAN] 096"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0D" Name="LIGHTING_CIRCUIT_011 [W&E GUEST PATIO @ EAST GUEST PATIO]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0E" Name="LIGHTING_CIRCUIT_012 [GUEST HALL BATH 1]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0F" Name="LIGHTING_CIRCUIT_013 [GUEST HALL BATH 2]"/>
+            <Device Model="CLW-SW1RF" DeviceId="10" Name="LIGHTING_CIRCUIT_014 [GUEST HALL BATH FAN] 117"/>
+            <Device Model="CLW-DIM1RF" DeviceId="11" Name="LIGHTING_CIRCUIT_015 [MASTER BED OUTSIDE OF ENTRY]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="12" Name="LIGHTING_CIRCUIT_016 [MASTER BED INSIDE OF ENTRY]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="13" Name="LIGHTING_CIRCUIT_017 [HER BATH @ ENTRY 1]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="14" Name="LIGHTING_CIRCUIT_018 [HER BATH @ ENTRY 2]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="15" Name="LIGHTING_CIRCUIT_019 [HER BATH @ SINK]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="16" Name="LIGHTING_CIRCUIT_020 [HER BATH @ VANITY]"/>
+            <Device Model="CLW-SW1RF" DeviceId="17" Name="LIGHTING_CIRCUIT_021 [HER BATH FAN] 120"/>
+            <Device Model="CLW-DIM1RF" DeviceId="18" Name="LIGHTING_CIRCUIT_022 [HER BATH TOILET]"/>
+            <Device Model="CLW-SW1RF" DeviceId="19" Name="LIGHTING_CIRCUIT_023 [HER WIC]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="1A" Name="LIGHTING_CIRCUIT_024 [HIS BATH @ ENTRY]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="1B" Name="LIGHTING_CIRCUIT_025 [HIS BATH @ URINAL 1]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="1C" Name="LIGHTING_CIRCUIT_026 [HIS BATH @ URINAL 2]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="1D" Name="LIGHTING_CIRCUIT_027 [HIS BATH @ SHOWER]"/>
+            <Device Model="CLW-SW1RF" DeviceId="1E" Name="LIGHTING_CIRCUIT_028 [HIS BATH TOILET FAN] 094"/>
+            <Device Model="CLW-SW1RF" DeviceId="1F" Name="LIGHTING_CIRCUIT_029 [HIS BATH SHOWER FAN] 111"/>
+            <Device Model="CLW-DIM1RF" DeviceId="20" Name="LIGHTING_CIRCUIT_030 [MASTER BED @ BED WALL]"/>
+         </Network>
+      </Device>
+      <Device Model="C2N-MNETGW" DeviceId="62">
+         <Network Type="RF">
+            <Device Model="CLW-DIM1RF" DeviceId="03" Name="LIGHTING_CIRCUIT_031 [WEST GUEST HALL]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="04" Name="LIGHTING_CIRCUIT_032 [BILLIARD 1] 140"/>
+            <Device Model="CLW-DIM1RF" DeviceId="05" Name="LIGHTING_CIRCUIT_033 [BILLIARD 2] 199"/>
+            <Device Model="CLW-DIM1RF" DeviceId="06" Name="LIGHTING_CIRCUIT_034 [BILLIARD PATIO] 060"/>
+            <Device Model="CLW-DIM1RF" DeviceId="07" Name="LIGHTING_CIRCUIT_035 [FOYER 1] 148"/>
+            <Device Model="CLW-DIM1RF" DeviceId="08" Name="LIGHTING_CIRCUIT_036 [FOYER 2] 179"/>
+            <Device Model="CLW-DIM1RF" DeviceId="09" Name="LIGHTING_CIRCUIT_037 [MAIN HALL 1] 567"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0A" Name="LIGHTING_CIRCUIT_038 [MAIN HALL 2] 072"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0B" Name="LIGHTING_CIRCUIT_039 [MAIN HALL 3] 565"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0C" Name="LIGHTING_CIRCUIT_040 [LIVING ROOM @ MAIN HALL] 553"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0D" Name="LIGHTING_CIRCUIT_041 [LIVING ROOM FIREPLACE CUBBY'S]  596"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0E" Name="LIGHTING_CIRCUIT_042 [LIVING ROOM PATIO CUBBY'S] 100"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0F" Name="LIGHTING_CIRCUIT_043 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="10" Name="LIGHTING_CIRCUIT_044 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="11" Name="LIGHTING_CIRCUIT_045 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="12" Name="LIGHTING_CIRCUIT_046 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="13" Name="LIGHTING_CIRCUIT_047 []"/>
+            <Device Model="INET-CBD" DeviceId="14" Name="KP08 [BILLIARD @ LIVING ROOM ENTRY]"/>
+            <Device Model="INET-CBD" DeviceId="15" Name="KP01 [WEST GUEST ROOM] 807"/>
+            <Device Model="INET-CBD" DeviceId="16" Name="KP02 [MASTER BED @ OUTSIDE OF ENTRY] 474"/>
+            <Device Model="INET-CBD" DeviceId="17" Name="KP03 [MASTER BED @ INSIDE OF ENTRY] 800"/>
+            <Device Model="INET-CBD" DeviceId="18" Name="KP04 [MASTER BED @ HER WIC] 844"/>
+            <Device Model="INET-CBD" DeviceId="19" Name="KP05 [HER BATH @ ENTRY] 472"/>
+            <Device Model="INET-CBD" DeviceId="1A" Name="KP06 [HIS BATH @ ENTRY] 836"/>
+            <Device Model="INET-CBD" DeviceId="1B" Name="KP07 [MASTER BED @ BED WALL] 463"/>
+            <Device Model="INET-CBD" DeviceId="1C" Name="KP08 [BILLIARD @ MASTER ENTRY] 823"/>
+            <Device Model="INET-CBD" DeviceId="1D" Name="KP09 [FOYER @ ENTRY] 828"/>
+            <Device Model="INET-CBD" DeviceId="1E" Name="KP10 [MAIN HALL @ ENTRY] 841"/>
+            <Device Model="INET-CBD" DeviceId="1F" Name="KP11 [LIVING ROOM @ MAIN HALL] 826"/>
+            <Device Model="INET-CBD" DeviceId="20" Name="KP12 [LIVING ROOM @ BILLIARD] 849"/>
+         </Network>
+      </Device>
+      <Device Model="C2N-MNETGW" DeviceId="63">
+         <Network Type="RF">
+            <Device Model="CLW-DIM1RF" DeviceId="03" Name="LIGHTING_CIRCUIT_049 [LAUNDRY] 151"/>
+            <Device Model="CLW-DIM1RF" DeviceId="04" Name="LIGHTING_CIRCUIT_050 [GYM] 161"/>
+            <Device Model="CLW-DIM1RF" DeviceId="05" Name="LIGHTING_CIRCUIT_051 [GYM BATH] 173"/>
+            <Device Model="CLW-SW1RF" DeviceId="06" Name="LIGHTING_CIRCUIT_052 [GYM BATH FAN]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="07" Name="LIGHTING_CIRCUIT_053 [SERVICE ENTRY HALL] 556"/>
+            <Device Model="CLW-DIM1RF" DeviceId="08" Name="LIGHTING_CIRCUIT_054 [KITCHEN @ PATIO LEFT] 573"/>
+            <Device Model="CLW-DIM1RF" DeviceId="09" Name="LIGHTING_CIRCUIT_055 [KITCHEN @ PATIO CENTER] 421"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0A" Name="LIGHTING_CIRCUIT_056 [KITCHEN ABOVE STOVE 1] 061"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0B" Name="LIGHTING_CIRCUIT_057 [KITCHEN ABOVE STOVE 2] 181"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0C" Name="LIGHTING_CIRCUIT_058 [KITCHEN ABOVE STOVE 3] 074"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0D" Name="LIGHTING_CIRCUIT_059 [FAMILY/DINING @ PATIO] 549"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0E" Name="LIGHTING_CIRCUIT_060 [KITCHEN @ LAUNDRY SHELF 1] 146"/>
+            <Device Model="CLW-DIM1RF" DeviceId="0F" Name="LIGHTING_CIRCUIT_061 [KITCHEN @ LAUNDRY SHELF 2] 054"/>
+            <Device Model="CLW-SW1RF" DeviceId="10" Name="LIGHTING_CIRCUIT_062 [LAUNDRY FAN]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="11" Name="LIGHTING_CIRCUIT_063 [KITCHEN UNDER COUNTER]"/>
+            <Device Model="CLW-DIM1RF" DeviceId="12" Name="LIGHTING_CIRCUIT_064 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="13" Name="LIGHTING_CIRCUIT_065 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="14" Name="LIGHTING_CIRCUIT_066 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="15" Name="LIGHTING_CIRCUIT_067 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="16" Name="LIGHTING_CIRCUIT_068 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="17" Name="LIGHTING_CIRCUIT_069 []"/>
+            <Device Model="CLW-DIM1RF" DeviceId="18" Name="LIGHTING_CIRCUIT_070 []"/>
+            <Device Model="INET-CBD" DeviceId="1E" Name="KP13 [LIVING ROOM @ FIREPLACE] 520"/>
+            <Device Model="INET-CBD" DeviceId="1F" Name="KP14 [SERVICE ENTRY HALL] 448"/>
+            <Device Model="INET-CBD" DeviceId="20" Name="KP15 [KITCHEN @ DINING] 798"/>
+         </Network>
+      </Device>
+      <Device Model="CHV-TSTATA,CHV-THSTATA," DeviceId="71" Name="Crestron CHV-THSTAT"/>
+      <Device Model="CHV-TSTATA,CHV-THSTATA," DeviceId="72" Name="Crestron CHV-THSTAT"/>
+      <Device Model="CHV-TSTATA,CHV-THSTATA," DeviceId="73" Name="Crestron CHV-THSTAT"/>
+      <Device Model="CHV-TSTATA,CHV-THSTATA," DeviceId="74" Name="Crestron CHV-THSTAT"/>
+   </Network>
+</Device>

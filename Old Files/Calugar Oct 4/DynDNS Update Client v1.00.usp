@@ -1,0 +1,165 @@
+
+#DEFAULT_VOLATILE
+
+
+#DEFINE_CONSTANT GET_IP_TCP_CLIENT_IPA "checkip.dyndns.com"
+#DEFINE_CONSTANT GET_IP_TCP_CLIENT_IPP 80
+
+#DEFINE_CONSTANT UPDATE_TCP_CLIENT_IPA "members.dyndns.org"
+#DEFINE_CONSTANT UPDATE_TCP_CLIENT_IPP 80
+
+#DEFINE_CONSTANT TCP_CLIENT_USER_AGENT "Koppa1 Corporation - DynDNS Update Client - 1.00"
+
+#DEFINE_CONSTANT MAX_TCP_BUF 4096
+
+
+DIGITAL_INPUT _DEBUG_, GET_IP_ADDRESS;
+
+STRING_INPUT 	HOST_NAME[ 256 ], 
+				FORCE_IP_ADDRESS[ 16 ],
+				BASE64_UID_PWD[ 64 ];
+
+STRING_OUTPUT IP_ADDRESS;
+
+TCP_Client GetIPTCPClient[ MAX_TCP_BUF ];
+TCP_Client UpdateTCPClient[ MAX_TCP_BUF ];
+
+NonVolatile String gsIPAddress[ 16 ];
+
+Function UpdateDNS( )
+{
+	Signed_Integer siErr;
+	
+	siErr = SocketConnectClient( UpdateTCPClient, UPDATE_TCP_CLIENT_IPA, UPDATE_TCP_CLIENT_IPP, 0 );
+		
+	If( siErr < 0 ) 
+	{
+		Print( "%s - SocketConnect Error = %d\n", GetSymbolInstanceName( ), siErr );
+	}
+}
+
+CHANGE FORCE_IP_ADDRESS
+{
+	gsIPAddress = FORCE_IP_ADDRESS;
+	IP_ADDRESS = gsIPAddress;
+	UpdateDNS( );	
+}
+
+
+PUSH GET_IP_ADDRESS
+{
+	Signed_Integer siErr;
+	
+	siErr = SocketConnectClient( GetIPTCPClient, GET_IP_TCP_CLIENT_IPA, GET_IP_TCP_CLIENT_IPP, 0 );
+		
+	If( siErr < 0 ) 
+	{
+		Print( "%s - SocketConnect Error = %d\n", GetSymbolInstanceName( ), siErr );
+	}
+}
+
+SOCKETSTATUS GetIPTCPClient
+{	
+	Switch( GetIPTCPClient.SocketStatus )
+	{
+		Case( 3 ): //connection failed
+		{
+			SocketDisconnectClient( GetIPTCPClient );
+		} 
+		Case( 4 ): //connection broken remotely
+		{
+			SocketDisconnectClient( GetIPTCPClient );
+		}
+		Case( 7 ): //dns lookup failed
+		{
+			SocketDisconnectClient( GetIPTCPClient );
+		}
+	}
+	If( _DEBUG_ ) Print( "%s - Socket Status = %d\n", GetSymbolInstanceName( ), GetIPTCPClient.SocketStatus );
+}
+
+SOCKETSTATUS UpdateTCPClient
+{	
+	Switch( UpdateTCPClient.SocketStatus )
+	{
+		Case( 3 ): //connection failed
+		{
+			SocketDisconnectClient( UpdateTCPClient );
+		} 
+		Case( 4 ): //connection broken remotely
+		{
+			SocketDisconnectClient( UpdateTCPClient );
+		}
+		Case( 7 ): //dns lookup failed
+		{
+			SocketDisconnectClient( UpdateTCPClient );
+		}
+	}
+	If( _DEBUG_ ) Print( "%s - Socket Status = %d\n", GetSymbolInstanceName( ), UpdateTCPClient.SocketStatus );
+}
+
+SOCKETCONNECT GetIPTCPClient
+{
+	String sGet[ MAX_TCP_BUF ];
+		
+	MakeString( sGet, "GET / HTTP/1.1\nHost: %s\nUser-Agent: %s\n\n", GET_IP_TCP_CLIENT_IPA, TCP_CLIENT_USER_AGENT );
+	
+	If( _DEBUG_ ) Print( "%s", sGet );
+	
+	SocketSend( GetIPTCPClient, sGet );
+}
+
+SOCKETCONNECT UpdateTCPClient
+{
+	String sGet[ MAX_TCP_BUF ];
+		
+	MakeString( sGet, "GET /nic/update?hostname=%s&myip=%s&wildcard=NOCHG&mx=NOCHG&backmx=NOCHG HTTP/1.1\nHost: %s\nAuthorization: Basic %s\nUser-Agent: %s\n\n", 
+				HOST_NAME, gsIPAddress, UPDATE_TCP_CLIENT_IPA, BASE64_UID_PWD, TCP_CLIENT_USER_AGENT );
+				
+	If( _DEBUG_ ) Print( "%s", sGet );
+	
+	SocketSend( UpdateTCPClient, sGet );
+}
+
+
+SOCKETRECEIVE GetIPTCPClient
+{
+	String sDump[ MAX_TCP_BUF ], sIPAddress[ 16 ];
+
+	If( _DEBUG_ ) Print( "\n\n%s\n\n", GetIPTCPClient.SocketRXBuf );
+	
+	//error handling here to be done
+			
+	sDump = Remove( "Current IP Address: ", GetIPTCPClient.SocketRXBuf );
+	
+	sIPAddress = Remove( "</body>", GetIPTCPClient.SocketRXBuf );
+	sIPAddress = Left( sIPAddress, Len( sIPAddress ) - 7 );
+	
+	If( gsIPAddress != sIPAddress )
+	{
+		gsIPAddress = sIPAddress;
+		IP_ADDRESS = gsIPAddress;
+		UpdateDNS( );	
+	}	
+	
+	ClearBuffer( GetIPTCPClient.SocketRXBuf );
+	
+	SocketDisconnectClient( GetIPTCPClient );
+}
+
+
+SOCKETRECEIVE UpdateTCPClient
+{
+	String sDump[ MAX_TCP_BUF ], sIPAddress[ 16 ];
+
+	If( _DEBUG_ ) Print( "\n\n%s\n\n", UpdateTCPClient.SocketRXBuf );
+	
+	//error handling here to be done
+	
+	ClearBuffer( UpdateTCPClient.SocketRXBuf );
+	
+	SocketDisconnectClient( UpdateTCPClient );
+}
+
+
+

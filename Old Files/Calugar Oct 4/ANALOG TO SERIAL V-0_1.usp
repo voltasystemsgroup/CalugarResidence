@@ -1,0 +1,15 @@
+
+#DEFINE_CONSTANT MAX_IO 200
+
+ANALOG_INPUT IN[ MAX_IO ];
+STRING_OUTPUT OUT[ MAX_IO ];
+
+
+CHANGE IN
+{
+	Integer nIndex;
+	
+	nIndex = GetLastModifiedArrayIndex( );
+	
+	OUT[ nIndex ] = IToA( IN[ nIndex ] );
+}

@@ -1,0 +1,66 @@
+
+#DEFINE_CONSTANT MAX_IO 33
+#DEFINE_CONSTANT MAX_FIELDS 49
+
+ANALOG_INPUT DATA[ MAX_FIELDS ];
+ANALOG_INPUT OUTPUT_DATA_INDEX[ MAX_IO ];
+ANALOG_OUTPUT OUTPUT[ MAX_IO ];
+
+Integer gnInitComplete;
+
+Function UpdateOutput( Integer nOutputIndex, Integer nDataIndex )
+{	
+	OUTPUT[ nOutputIndex ] = DATA[ nDataIndex ];
+}
+
+CHANGE OUTPUT_DATA_INDEX
+{
+	Integer nOutputIndex, nDataIndex;
+	
+	If( gnInitComplete )
+	{
+		nOutputIndex = GetLastModifiedArrayIndex();
+		
+        If( !( nOutputIndex <= 0 || nOutputIndex > MAX_IO ) )
+		{
+			nDataIndex = OUTPUT_DATA_INDEX[ nOutputIndex ];
+		
+			If( nDataIndex >= MAX_FIELDS )
+			{
+			    Print( "%s - Invalid Data Index = %d\n", GetSymbolInstanceName( ), nDataIndex );
+			}
+			Else
+			{
+				UpdateOutput( nOutputIndex, nDataIndex + 1 );
+			}
+		}
+	}
+}
+	
+
+CHANGE DATA
+{
+	Integer nOutputDataIndex, nDataIndex;
+	
+	If( gnInitComplete )
+	{
+		nDataIndex = GetLastModifiedArrayIndex( );	
+		
+		If( !( nDataIndex <= 0 || nDataIndex > MAX_FIELDS ) )
+		{
+			For( nOutputDataIndex = 1 To MAX_IO )
+			{
+				If( ( OUTPUT_DATA_INDEX[ nOutputDataIndex ] + 1 ) = nDataIndex )
+				{
+					UpdateOutput( nOutputDataIndex, OUTPUT_DATA_INDEX[ nOutputDataIndex ] + 1 ); 
+				}
+			}
+		} 
+	}
+}
+
+Function Main( )
+{
+	gnInitComplete = 0;
+	gnInitComplete = !WaitForInitializationComplete( );
+}

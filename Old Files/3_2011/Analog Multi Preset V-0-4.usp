@@ -1,0 +1,41 @@
+#DEFAULT_NONVOLATILE
+
+#DEFINE_CONSTANT MAXARRAY 16
+
+Digital_Input
+PRESET_SAVE,
+PRESET_TRIG;
+
+Analog_Input
+PRESET_INDEX,
+VAL_IN[MAXARRAY];
+
+Analog_Output 
+VAL_OUT[MAXARRAY];
+
+
+Integer nIndex[MAXARRAY][MAXARRAY];
+
+
+Push PRESET_TRIG
+{
+	Integer Count;
+    
+	For( Count = 1 to MAXARRAY )
+	{
+		VAL_OUT[ Count ] = nIndex[ PRESET_INDEX ][ Count ];
+	}	
+			
+}
+
+
+Push PRESET_SAVE
+{
+	Integer Count;
+    
+	For( Count = 1 to MAXARRAY )
+	{
+		nIndex[ PRESET_INDEX ][	Count ] = VAL_IN[ Count ];
+	}	
+}
+

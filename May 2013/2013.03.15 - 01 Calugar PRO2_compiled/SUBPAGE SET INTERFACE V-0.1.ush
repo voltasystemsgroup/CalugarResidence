@@ -1,0 +1,87 @@
+[BEGIN]
+  Version=1
+[END]
+[BEGIN]
+  ObjTp=FSgntr
+  Sgntr=UserSPlus
+  RelVrs=1
+  IntStrVrs=1
+  SPlusVrs=3.03.16
+  CrossCplrVrs=1.3
+[END]
+[BEGIN]
+  ObjTp=Symbol
+  Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,718,756,854,
+  Exclusions_CDS=6
+  Inclusions_CDS=5
+  Name=SUBPAGE SET INTERFACE V-0.1
+  SmplCName=SUBPAGE SET INTERFACE V-0.1.usp
+  Code=1
+  SysRev5=4.000
+  SMWRev=2.02.05
+  InputCue1=SUBPAGE_SET
+  InputSigType1=Digital
+  OutputCue1=SUBPAGE_SET_FB
+  OutputSigType1=Digital
+  InputList2Cue1=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[1]
+  InputList2SigType1=Analog
+  InputList2Cue2=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[2]
+  InputList2SigType2=Analog
+  InputList2Cue3=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[3]
+  InputList2SigType3=Analog
+  InputList2Cue4=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[4]
+  InputList2SigType4=Analog
+  InputList2Cue5=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[5]
+  InputList2SigType5=Analog
+  InputList2Cue6=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[6]
+  InputList2SigType6=Analog
+  InputList2Cue7=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[7]
+  InputList2SigType7=Analog
+  InputList2Cue8=SUBPAGE_SET_PAGE_POSITION_SUBPAGE_INDEX[8]
+  InputList2SigType8=Analog
+  InputList2Cue9=PAGE_POSITION_SUBPAGE_INDEX_IN[#]
+  InputList2SigType9=Analog
+  OutputList2Cue1=PAGE_POSITION_SUBPAGE_INDEX_OUT[#]
+  OutputList2SigType1=Analog
+  ParamCue1=[Reference Name]
+  MinVariableInputs=1
+  MaxVariableInputs=1
+  MinVariableInputsList2=9
+  MaxVariableInputsList2=16
+  MinVariableOutputs=1
+  MaxVariableOutputs=1
+  MinVariableOutputsList2=1
+  MaxVariableOutputsList2=8
+  MinVariableParams=0
+  MaxVariableParams=0
+  Expand=expand_separately
+  Expand2=expand_separately
+  ProgramTree=Logic
+  SymbolTree=32
+  Hint=
+  PdfHelp=
+  HelpID= 
+  Render=4
+  Smpl-C=16
+  CompilerCode=-48
+  CompilerParamCode=27
+  CompilerParamCode5=14
+  NumFixedParams=1
+  Pp1=1
+  MPp=1
+  NVStorage=10
+  ParamSigType1=String
+  SmplCInputCue1=o#
+  SmplCOutputCue1=i#
+  SmplCInputList2Cue1=an#
+  SmplCOutputList2Cue1=ai#
+  SPlus2CompiledName=S2_SUBPAGE_SET_INTERFACE_V_0_1
+  SymJam=NonExclusive
+  FileName=SUBPAGE SET INTERFACE V-0.1.ush
+[END]
+[BEGIN]
+  ObjTp=Dp
+  H=1
+  Tp=1
+  NoS=False
+[END]

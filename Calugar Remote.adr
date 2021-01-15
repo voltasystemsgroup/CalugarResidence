@@ -1,0 +1,25 @@
+[Entries]
+Gateway Living=tcp 10.0.1.201
+Gateway Game=tcp 10.0.1.200
+Gateway Master=tcp 10.0.1.202
+Pro2=tcp 10.0.1.101
+InetGateway=Pro2:cresnet 0B
+232=rs232 3,0,n,8,1,n,y
+USB=usb
+INET 1=Pro2:cresnet 61
+INET 2=Pro2:cresnet 62
+
+[Settings]
+DefaultEntry=
+
+[Comments]
+Gateway Living=
+Gateway Game=
+Gateway Master=
+Pro2=
+InetGateway=
+232=
+USB=
+INET 1=
+INET 2=
+

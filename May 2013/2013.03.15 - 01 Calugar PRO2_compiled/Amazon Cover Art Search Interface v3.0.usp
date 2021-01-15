@@ -1,0 +1,668 @@
+//Written by jfp for Crestron Electronics 9-15-09
+// Compiler Directives
+
+#SYMBOL_NAME "Amazon Cover Art Search Interface v3.0"
+// #HINT ""
+#DEFINE_CONSTANT TRUE 1
+#DEFINE_CONSTANT FALSE 0 
+#DEFINE_CONSTANT DEBUG 0
+
+#DEFINE_CONSTANT MAX_DATA_LEN 100
+#DEFINE_CONSTANT MAX_WORDS 10
+
+// TCP Status Flags
+#DEFINE_CONSTANT TCP_NOT_CONNECTED 						0
+#DEFINE_CONSTANT TCP_WAITING_FOR_CONNECTION 			1
+#DEFINE_CONSTANT TCP_CONNECTED 							2
+#DEFINE_CONSTANT TCP_CONNECTION_FAILED			 		3
+#DEFINE_CONSTANT TCP_CONNECTION_BROKEN_REMOTELY		    4
+#DEFINE_CONSTANT TCP_CONNECTION_BROKEN_LOCALLY		    5
+#DEFINE_CONSTANT TCP_PERFORMING_DNS_LOOKUP				6
+#DEFINE_CONSTANT TCP_DNS_LOOKUP_FAILED					7
+   
+// Timeserver Constants
+
+#DEFINE_CONSTANT TSERVER		"132.163.4.103" //Time.nist.gov url. Updates time using the Daytime Protocol (RFC-867)
+#DEFINE_CONSTANT TPORT			13				//Port number for time server  
+   
+// Constants for building a proper signature request following the REST format.
+
+#DEFINE_CONSTANT SIG_HEADER 	"GET\x0A" 
+#DEFINE_CONSTANT SIG_HEADER2 	"\x0A/onca/xml\x0AAWSAccessKeyId="
+#DEFINE_CONSTANT SIG_MIDDLE1 	"&Artist="
+#DEFINE_CONSTANT SIG_MIDDLE2 	"&Operation=ItemSearch"
+#DEFINE_CONSTANT SIG_MIDDLE3 	"&ResponseGroup=Images"
+#DEFINE_CONSTANT SIG_MIDDLE4 	"&SearchIndex=Music"
+#DEFINE_CONSTANT SIG_MIDDLE5 	"&Service=AWSECommerceService"
+#DEFINE_CONSTANT SIG_MIDDLE6 	"&Timestamp="                 
+#DEFINE_CONSTANT SIG_MIDDLE7 	"&Title="
+#DEFINE_CONSTANT SIG_FOOTER 	"&Version=2009-06-01"
+                                                                               
+// Constants for building a proper search request
+                                   
+#DEFINE_CONSTANT HTTP_HEADER 	"GET /onca/xml?AWSAccessKeyId="
+#DEFINE_CONSTANT HTTP_HEADER2   "/"
+#DEFINE_CONSTANT HTTP_MIDDLE1 	"&Artist="
+#DEFINE_CONSTANT HTTP_MIDDLE2 	"&Operation=ItemSearch"
+#DEFINE_CONSTANT HTTP_MIDDLE3 	"&ResponseGroup=Images"
+#DEFINE_CONSTANT HTTP_MIDDLE4 	"&SearchIndex=Music"
+#DEFINE_CONSTANT HTTP_MIDDLE5   "&Service=AWSECommerceService"
+#DEFINE_CONSTANT HTTP_MIDDLE6   "&Timestamp="
+#DEFINE_CONSTANT HTTP_MIDDLE7 	"&Title="
+#DEFINE_CONSTANT HTTP_MIDDLE8 	"&Version=2009-06-01" 
+#DEFINE_CONSTANT HTTP_MIDDLE9 	"&Signature="
+#DEFINE_CONSTANT HTTP_FOOTER1 	" HTTP/1.1\nHost: "
+#DEFINE_CONSTANT HTTP_FOOTER2 	"\n\n"
+                                                                      
+// Constants for return image sizes
+                                                                               
+#DEFINE_CONSTANT SMALL 		1
+#DEFINE_CONSTANT MEDIUM 	2
+#DEFINE_CONSTANT LARGE 		3
+ 
+#DEFAULT_VOLATILE
+
+#ENABLE_STACK_CHECKING
+
+#HELP_BEGIN
+  This module requires .cuz 4.0 or greater
+	
+  This module uses Amazon's XML database to retrieve an HREF link
+  to an album art image. In order to use this module, you must provide
+  an AWS Access Key ID, as well as a host name. The Access Key ID
+  is obtained by registering with Amazon at:
+  
+  http://aws.amazon.com/
+  
+  Note: Since multiple album names can exist for any given artist,
+  the art that is returned may not be the exact cover desired.
+  
+  
+  Crestron Electronics, Inc. is not responsible for the use of the album
+  art image. Please refer to the Amazon license agreement for information
+  regarding content use from their website.
+  
+  
+  The actual URL required for searching is based on the local region:
+  
+  Local
+  
+  CA = ecs.amazonaws.ca
+  DE = ecs.amazonaws.de
+  FR = ecs.amazonaws.fr
+  JP = ecs.amazonaws.jp
+  UK = ecs.amazonaws.uk
+  US = ecs.amazonaws.com
+  
+  The URL should be entered into the processor IP table for the TCP Client connection. Remember
+  to properly configure the DNS server in the control system.
+  
+	Timestamp = Connects to time.nist.gov and updates time using the Daytime Protocol (RFC-867) Open the connection and the server
+	will supply the time string.  No need to send anything.
+	Connection: TCP/IP                                                  
+	Servers: 132.163.4.101, 132.163.4.102, 132.163.4.103
+	use port: 13  
+  
+#HELP_END
+
+// IO Variables
+
+DIGITAL_INPUT 	Search_Timeout;
+							 
+STRING_INPUT 	_skip_, Subscript_ID[30],
+			 	Encoded_Signature[255],
+             	Host_Name[50],
+             	Artist_Name[MAX_DATA_LEN],
+				Album_Title[MAX_DATA_LEN];
+					    
+ 
+
+DIGITAL_OUTPUT 	Search_Busy,
+				_skip_,
+			 	Image_Found,
+			 	No_Image_Found,
+			 	Data_Missing,
+			 	Data_Same_As_Previous,		
+               	Search_Error;
+               	
+ANALOG_OUTPUT	_skip_, arraySize;               	
+							   
+STRING_OUTPUT 	_skip_,
+				SignatureRequest,
+				_skip_,
+              	Best_HREF,
+			  	Small_HREF,
+			  	Medium_HREF,
+			  	Large_HREF; 
+			  	
+//Sockets
+
+TCP_Client	Timeserver[1000];		//Direct Socket client to get timestamp			  	
+TCP_Client 	AMAZON[2000];           //Direct Socket Client to connect to amazon
+
+
+//  Global Variables
+
+INTEGER bRXOK, bSearchBusy;
+
+STRING sArtistName[MAX_DATA_LEN], sAlbumTitle[MAX_DATA_LEN], sTemp[2000];
+STRING sLastArtistName[MAX_DATA_LEN], sLastAlbumTitle[MAX_DATA_LEN];
+
+
+INTEGER bFoundImage, bFoundSmall, bFoundMedium, bFoundLarge;
+INTEGER bURLSmall, bURLMedium, bURLLarge;
+
+INTEGER bMatchLastArtist, bMatchLastAlbum, bNoArtist, bNoAlbum;
+
+STRING sLargeHREF[255], sMediumHREF[255], sSmallHREF[255], dateTimeREF[50], offsetDateTimeREF[50]; 
+
+string hex[255][3];			//percent encoding array
+
+
+//  Functions 
+
+/*This function is to ensure that the Artist and Album data get properly %encoded before building the request string
+  This will only properly work in this instance because of some special rules and will not be a proper function
+  to run elsewhere*/
+string_function percentEncode(string s)
+{
+	string 	rS[2000];
+	integer x;
+	integer ch;  
+	    
+	for(x = 1 to len(s))											//convert all char into decimal equivalent.
+	{
+		ch = byte(s, x);    
+		
+		if('A' <= ch && ch <= 'Z') 
+		{															// 'A'..'Z'
+        	rS = rS + chr(ch);
+        } 
+        else if('a' <= ch && ch <= 'z') 
+        {															// 'a'..'z'
+	       	rS = rS + chr(ch);
+	    } 
+	    else if('0' <= ch && ch <= '9') 
+	    {															// '0'..'9'
+	       	rS = rS + chr(ch);
+	    } 
+	    else if(ch = 0x20) 
+	    {															// space
+	       	rS = rS + hex[ch];
+	    } 
+	    else if(ch = '-' || ch = '_' || ch = '.' || ch = '!' || ch = '~' || ch = '*' || ch = '(' || ch = ')' || ch = atoi("\x5C"))                                                                                                                                                         
+	   	{                      										// unreserved
+        	rS = rS + chr(ch);
+        } 
+        else if(ch <= 0x007F) 
+        {															//Other ascii "=", "+", "/"
+        	rS = rS + hex[ch];
+   	    } 
+	    else if(ch <= 0x07FF) 
+	    {															// non-ASCII <= 0x7FF
+	       rS = rS + hex[0xC0 | (ch >> 6)];
+	       rS = rS + hex[0x80 | (ch & 0x3F)];
+	    } 
+	    else 
+	    {															// 0x7FF < ch <= 0xFFFF
+	       rS = rS + hex[0xE0 | (ch >> 12)];
+	       rS = rS + hex[0x80 | ((ch >> 6) & 0x3F)];
+	       rS = rS + hex[0x80 | (ch & 0x3F)];
+      	} 	
+	}
+	
+	return(rS);                                      
+}  
+
+Function ResetConnection()
+{
+	if (bFoundLarge)
+   		Best_HREF = sLargeHREF;
+  	else if (bFoundMedium)
+   		Best_HREF = sMediumHREF;
+  	else if (bFoundSmall)
+   		Best_HREF = sSmallHREF;
+    
+    socketDisconnectClient(AMAZON);
+	bSearchBusy = FALSE;
+	Search_Busy = FALSE;
+
+	bFoundImage = FALSE;
+  	bFoundSmall = FALSE;
+	bFoundMedium = FALSE;
+	bFoundLarge = FALSE;
+						
+	bURLSmall = FALSE;
+	bURLMedium = FALSE;
+	bURLLarge = FALSE;
+	
+	clearBuffer(AMAZON.socketRxBuf);
+}
+ 
+ 
+//This function builds a proper request including the timestamp and signature
+ 
+Function requestSignature()
+{
+	string sSignatureString[2000];
+	integer x;
+        
+    makestring (sSignatureString, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", SIG_HEADER, Host_Name, SIG_HEADER2, Subscript_ID, 
+    	SIG_MIDDLE1, sArtistName, SIG_MIDDLE2, SIG_MIDDLE3, SIG_MIDDLE4, SIG_MIDDLE5, SIG_MIDDLE6, dateTimeREF, 
+    	SIG_MIDDLE7, sAlbumTitle, SIG_FOOTER);
+                                            
+    
+    arraySize = len(sSignatureString);      
+               
+    
+    if(len(sSignatureString) > 250)             //chunk output to hash module (must by < 255)
+    {
+    	while(len(sSignatureString) > 250)
+    	{
+    		SignatureRequest = gatherbylength(250, sSignatureString);
+    	}   
+    	SignatureRequest = gatherbylength(len(sSignatureString), sSignatureString);
+    }
+    else
+    {
+        SignatureRequest = gatherbylength(len(sSignatureString), sSignatureString);
+    }	         
+}
+ 
+ 
+//This function builds a proper timestamp from nist.gov
+
+string_function nistTime(string rx$)
+{
+	string			strData[110];
+	string			strHours[2], strMinutes[2], strSeconds[2];
+	string			strYear[4], strMonth[2], strDay[2];
+	string			rS[50];
+	
+	do
+	{
+		strData = remove("\x0A",rx$);
+	}
+	until (len(rx$) = 0);
+	
+	if (len(strData) > 40 && (mid(strData,29,1) <> "4"))
+	{
+		strHours = mid(strData,16,2);
+		strMinutes = mid(strData,19,2);
+		strSeconds = mid(strData,22,2);
+		
+		strYear = "20" + mid(strData,7,2);
+		strMonth = mid(strData,10,2);
+		strDay = mid(strData,13,2);
+		rS = strYear + "-" +  strMonth + "-" + strDay + "T" + strHours + "%3A" + strMinutes + "%3A" + strSeconds + "Z"; 
+		return(rS);  
+	}
+}
+
+//send the packet with properly encoded signature
+
+Function SendSearchString()
+{
+    string sSearchString[1000], sTemp[255];
+    integer iLen;
+    signed_integer err;
+    
+    sSearchString = ""; 
+    iLen = 0;
+    
+    makestring (sSearchString, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", HTTP_HEADER, Subscript_ID, HTTP_MIDDLE1, sArtistName, 
+     HTTP_MIDDLE2, HTTP_MIDDLE3, HTTP_MIDDLE4, HTTP_MIDDLE5, HTTP_MIDDLE6, dateTimeREF, HTTP_MIDDLE7, sAlbumTitle, HTTP_MIDDLE8,  
+     HTTP_MIDDLE9, Encoded_Signature, HTTP_FOOTER1, Host_Name, HTTP_FOOTER2);
+      
+    if(AMAZON.socketStatus = 2)
+    {
+ 		err = socketSend(AMAZON, sSearchString);  
+ 		
+ 		if(err < 0)
+		{
+			generateusernotice("Socket Connect Client error # %d", err);
+		}
+    }                   
+}
+
+Function ProcessData(integer Type, string Data)
+{
+	switch (Type)
+	{
+		case(SMALL):
+		{
+			if (find("http://", Data))
+			{
+				sSmallHREF = left(Data, len(Data) - 6);
+        		Small_HREF = sSmallHREF;
+         
+				pulse (10, Image_Found);	
+			}
+		}
+		case(MEDIUM):
+		{
+			if (find("http://", Data))
+			{
+				sMediumHREF = left(Data, len(Data) - 6);
+        		Medium_HREF = sMediumHREF;
+				
+        pulse (10, Image_Found);	
+			}
+		}
+		case(LARGE):
+		{
+			if (find("http://", Data))
+			{
+				sLargeHREF = left(Data, len(Data) - 6);
+        		Large_HREF = sLargeHREF;
+        
+				pulse (10, Image_Found); 	
+			}
+		}
+	}	
+}
+
+Function ParseAlbumTitle(string Data)
+{
+	signed_integer err;
+	
+	string sTemp[MAX_DATA_LEN];
+
+	sAlbumTitle = percentEncode(Data);
+
+	err = socketConnectClient(AMAZON, Host_Name, 80, 1); 			
+	
+	if(err < 0)
+	{
+		generateusernotice("Socket Connect Client error # %d", err);
+	}
+}
+
+Function ParseArtistName(string Data)
+{
+	string sTemp[MAX_DATA_LEN];
+	
+	sArtistName = percentEncode(Data);	
+}
+
+// Events
+
+PUSH Search_Timeout
+{
+	call ResetConnection();
+}
+
+CHANGE Artist_Name
+{
+	string sTemp[MAX_DATA_LEN];
+	sTemp = Artist_Name;
+	
+	if (len(sTemp) > 0)
+	{
+		bNoArtist = FALSE;
+		
+		if (sLastArtistName <> Artist_Name)
+		{
+			bMatchLastArtist = FALSE;
+			
+			sLastArtistName = Artist_Name;
+			
+			if (bSearchBusy)
+			{
+				call ResetConnection();			
+			}
+		
+			call ParseArtistName(sTemp);
+		}
+		else
+		{
+			bMatchLastArtist = TRUE;
+		}
+	}
+	else
+	{
+		bNoArtist = TRUE;
+	}
+}
+
+CHANGE Album_Title
+{
+	string sTemp[MAX_DATA_LEN];
+	integer titleLen;				//variable used to remove parenthetic titles before search
+	
+	sTemp = Album_Title;
+
+	if (len(sTemp) > 0)
+	{
+		bNoAlbum = FALSE;
+		
+		if (sLastAlbumTitle <> Album_Title) //this is a new ablum title
+		{
+			bMatchLastAlbum = FALSE;
+			
+			sLastAlbumTitle = Album_Title;
+			  
+			if (bSearchBusy) //if we are already searching, stop
+			{
+				call ResetConnection();
+			}
+	
+			bSearchBusy = TRUE;
+			Search_Busy = TRUE;
+
+			bFoundImage = FALSE;
+      		bFoundSmall = FALSE;
+			bFoundMedium = FALSE;
+			bFoundLarge = FALSE;
+						
+			bURLSmall = FALSE;
+			bURLMedium = FALSE;
+			bURLLarge = FALSE;		
+		    
+		    if(find("(", sTemp))
+		    {
+		    	titleLen = find("(", sTemp) - 1;
+		    	sTemp = gatherbylength(titleLen, sTemp); 
+		    } 
+			call ParseAlbumTitle(sTemp);
+		}
+		else //matched last album title
+		{
+			bMatchLastAlbum = TRUE;
+		}
+	}
+	else
+	{
+		bNoAlbum = TRUE;
+	}
+	
+	if (bNoArtist || bNoAlbum)
+	 pulse (10, Data_Missing);
+	else
+	{ 
+		if (bMatchLastArtist && bMatchLastAlbum)
+	 	 pulse (10, Data_Same_As_Previous); 
+	}
+}
+
+CHANGE Encoded_Signature
+{
+	if(TCP_CONNECTED)
+	{
+		call SendSearchString();		
+	}        
+	else
+	{
+		call ResetConnection();
+	}
+} 
+
+socketStatus AMAZON
+{ 
+	string wrkString[5000]; 
+	signed_integer	err;
+	
+	switch (AMAZON.socketStatus)
+	{
+		case(TCP_NOT_CONNECTED):
+		{
+		}
+		case(TCP_WAITING_FOR_CONNECTION):
+		{
+		}
+		case(TCP_CONNECTED):
+		{   
+			//open direct socket to nist.gov to build timestamp.
+			err = socketConnectClient(Timeserver, TSERVER, TPORT, 1);   
+			    
+			if(err < 0)
+			{
+				generateusernotice("Time Server Socket Connect Client error # %d", err);
+			}
+		}
+		case(TCP_CONNECTION_FAILED):
+		{
+			call ResetConnection();
+		}
+		case(TCP_CONNECTION_BROKEN_REMOTELY):
+		{       
+      		call ResetConnection();		
+		}
+		case(TCP_CONNECTION_BROKEN_LOCALLY):
+		{       
+      		call ResetConnection();		
+		}
+		case(TCP_PERFORMING_DNS_LOOKUP):
+		{
+		}
+		case(TCP_DNS_LOOKUP_FAILED):
+		{
+			call ResetConnection();
+		}
+	}
+}
+
+socketStatus Timeserver
+{
+	if(Timeserver.socketStatus = 3 || Timeserver.socketStatus = 4)
+	{
+		socketDisconnectClient(Timeserver);
+	}
+}
+
+socketReceive Timeserver
+{
+	string socketRX[110];
+	
+	if(len(Timeserver.socketRxBuf) > 0)
+	{
+		socketRX = gatherByLength(len(Timeserver.socketRxBuf), Timeserver.socketRxBuf);   
+		dateTimeREF = nistTime(socketRX);
+		requestSignature();
+	}
+}
+
+socketReceive AMAZON
+{
+	if (bRXOK)
+	{
+		bRXOK = FALSE;
+		
+		while(find(">", AMAZON.socketRxBuf)) //use ">" as delim
+		{			
+			sTemp = remove(">", AMAZON.socketRxBuf);
+			
+      		if (find("Bad Request", sTemp))
+      		{
+        		call ResetConnection();
+        		pulse (10, Search_Error); 
+      		}
+      		else if (find("Errors", sTemp))
+      		{
+        		call ResetConnection();
+        		pulse (10, Search_Error);        
+      		}
+      		else if (find("</ItemSearchResponse>", sTemp))
+      		{        
+        		call ResetConnection();
+      		}
+      		else
+      		{
+      
+			  	if (bURLSmall && !bFoundSmall) //data is for small image
+			  	{
+				  	call ProcessData(SMALL, sTemp);
+			  	}
+			  	else if (bURLMedium && !bFoundMedium) //data is for medium image
+				{
+					call ProcessData(MEDIUM, sTemp);
+				}
+				else if (bURLLarge && !bFoundLarge) //data is for large image
+				{
+					call ProcessData(LARGE, sTemp);
+				}
+				
+				if (find("<SmallImage>", sTemp)) //found small image start tag
+				{
+					bURLSmall = TRUE;
+				}
+				else if (find("</SmallImage>", sTemp)) //found small image end tag
+				{
+					bFoundImage = TRUE;
+          			bFoundSmall = TRUE;
+					bURLSmall = FALSE;
+				}
+				else if (find("<MediumImage>", sTemp)) //found medium image start tag
+				{
+					bURLMedium = TRUE;
+				}
+				else if (find("</MediumImage>", sTemp)) //found medium image end tag
+				{
+					bFoundImage = TRUE;
+          			bFoundMedium = TRUE;
+					bURLMedium = FALSE;
+				}
+				else if (find("<LargeImage>", sTemp)) //found large image start tag
+				{
+					bURLLarge = TRUE;
+				}
+				else if (find("</LargeImage>", sTemp)) //found large image end tag
+				{
+					bFoundImage = TRUE;
+          			bFoundLarge = TRUE;
+					bURLLarge = FALSE;
+				}
+				else if (find("NoExactMatches", sTemp)) //on images found
+				{
+					pulse (10, No_Image_Found);	
+				}
+		 	}
+    	}
+		
+		bRXOK = TRUE;
+	}
+}
+
+
+// Main
+
+Function Main()
+{  
+	integer x;
+	
+	bRXOK = TRUE;
+	
+	for(x = 0 to 255)				//build hex array for percent encoding
+	{
+		if(x < 0x10)
+		{
+			hex[x] = "%0" + itohex(x);
+		}
+		else
+		{
+			hex[x] = "%" + itohex(x);
+		}  
+	}
+}
+
+

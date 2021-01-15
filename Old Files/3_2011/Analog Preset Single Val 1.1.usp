@@ -1,0 +1,66 @@
+#DEFAULT_NONVOLATILE
+
+#DEFINE_CONSTANT MAXARRAY 10
+
+Analog_Input Preset_Val, Val_In;
+Digital_Input Include_One, Preset_Set, Preset_Save;
+
+Analog_Output Val_Out;
+Digital_Output Preset_Active_FB;
+
+Integer Slot[MAXARRAY], Val[MAXARRAY];
+
+
+Function ProcessFB()
+{
+	If(Slot[Preset_Val] = 1)
+		Preset_Active_FB = 1;
+	Else
+		Preset_Active_FB = 0;
+} 
+
+Push Preset_Set
+{
+	If(Preset_Active_FB = 0)
+	{
+		Slot[Preset_Val] = 1;
+		Val[Preset_Val] = Val_In;
+		ProcessFB();		
+	}
+	Else If(Preset_Active_FB = 1)
+	{
+		Slot[Preset_Val] = 0;
+		ProcessFB();
+	}
+		
+}
+Change Preset_Val
+{
+	
+	If(Preset_Val != 0 && Preset_Val != 1)
+	{
+		ProcessFB();		
+		If(Slot[Preset_Val] = 1)
+		{
+			Val_Out = Val[Preset_Val];			
+		}
+	}
+	Else If(Preset_Val = 0 )
+		Preset_Active_FB = 0;			
+
+	Else If(Preset_Val = 1 && Include_One)
+	{ 
+		PRINT("EXECUTED");
+		Slot[Preset_Val] = 1;
+		Val_Out = Val[Preset_Val];
+		ProcessFB();
+	}
+}	
+
+Push Preset_Save
+{
+	If(Slot[Preset_Val] = 1 && Preset_Val != 0 )
+	{
+		Val[Preset_Val] = Val_In;
+	} 	
+}

@@ -1,0 +1,220 @@
+
+
+#DEFINE_CONSTANT		MAX_SCROLL_ITEMS			200
+#DEFINE_CONSTANT		MAX_SCROLL_LINES			25
+
+
+
+DIGITAL_INPUT	INITIALIZE;
+
+DIGITAL_INPUT	SCROLL_UP,
+				SCROLL_DOWN,
+				SCROLL_WRAP_ENABLE;				
+								
+ANALOG_INPUT	SCROLL_POSITION;
+ANALOG_INPUT	SCROLL_INCREMENT;
+ANALOG_INPUT	NUM_SCROLL_ITEMS;
+ANALOG_INPUT	NUM_SCROLL_LINES;
+
+ANALOG_OUTPUT	SCROLL_POSITION_FB;     
+
+ANALOG_INPUT	SCROLL_ITEMS_A[ MAX_SCROLL_ITEMS ];
+
+ANALOG_OUTPUT	LINES_A[ MAX_SCROLL_LINES ];
+
+
+	
+Signed_Integer	gnTopLineItemIndex; 
+Integer	gnNumScrollItems, 
+		gnNumScrollLines;
+		
+Integer gnScrollItemActionState[ MAX_SCROLL_ITEMS ];
+
+
+Function ScrollUpdate( Integer nUpdateItemIndex )
+{
+	Integer 	nCount,
+				nScrollItemIndex;
+				
+	If( gnTopLineItemIndex <=0 )
+	{
+		gnTopLineItemIndex = 1;
+	}
+	
+	nScrollItemIndex = gnTopLineItemIndex;
+	
+	SCROLL_POSITION_FB = gnTopLineItemIndex;				
+	
+	If( nUpdateItemIndex )
+	{                                                                        
+		
+		If( gnTopLineItemIndex > nUpdateItemIndex )
+		{
+			nScrollItemIndex = gnNumScrollItems - gnTopLineItemIndex + nUpdateItemIndex + 1;
+		}
+		Else
+		{
+			nScrollItemIndex = nUpdateItemIndex - gnTopLineItemIndex + 1;
+		}
+		While( nScrollItemIndex <= gnNumScrollLines )
+		{			
+			LINES_A[ nScrollItemIndex ] = SCROLL_ITEMS_A[ nUpdateItemIndex ];
+			
+			nScrollItemIndex = nScrollItemIndex + gnNumScrollItems;
+		}
+	}
+	Else
+	{
+		For( nCount = 1 To gnNumScrollLines )
+		{
+			LINES_A[ nCount ] = SCROLL_ITEMS_A[ nScrollItemIndex ];			
+								
+			If( nScrollItemIndex = gnNumScrollItems )
+			{
+				nScrollItemIndex = 1;		
+			}
+			Else
+			{
+				nScrollItemIndex = nScrollItemIndex + 1;
+			}
+		}
+	}		
+}
+
+Function ScrollUp( Integer nLines )
+{
+	gnTopLineItemIndex = gnTopLineItemIndex - nLines;
+	
+	If( SCROLL_WRAP_ENABLE )
+	{
+		If( gnTopLineItemIndex <= 0 )
+		{
+			gnTopLineItemIndex = gnNumScrollItems + gnTopLineItemIndex;		
+		}
+	}
+	Else
+	{		
+		If( nLines >= gnTopLineItemIndex )
+		{
+			gnTopLineItemIndex = 1;		
+		}
+	}
+		
+	ScrollUpdate( 0 );
+}
+
+Change SCROLL_POSITION
+{			
+	gnTopLineItemIndex = SCROLL_POSITION;	
+	
+	ScrollUpdate( 0 );
+}
+
+Push SCROLL_UP
+{
+	ScrollUp( SCROLL_INCREMENT );                
+}
+
+Function ScrollDown( Integer nLines )
+{
+	gnTopLineItemIndex = gnTopLineItemIndex + nLines;
+	
+	If( SCROLL_WRAP_ENABLE )
+	{
+		If( gnTopLineItemIndex > gnNumScrollItems )
+		{
+			gnTopLineItemIndex = gnTopLineItemIndex - gnNumScrollItems;	
+		}
+	}
+	Else
+	{	
+		If( gnTopLineItemIndex > ( gnNumScrollItems - gnNumScrollLines ) )
+		{
+			gnTopLineItemIndex = gnNumScrollItems - gnNumScrollLines + 1;		
+		}
+	}
+			
+	ScrollUpdate( 0 );
+}
+
+Push SCROLL_DOWN
+{	
+	ScrollDown( SCROLL_INCREMENT );		
+}
+
+Integer_Function GetNumScrollItemsByParam( )
+{
+	Return( NUM_SCROLL_ITEMS );	
+}
+
+Integer_Function GetNumScrollLinesByParam( )
+{
+	Return( NUM_SCROLL_LINES );	
+}
+
+Function UpdateParams( )
+{
+	Integer nCount;
+	
+	gnNumScrollLines = GetNumScrollLinesByParam( );
+	gnNumScrollItems = GetNumScrollItemsByParam( );
+}
+
+Function ExecuteInitialize( )
+{
+	Integer nCount;
+	
+	gnTopLineItemIndex = 1;	
+	
+	For( nCount = 1 To MAX_SCROLL_ITEMS )
+	{
+		gnScrollItemActionState[ nCount ] = 0;
+	}
+	
+	UpdateParams( );
+	ScrollUpdate( 0 );
+}
+
+Change NUM_SCROLL_ITEMS, NUM_SCROLL_LINES
+{
+	ExecuteInitialize( ); 	
+}
+
+Push INITIALIZE
+{		
+	ExecuteInitialize( );
+}
+
+Change SCROLL_ITEMS_A
+{
+	Integer nLMAI, nItemIndex;
+	nLMAI = GetLastModifiedArrayIndex();
+	
+	nItemIndex = nLMAI;
+	
+	If( gnTopLineItemIndex > nLMAI )
+	{
+		nLMAI = nLMAI + gnTopLineItemIndex;
+	}
+	
+	If( nLMAI >= gnTopLineItemIndex && 
+		nLMAI <= gnTopLineItemIndex + gnNumScrollLines )
+	{
+		ScrollUpdate( nItemIndex );
+	}
+}
+
+
+Function Main( )
+{
+	gnTopLineItemIndex = 1;
+	gnNumScrollLines = 1;
+	gnNumScrollItems = 1;
+}
+
+
+
+
+
+
+

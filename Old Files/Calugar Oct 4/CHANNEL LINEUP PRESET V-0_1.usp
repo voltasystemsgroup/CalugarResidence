@@ -1,0 +1,99 @@
+
+#DEFINE_CONSTANT MAX_PRESETS  	32
+#DEFINE_CONSTANT MAX_NAME_LEN   64
+
+
+
+DIGITAL_INPUT PRESET_HELD[ MAX_PRESETS ];
+DIGITAL_INPUT PRESET_NOT_HELD[ MAX_PRESETS ]; 
+STRING_INPUT CURRENT_CHANNEL_NAME[ MAX_NAME_LEN ];
+ANALOG_INPUT CURRENT_CHANNEL_NUMBER;
+DIGITAL_OUTPUT PRESET_FB[ MAX_PRESETS ];
+ANALOG_OUTPUT DIRECT_CHANNEL_CALL;
+ANALOG_OUTPUT PRESET_CHANNEL_NUMBER[ MAX_PRESETS ];
+STRING_OUTPUT PRESET_NAME[ MAX_PRESETS ];
+
+
+Nonvolatile String gsBootFirst[ 50 ];
+Nonvolatile String gsPresetName[ MAX_PRESETS ][ MAX_NAME_LEN ];
+Nonvolatile Integer gnPresetChannelNumber[ MAX_PRESETS ];
+
+
+Function UpdateFB( )
+{
+	Integer nCount;
+	
+	For( nCount = 1 To MAX_PRESETS )
+	{
+		If( gnPresetChannelNumber[ nCount ] = CURRENT_CHANNEL_NUMBER )
+		{
+			PRESET_FB[ nCount ] = ON;
+		}
+		Else
+		{
+			PRESET_FB[ nCount ] = OFF;
+		} 	
+	}
+}
+
+PUSH PRESET_HELD
+{
+	Integer nLMAI;
+	
+	nLMAI = GetLastModifiedArrayIndex( );
+	
+	gsPresetName[ nLMAI ] = CURRENT_CHANNEL_NAME;
+	gnPresetChannelNumber[ nLMAI ] = CURRENT_CHANNEL_NUMBER;
+	
+	PRESET_NAME[ nLMAI ] = gsPresetName[ nLMAI ];
+	PRESET_CHANNEL_NUMBER[ nLMAI ] = gnPresetChannelNumber[ nLMAI ];
+	
+	UpdateFB( );
+}
+
+PUSH PRESET_NOT_HELD
+{
+	Integer nLMAI;
+	
+	nLMAI = GetLastModifiedArrayIndex( );
+	
+	PRESET_NAME[ nLMAI ] = gsPresetName[ nLMAI ];
+	PRESET_CHANNEL_NUMBER[ nLMAI ] = gnPresetChannelNumber[ nLMAI ];
+	DIRECT_CHANNEL_CALL = gnPresetChannelNumber[ nLMAI ];
+	
+	UpdateFB( );
+}
+
+CHANGE CURRENT_CHANNEL_NUMBER
+{
+	UpdateFB( );
+}
+
+
+Function Main( )
+{
+	Integer nCount;
+	
+	ProcessLogic( );
+	
+	If( gsBootFirst = "I have booted for the first time already!!" )
+	{
+		For( nCount = 1 To MAX_PRESETS )
+		{
+			PRESET_NAME[ nCount ] = gsPresetName[ nCount ];
+			PRESET_CHANNEL_NUMBER[ nCount ] = gnPresetChannelNumber[ nCount ];
+		} 
+	}
+	Else
+	{
+		gsBootFirst = "I have booted for the first time already!!";
+		For( nCount = 1 To MAX_PRESETS )
+		{
+			PRESET_NAME[ nCount ] = "";
+			PRESET_CHANNEL_NUMBER[ nCount ] = 0;
+		}
+	}
+	
+	UpdateFB( );
+}
+

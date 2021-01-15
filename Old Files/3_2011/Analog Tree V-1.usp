@@ -1,0 +1,18 @@
+#DEFINE_CONSTANT MAXARRAY 48
+
+
+Analog_Input SLOT_VAL, VAL_IN;
+ANALOG_Output VAL_OUT[MAXARRAY];
+
+
+
+
+Change Val_IN
+{
+	Integer Index;
+	
+	For(Index = 1 to SLOT_VAL)
+	{
+		VAL_OUT[Index] = Val_IN;
+	}
+}

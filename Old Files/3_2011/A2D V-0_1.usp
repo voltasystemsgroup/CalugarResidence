@@ -1,0 +1,40 @@
+
+
+
+ANALOG_INPUT INPUT, DELAY_TIME, PULSE_TIME;
+
+DIGITAL_OUTPUT ENTER, OUT[ 10 ];
+
+
+Integer nBusy;
+
+CHANGE INPUT
+{
+	Integer nValue, nHundreds, nTens, nOnes;
+
+	If( !nBusy )
+	{
+		nBusy = 1;
+		
+		nValue = INPUT;
+		nHundreds = nValue / 100;
+		nTens = ( nValue % 100 ) / 10;
+		nOnes = ( nValue % 100 ) % 10;
+		
+		Pulse( PULSE_TIME, OUT[ nHundreds + 1 ] );
+		Delay( DELAY_TIME );
+		Pulse( PULSE_TIME, OUT[ nTens + 1 ] );
+		Delay( DELAY_TIME );
+		Pulse( PULSE_TIME, OUT[ nOnes + 1 ] );
+		Delay( DELAY_TIME );
+		Pulse( PULSE_TIME, ENTER );
+		Delay( DELAY_TIME );		
+		
+		nBusy = 0;
+	}
+}
+
+Function Main( )
+{
+	nBusy = 0;		
+}

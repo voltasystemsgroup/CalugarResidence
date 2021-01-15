@@ -1,0 +1,100 @@
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DynDNS Update Client v1.00.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DynDNS Update Client v1.00.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\BOOT V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\BOOT V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\INDEX TRANSLATOR 24x32 V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\INDEX TRANSLATOR 24x32 V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\BIPAD OUTPUT ZERO DELAY V-2_0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\BIPAD OUTPUT ZERO DELAY V-2_0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\BIPAD OUTPUT TWO WAY ABUF V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\BIPAD OUTPUT TWO WAY ABUF V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\MANAGED SWITCHER V-2_0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\MANAGED SWITCHER V-2_0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\MANAGED SWITCHER INDEX TRANSLATOR V-2_0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\MANAGED SWITCHER INDEX TRANSLATOR V-2_0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG PASSTHRU V-1_0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG PASSTHRU V-1_0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\A2D V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\A2D V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DIGITAL DETECT V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DIGITAL DETECT V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\MANAGED POWER V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\MANAGED POWER V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP SCROLL ANALOG V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP SCROLL ANALOG V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP SCROLL DIGITAL V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP SCROLL DIGITAL V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP SCROLL SERIAL V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP SCROLL SERIAL V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP INTERFACE V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP INTERFACE V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP PRESET V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP PRESET V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP INTERFACE SCROLL INCREMENT V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CHANNEL LINEUP INTERFACE SCROLL INCREMENT V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\NUMERIC KEYPAD V-1_0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\NUMERIC KEYPAD V-1_0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG TO SERIAL V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG TO SERIAL V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\TWO WAY ABUF V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\TWO WAY ABUF V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\RING COUNTER V-0_2.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\RING COUNTER V-0_2.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\IDOC PAGE HANDLER V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\IDOC PAGE HANDLER V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Amazon Cover Art Search Interface v3.0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Amazon Cover Art Search Interface v3.0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\HMAC SHA-256 Engine.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\HMAC SHA-256 Engine.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Base 64 Bit Encoder v1.0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Base 64 Bit Encoder v1.0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ALL ON OFF V 2-0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ALL ON OFF V 2-0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Preset Single Val 1.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Preset Single Val 1.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG RAMP CONTROLLER V-2-0.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG RAMP CONTROLLER V-2-0.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Multi Preset V-0-4.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Multi Preset V-0-4.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG AVERAGE V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG AVERAGE V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Tree V-1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Tree V-1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA ROUTE ANALOG V-2.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA ROUTE ANALOG V-2.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Buffer Engine V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\Analog Buffer Engine V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for tstat temp display.csp
+Returned from ProjMgr.CompileTargets() for <tstat temp display.csp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\FILE IO ANALOG V-0.2.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\FILE IO ANALOG V-0.2.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\TOD Seconds Stripped V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\TOD Seconds Stripped V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\AToI V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\AToI V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CLOCK DISPLAY V-0.2.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CLOCK DISPLAY V-0.2.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG x10 V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\ANALOG x10 V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA SELECTOR SERIAL 24x24 V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA SELECTOR SERIAL 24x24 V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA SELECTOR ANALOG 32x48 V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA SELECTOR ANALOG 32x48 V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA SELECTOR DIGITAL 32X48 V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\DATA SELECTOR DIGITAL 32X48 V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CLOCK VALS V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\CLOCK VALS V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\COUNTDOWN TIMER V-0_2.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\COUNTDOWN TIMER V-0_2.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\INDEX SELECTOR V-0_1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\INDEX SELECTOR V-0_1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\I-HVAC PAGE HANDLER V-0_5.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\I-HVAC PAGE HANDLER V-0_5.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\SUBPAGE HANDLER V-0.2.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\SUBPAGE HANDLER V-0.2.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\SUBPAGE SET INTERFACE V-0.1.usp
+Returned from ProjMgr.CompileTargets() for <C:\Program Files\Crestron\Simpl\Programs\Clients\Calugar\3_2011\SUBPAGE SET INTERFACE V-0.1.usp>: Result: 0
+Calling ProjMgr.CompileTargets() for iPhone XML Processor v1_0_0.csp
+Returned from ProjMgr.CompileTargets() for <iPhone XML Processor v1_0_0.csp>: Result: 0
+Calling ProjMgr.LinkTargets()...
+Returned from ProjMgr.LinkTargets(): Result: 0

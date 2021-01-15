@@ -1,0 +1,28 @@
+
+#DEFINE_CONSTANT MAX_IO 16
+
+ANALOG_INPUT NUM_ADDENDS;
+
+ANALOG_INPUT IN[ MAX_IO ];
+
+ANALOG_OUTPUT AVERAGE;
+
+CHANGE IN
+{	
+	Long_Integer nAverage, nLoop;
+	
+	nAverage = 0;
+	For( nLoop = 1 To NUM_ADDENDS )
+	{
+		nAverage = nAverage + IN[ nLoop ];
+	}
+	
+	nAverage = nAverage/NUM_ADDENDS;
+	
+	AVERAGE = nAverage;	
+}
+
+Function Main( )
+{
+	
+}

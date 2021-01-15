@@ -1,0 +1,70 @@
+#DEFAULT_VOLATILE
+
+#DEFINE_CONSTANT MAX_SUBPAGES 32
+#DEFINE_CONSTANT MAX_POSITIONS 8
+
+DIGITAL_INPUT SUBPAGE[ MAX_SUBPAGES ];
+
+ANALOG_INPUT PAGE_POSITION_INDEX;
+ANALOG_INPUT PAGE_POSITION_SUBPAGE_INDEX_IN[ MAX_POSITIONS ];
+
+DIGITAL_OUTPUT SUBPAGE_FB[ MAX_SUBPAGES ];
+
+ANALOG_OUTPUT PAGE_POSITION_SUBPAGE_INDEX_OUT[ MAX_POSITIONS ];
+
+Integer gnInitComplete;
+Integer gnPagePositionSubpageIndex[ MAX_POSITIONS ];
+
+
+
+PUSH SUBPAGE
+{
+	Integer nSubpageIndex;
+	
+	If( gnInitComplete )
+	{
+		nSubpageIndex = GetLastModifiedArrayIndex( );
+		
+		PAGE_POSITION_SUBPAGE_INDEX_OUT[ PAGE_POSITION_INDEX ] = nSubpageIndex; 		
+	}
+}
+
+
+
+CHANGE PAGE_POSITION_SUBPAGE_INDEX_IN
+{
+	Integer nPagePositionIndex;
+	
+	If( gnInitComplete )
+	{
+		nPagePositionIndex = GetLastModifiedArrayIndex( );
+		
+		If( gnPagePositionSubpageIndex[ nPagePositionIndex ] != PAGE_POSITION_SUBPAGE_INDEX_IN[ nPagePositionIndex ] )
+		{
+			If( nPagePositionIndex = PAGE_POSITION_INDEX )
+			{
+				SUBPAGE_FB[ gnPagePositionSubpageIndex[ nPagePositionIndex ] ] = 0;
+				gnPagePositionSubpageIndex[ nPagePositionIndex ] = PAGE_POSITION_SUBPAGE_INDEX_IN[ nPagePositionIndex ];
+				SUBPAGE_FB[ gnPagePositionSubpageIndex[ nPagePositionIndex ] ] = 1;
+			}
+			Else
+			{
+				gnPagePositionSubpageIndex[ nPagePositionIndex ] = PAGE_POSITION_SUBPAGE_INDEX_IN[ nPagePositionIndex ];
+			}
+		}	 
+	}
+}
+
+Function Main( )
+{
+	Integer nIndex;
+	
+	gnInitComplete = 0;
+	
+	For( nIndex = 1 To MAX_POSITIONS )
+	{
+		gnPagePositionSubpageIndex[ nIndex ] = 0;
+	}
+	
+	gnInitComplete = !WaitForInitializationComplete( );
+}

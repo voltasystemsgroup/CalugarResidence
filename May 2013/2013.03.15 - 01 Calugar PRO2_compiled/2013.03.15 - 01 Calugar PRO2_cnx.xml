@@ -1,0 +1,3209 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type="text/xsl " href=" C:\Program Files (x86)\Crestron\Simpl\ConnectionSheet.xsl "?> 
+<connectionSheet>
+<systemName>Calugar - Park Towers</systemName>
+<designer>Ken Mapoy</designer>
+<dealer>Latte Communications</dealer>
+<jobNumber></jobNumber>
+<created>03/15/13 - 10:54:02 AM</created>
+<modified>03/15/13 - 10:54:02 AM</modified>
+<appPath>C:\Program Files (x86)\Crestron\Simpl\</appPath>
+<device type="controlSystem">
+<model>PRO2</model>
+<device>
+ <address prefix = "Slot" >04</address>
+<name>C2I-COM6</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-COM6</model>
+<location></location>
+<device>
+ <address prefix = "Port" >A</address>
+<name>C2 COM Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2 COM Two-way serial driver</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >B</address>
+<name>C2 COM Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2 COM Two-way serial driver</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >C</address>
+<name>C2 COM Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2 COM Two-way serial driver</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >D</address>
+<name>C2 COM Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2 COM Two-way serial driver</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >E</address>
+<name>C2 COM Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2 COM Two-way serial driver</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >F</address>
+<name>C2 COM Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2 COM Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >05</address>
+<name>C2I-IR8</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-IR8</model>
+<location></location>
+<device>
+ <address prefix = "Port" >A</address>
+<name>Tivo HD XL DVR (Infrared Control)</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>HD XL DVR (Infrared Control)</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >A</address>
+<name>Tivo XL</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>XL</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >B</address>
+<name>Tivo HD XL DVR (Infrared Control)</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>HD XL DVR (Infrared Control)</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >B</address>
+<name>Tivo XL</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>XL</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >C</address>
+<name>Integra Blu-Ray</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Blu-Ray</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >D</address>
+<name>Integra Blu-Ray</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Blu-Ray</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >06</address>
+<name>C2I-IO8</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-IO8</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >02</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >03</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >04</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >05</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >06</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >07</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >08</address>
+<name>DIO-Port</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DIO-Port</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >07</address>
+<name>C2I-RY8</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-RY8</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >02</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >03</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >04</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >05</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >06</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >07</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Port" >08</address>
+<name>Relay</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>Relay</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >08</address>
+<name>C2ENET-1</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2ENET-1</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >03</address>
+<name>XPanel</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>XPanel</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >04</address>
+<name>iPhone/iPod Touch interface to control system via TCP/IP (Connection 1 of 2)</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>iPhone/iPod Touch interface to control system via TCP/IP (Connection 1 of 2)</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>TCP/IP Server Ctrl</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TCP/IP Server Ctrl</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "IP-ID" >05</address>
+<name>iPhone/iPod Touch interface to control system via TCP/IP (Connection 2 of 2)</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>iPhone/iPod Touch interface to control system via TCP/IP (Connection 2 of 2)</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>TCP/IP Server Ctrl</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TCP/IP Server Ctrl</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "IP-ID" >11</address>
+<name>In Use By Slot-08.IP-ID-50.Slot-17.Slot-01.Slot-01 : DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>In Use By</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >12</address>
+<name>In Use By Slot-08.IP-ID-50.Slot-17.Slot-01.Slot-02 : DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>In Use By</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >13</address>
+<name>In Use By Slot-08.IP-ID-50.Slot-17.Slot-02.Slot-01 : DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>In Use By</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >14</address>
+<name>In Use By Slot-08.IP-ID-50.Slot-17.Slot-02.Slot-02 : DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>In Use By</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >15</address>
+<name>In Use By Slot-08.IP-ID-50.Slot-21.Slot-01.Slot-01 : DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>In Use By</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >16</address>
+<name>In Use By Slot-08.IP-ID-50.Slot-21.Slot-01.Slot-02 : DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>In Use By</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "IP-ID" >50</address>
+<name>DM-MD8x8</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-MD8x8</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-HD</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-HD Advanced</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD Advanced</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-HD</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-HD Advanced</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD Advanced</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>DMC-HD</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-HD Advanced</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD Advanced</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >04</address>
+<name>DMC-HD</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-HD Advanced</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-HD Advanced</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >05</address>
+<name>DMC-VID-RCA-A</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-VID-RCA-A</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-VID-RCA-A Advanced</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-VID-RCA-A Advanced</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >17</address>
+<name>DMCO-22</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMCO-22</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-CATO-HD.</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD.</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-CATO-HD Output 1</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 1</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >11</address>
+<name>DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC-100</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>C2I-DMRMC100-COM1-232</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-COM1-232</model>
+<location></location>
+<device>
+ <address prefix = "COM" >01</address>
+<name>DM-RMC Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>C2I-DMRMC100-IR2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-IR2</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-CATO-HD Output 2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 2</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >12</address>
+<name>DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC-100</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>C2I-DMRMC100-COM1-232</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-COM1-232</model>
+<location></location>
+<device>
+ <address prefix = "COM" >01</address>
+<name>DM-RMC Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>C2I-DMRMC100-IR2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-IR2</model>
+<location></location>
+</device>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-CATO-HD.</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD.</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-CATO-HD Output 1</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 1</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >13</address>
+<name>DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC-100</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>C2I-DMRMC100-COM1-232</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-COM1-232</model>
+<location></location>
+<device>
+ <address prefix = "COM" >01</address>
+<name>DM-RMC Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>C2I-DMRMC100-IR2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-IR2</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-CATO-HD Output 2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 2</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >14</address>
+<name>DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC-100</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>C2I-DMRMC100-COM1-232</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-COM1-232</model>
+<location></location>
+<device>
+ <address prefix = "COM" >01</address>
+<name>DM-RMC Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>C2I-DMRMC100-IR2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-IR2</model>
+<location></location>
+</device>
+</device>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >21</address>
+<name>DMCO-22</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMCO-22</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-CATO-HD.</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD.</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-CATO-HD Output 1</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 1</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >15</address>
+<name>DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC-100</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>C2I-DMRMC100-COM1-232</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-COM1-232</model>
+<location></location>
+<device>
+ <address prefix = "COM" >01</address>
+<name>DM-RMC Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>C2I-DMRMC100-IR2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-IR2</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-CATO-HD Output 2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 2</model>
+<location></location>
+<device>
+ <address prefix = "IP-ID" >16</address>
+<name>DM-RMC-100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC-100</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>C2I-DMRMC100-COM1-232</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-COM1-232</model>
+<location></location>
+<device>
+ <address prefix = "COM" >01</address>
+<name>DM-RMC Two-way serial driver</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DM-RMC Two-way serial driver</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>C2I-DMRMC100-IR2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-DMRMC100-IR2</model>
+<location></location>
+</device>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-CATO-HD.</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD.</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>DMC-CATO-HD Output 1</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 1</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>DMC-CATO-HD Output 2</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>DMC-CATO-HD Output 2</model>
+<location></location>
+</device>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "IP-ID" >51</address>
+<name>CEN-IDOCV</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-IDOCV</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>CEN-IDOCV Transport Controls</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-IDOCV Transport Controls (old)</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>CEN-IDOCV Browse Context.</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-IDOCV Browse Context. (old)</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>CEN-IDOCV Browse</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-IDOCV Browse (old)</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>CEN-IDOCV Search</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-IDOCV Search (old)</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "IP-ID" >C1</address>
+<name>CEN-RFGW-EX (Ethernet) [GYM]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-RFGW-EX (Ethernet)</model>
+<location></location>
+<device>
+ <address prefix = "RF-ID" >0A</address>
+<name>MTX-3 [GYM]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>MTX-3 Buttons</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3 Buttons</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "RF-ID" >0B</address>
+<name>MTX-3 [FAMILY]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>MTX-3 Buttons</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3 Buttons</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "IP-ID" >C2</address>
+<name>CEN-RFGW-EX (Ethernet) [LIVING]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-RFGW-EX (Ethernet)</model>
+<location></location>
+<device>
+ <address prefix = "RF-ID" >0B</address>
+<name>MTX-3 [LIVING]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>MTX-3 Buttons</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3 Buttons</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "RF-ID" >0C</address>
+<name>MTX-3 [BILLIARD]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>MTX-3 Buttons</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3 Buttons</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "IP-ID" >C3</address>
+<name>CEN-RFGW-EX (Ethernet) [MASTER BED]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CEN-RFGW-EX (Ethernet)</model>
+<location></location>
+<device>
+ <address prefix = "RF-ID" >09</address>
+<name>MTX-3 [MASTER]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>MTX-3 Buttons</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>MTX-3 Buttons</model>
+<location></location>
+</device>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >09</address>
+<name>C2Net-Device</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2Net-Device</model>
+<location></location>
+<device>
+ <address prefix = "ID" >41</address>
+<name>CNX-BIPAD8</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNX-BIPAD8</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>CNXPAD8-Ctrl</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNXPAD8-Ctrl</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >42</address>
+<name>CNX-BIPAD8</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNX-BIPAD8</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>CNXPAD8-Ctrl</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNXPAD8-Ctrl</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >51</address>
+<name>CNAMPX-16x60</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNAMPX-16x60</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>CNAMPX-Ctrl</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNAMPX-Ctrl</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >52</address>
+<name>CNAMPX-16x60</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNAMPX-16x60</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>CNAMPX-Ctrl</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CNAMPX-Ctrl</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >55</address>
+<name>C2N-TXM</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2N-TXM</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "ID" >61</address>
+<name>C2N-MNETGW</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2N-MNETGW</model>
+<location></location>
+<device>
+ <address prefix = "MNET-ID" >03</address>
+<name>LIGHTING_CIRCUIT_001 [UTILITY CLOSET]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >04</address>
+<name>LIGHTING_CIRCUIT_002 [GUEST HALL]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >05</address>
+<name>LIGHTING_CIRCUIT_003 [WEST GUEST ROOM]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >06</address>
+<name>LIGHTING_CIRCUIT_004 [WEST GUEST CLOSET]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >07</address>
+<name>LIGHTING_CIRCUIT_005 [WEST GUEST BATH]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >08</address>
+<name>LIGHTING_CIRCUIT_006 [WEST GUEST BATH FAN] 115</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >09</address>
+<name>LIGHTING_CIRCUIT_007 [EAST GUEST ROOM]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0A</address>
+<name>LIGHTING_CIRCUIT_008 [EAST GUEST CLOSET]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0B</address>
+<name>LIGHTING_CIRCUIT_009 [EAST GUEST BATH]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0C</address>
+<name>LIGHTING_CIRCUIT_010 [EAST GUEST BATH FAN] 096</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0D</address>
+<name>LIGHTING_CIRCUIT_011 [W&amp;E GUEST PATIO @ EAST GUEST PATIO]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0E</address>
+<name>LIGHTING_CIRCUIT_012 [GUEST HALL BATH 1]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0F</address>
+<name>LIGHTING_CIRCUIT_013 [GUEST HALL BATH 2]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >10</address>
+<name>LIGHTING_CIRCUIT_014 [GUEST HALL BATH FAN] 117</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >11</address>
+<name>LIGHTING_CIRCUIT_015 [MASTER BED OUTSIDE OF ENTRY]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >12</address>
+<name>LIGHTING_CIRCUIT_016 [MASTER BED INSIDE OF ENTRY]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >13</address>
+<name>LIGHTING_CIRCUIT_017 [HER BATH @ ENTRY 1]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >14</address>
+<name>LIGHTING_CIRCUIT_018 [HER BATH @ ENTRY 2]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >15</address>
+<name>LIGHTING_CIRCUIT_019 [HER BATH @ SINK]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >16</address>
+<name>LIGHTING_CIRCUIT_020 [HER BATH @ VANITY]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >17</address>
+<name>LIGHTING_CIRCUIT_021 [HER BATH FAN] 120</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >18</address>
+<name>LIGHTING_CIRCUIT_022 [HER BATH TOILET]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >19</address>
+<name>LIGHTING_CIRCUIT_023 [HER WIC]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1A</address>
+<name>LIGHTING_CIRCUIT_024 [HIS BATH @ ENTRY]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1B</address>
+<name>LIGHTING_CIRCUIT_025 [HIS BATH @ URINAL 1]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1C</address>
+<name>LIGHTING_CIRCUIT_026 [HIS BATH @ URINAL 2]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1D</address>
+<name>LIGHTING_CIRCUIT_027 [HIS BATH @ SHOWER]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1E</address>
+<name>LIGHTING_CIRCUIT_028 [HIS BATH TOILET FAN] 094</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1F</address>
+<name>LIGHTING_CIRCUIT_029 [HIS BATH SHOWER FAN] 111</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >20</address>
+<name>LIGHTING_CIRCUIT_030 [MASTER BED @ BED WALL]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >62</address>
+<name>C2N-MNETGW</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2N-MNETGW</model>
+<location></location>
+<device>
+ <address prefix = "MNET-ID" >03</address>
+<name>LIGHTING_CIRCUIT_031 [WEST GUEST HALL]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >04</address>
+<name>LIGHTING_CIRCUIT_032 [BILLIARD 1] 140</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >05</address>
+<name>LIGHTING_CIRCUIT_033 [BILLIARD 2] 199</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >06</address>
+<name>LIGHTING_CIRCUIT_034 [BILLIARD PATIO] 060</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >07</address>
+<name>LIGHTING_CIRCUIT_035 [FOYER 1] 148</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >08</address>
+<name>LIGHTING_CIRCUIT_036 [FOYER 2] 179</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >09</address>
+<name>LIGHTING_CIRCUIT_037 [MAIN HALL 1] 567</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0A</address>
+<name>LIGHTING_CIRCUIT_038 [MAIN HALL 2] 072</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0B</address>
+<name>LIGHTING_CIRCUIT_039 [MAIN HALL 3] 565</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0C</address>
+<name>LIGHTING_CIRCUIT_040 [LIVING ROOM @ MAIN HALL] 553</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0D</address>
+<name>LIGHTING_CIRCUIT_041 [LIVING ROOM FIREPLACE CUBBY&apos;S]  596</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0E</address>
+<name>LIGHTING_CIRCUIT_042 [LIVING ROOM PATIO CUBBY&apos;S] 100</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0F</address>
+<name>LIGHTING_CIRCUIT_043 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >10</address>
+<name>LIGHTING_CIRCUIT_044 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >11</address>
+<name>LIGHTING_CIRCUIT_045 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >12</address>
+<name>LIGHTING_CIRCUIT_046 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >13</address>
+<name>LIGHTING_CIRCUIT_047 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >14</address>
+<name>KP08 [BILLIARD @ LIVING ROOM ENTRY]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >15</address>
+<name>KP01 [WEST GUEST ROOM] 807</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >16</address>
+<name>KP02 [MASTER BED @ OUTSIDE OF ENTRY] 474</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >17</address>
+<name>KP03 [MASTER BED @ INSIDE OF ENTRY] 800</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >18</address>
+<name>KP04 [MASTER BED @ HER WIC] 844</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >19</address>
+<name>KP05 [HER BATH @ ENTRY] 472</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1A</address>
+<name>KP06 [HIS BATH @ ENTRY] 836</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1B</address>
+<name>KP07 [MASTER BED @ BED WALL] 463</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1C</address>
+<name>KP08 [BILLIARD @ MASTER ENTRY] 823</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1D</address>
+<name>KP09 [FOYER @ ENTRY] 828</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1E</address>
+<name>KP10 [MAIN HALL @ ENTRY] 841</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1F</address>
+<name>KP11 [LIVING ROOM @ MAIN HALL] 826</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >20</address>
+<name>KP12 [LIVING ROOM @ BILLIARD] 849</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >63</address>
+<name>C2N-MNETGW</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2N-MNETGW</model>
+<location></location>
+<device>
+ <address prefix = "MNET-ID" >03</address>
+<name>LIGHTING_CIRCUIT_049 [LAUNDRY] 151</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >04</address>
+<name>LIGHTING_CIRCUIT_050 [GYM] 161</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >05</address>
+<name>LIGHTING_CIRCUIT_051 [GYM BATH] 173</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >06</address>
+<name>LIGHTING_CIRCUIT_052 [GYM BATH FAN]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >07</address>
+<name>LIGHTING_CIRCUIT_053 [SERVICE ENTRY HALL] 556</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >08</address>
+<name>LIGHTING_CIRCUIT_054 [KITCHEN @ PATIO LEFT] 573</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >09</address>
+<name>LIGHTING_CIRCUIT_055 [KITCHEN @ PATIO CENTER] 421</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0A</address>
+<name>LIGHTING_CIRCUIT_056 [KITCHEN ABOVE STOVE 1] 061</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0B</address>
+<name>LIGHTING_CIRCUIT_057 [KITCHEN ABOVE STOVE 2] 181</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0C</address>
+<name>LIGHTING_CIRCUIT_058 [KITCHEN ABOVE STOVE 3] 074</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0D</address>
+<name>LIGHTING_CIRCUIT_059 [FAMILY/DINING @ PATIO] 549</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0E</address>
+<name>LIGHTING_CIRCUIT_060 [KITCHEN @ LAUNDRY SHELF 1] 146</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >0F</address>
+<name>LIGHTING_CIRCUIT_061 [KITCHEN @ LAUNDRY SHELF 2] 054</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >10</address>
+<name>LIGHTING_CIRCUIT_062 [LAUNDRY FAN]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-SW1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >11</address>
+<name>LIGHTING_CIRCUIT_063 [KITCHEN UNDER COUNTER]</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >12</address>
+<name>LIGHTING_CIRCUIT_064 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >13</address>
+<name>LIGHTING_CIRCUIT_065 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >14</address>
+<name>LIGHTING_CIRCUIT_066 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >15</address>
+<name>LIGHTING_CIRCUIT_067 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >16</address>
+<name>LIGHTING_CIRCUIT_068 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >17</address>
+<name>LIGHTING_CIRCUIT_069 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >18</address>
+<name>LIGHTING_CIRCUIT_070 []</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CLW-DIM1RF</model>
+<location></location>
+<device>
+ <address prefix = "Port" >01</address>
+<name>IDimPort</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>IDimPort</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1E</address>
+<name>KP13 [LIVING ROOM @ FIREPLACE] 520</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >1F</address>
+<name>KP14 [SERVICE ENTRY HALL] 448</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "MNET-ID" >20</address>
+<name>KP15 [KITCHEN @ DINING] 798</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>INET-CBD Advanced Button Events</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Advanced Button Events</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>INET-CBD Brightness and Bargraph Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>INET-CBD Brightness and Bargraph Settings</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>INET-CBD Brightness and Bargraph Settings</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >71</address>
+<name>Crestron CHV-THSTAT</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CHV-THSTAT</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>TSTAT/THSTAT Heat/Cool Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Heat/Cool Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>TSTAT/THSTAT Humidity Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Humidity Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>TSTAT/THSTAT Slab Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Slab Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >04</address>
+<name>TSTAT/THSTAT Current System State</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Current System State</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >05</address>
+<name>TSTAT/THSTAT Display Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Display Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >06</address>
+<name>TSTAT/THSTAT System Configuration</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT System Configuration</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >72</address>
+<name>Crestron CHV-THSTAT</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CHV-THSTAT</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>TSTAT/THSTAT Heat/Cool Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Heat/Cool Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>TSTAT/THSTAT Humidity Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Humidity Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>TSTAT/THSTAT Slab Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Slab Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >04</address>
+<name>TSTAT/THSTAT Current System State</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Current System State</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >05</address>
+<name>TSTAT/THSTAT Display Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Display Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >06</address>
+<name>TSTAT/THSTAT System Configuration</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT System Configuration</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >73</address>
+<name>Crestron CHV-THSTAT</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CHV-THSTAT</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>TSTAT/THSTAT Heat/Cool Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Heat/Cool Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>TSTAT/THSTAT Humidity Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Humidity Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>TSTAT/THSTAT Slab Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Slab Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >04</address>
+<name>TSTAT/THSTAT Current System State</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Current System State</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >05</address>
+<name>TSTAT/THSTAT Display Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Display Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >06</address>
+<name>TSTAT/THSTAT System Configuration</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT System Configuration</model>
+<location></location>
+</device>
+</device>
+<device>
+ <address prefix = "ID" >74</address>
+<name>Crestron CHV-THSTAT</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>CHV-THSTAT</model>
+<location></location>
+<device>
+ <address prefix = "Slot" >01</address>
+<name>TSTAT/THSTAT Heat/Cool Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Heat/Cool Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >02</address>
+<name>TSTAT/THSTAT Humidity Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Humidity Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >03</address>
+<name>TSTAT/THSTAT Slab Control</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Slab Control</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >04</address>
+<name>TSTAT/THSTAT Current System State</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Current System State</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >05</address>
+<name>TSTAT/THSTAT Display Functions</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT Display Functions</model>
+<location></location>
+</device>
+<device>
+ <address prefix = "Slot" >06</address>
+<name>TSTAT/THSTAT System Configuration</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>TSTAT/THSTAT System Configuration</model>
+<location></location>
+</device>
+</device>
+</device>
+<device>
+ <address prefix = "Slot" >10</address>
+<name>C2I-PRO2-LCDPANEL</name>
+<function></function>
+<equipment></equipment>
+<notes></notes>
+<model>C2I-PRO2-LCDPANEL</model>
+<location></location>
+</device>
+</device>
+</connectionSheet>

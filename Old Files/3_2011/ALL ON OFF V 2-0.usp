@@ -1,0 +1,37 @@
+
+Digital_Input On_FB, All_On, All_Off, All_Toggle;
+Analog_Input ONVAL;
+
+Digital_Output ON_Pulse, Off_Pulse;
+Analog_Output Analog_Out;
+
+Function AllOn()
+{
+	Pulse(10, ON_Pulse);
+	Analog_Out = ONVAL;
+}      
+
+Function AllOff()
+{
+	Pulse(10, Off_Pulse); 
+   	Analog_Out = 0;
+}  
+
+Push All_On
+{
+	AllOn();
+}   
+
+Push All_Off
+{
+	AllOff();
+}
+
+Push All_Toggle
+{
+	If(On_FB = 1)
+		AllOff();
+				
+	Else
+		AllOn();
+}

@@ -1,0 +1,65 @@
+Digital_Input Press;
+Analog_Input Analog_In;
+
+Digital_Output Up, Down;
+
+Integer Flag, Busy;
+
+Function EvalInput()
+{
+	If(Analog_In < 250)
+	{
+		Flag = 1;
+	}
+		
+	If(Analog_In > 40000)
+	{
+		Flag = 0;
+	}
+}
+
+Push Press
+{ 
+	Busy = 1;
+	
+	If(Flag = 0)
+	{            
+		Up = 0;
+		Down = 1;
+	}
+	Else
+	{
+		Down = 0;
+		Up = 1;
+	}
+}
+
+Release Press
+{
+	Busy = 0;	
+	Down = 0;
+	Up = 0;
+	
+	If(Flag = 0)
+	{
+		Flag = 1;
+		Delay(100);
+	}
+		
+	Else
+
+	{
+		Flag = 0;
+		Delay(100);
+	}
+	      
+    EvalInput();
+
+}
+Change Analog_In
+{ 
+	If( Busy = 0 )
+		EvalInput();
+}
+
+

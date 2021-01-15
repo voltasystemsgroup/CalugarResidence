@@ -1,0 +1,21 @@
+
+
+
+
+#DEFINE_CONSTANT MAX_IO 32
+
+
+
+STRING_INPUT IN[ MAX_IO ][ 5 ];
+ANALOG_OUTPUT OUT[ MAX_IO ];
+
+
+
+CHANGE IN
+{
+	Integer nIndex;
+	
+	nIndex = GetLastModifiedArrayIndex( );
+	
+	OUT[ nIndex ] = AToI( IN[ nIndex ] );
+}
