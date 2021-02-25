@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<File Type='Manifest' Version='2.1.0' ObjectDisplayList='3'>
+<Project FileName='CALUGAR.zip' Size='1974133' Build='20210224120119'>
+<Sources>
+<Source FileName='CALUGAR.xml' Size='555' Type='Application' Build='20210224120119' />
+<Source FileName='CALUGAR_Resource.xml' Size='40300' Type='Resource' Build='20210224120119' />
+<Source FileName='TP01 LIGHTING-1.xml' Size='17921' Type='Subpage' Build='20210224120164' />
+<Source FileName='SOURCE - TIVO HIS FAVS 1.xml' Size='13164' Type='Page' Build='20210224120162' />
+<Source FileName='SOURCE - TIVO HIS FAVS 2.xml' Size='11326' Type='Page' Build='20210224120159' />
+<Source FileName='SOURCE - TIVO HER FAVS 2.xml' Size='13020' Type='Page' Build='20210224120154' />
+<Source FileName='SOURCE - TIVO HER FAVS 1.xml' Size='13164' Type='Page' Build='20210224120139' />
+<Source FileName='_TEMP ROOM SELECT.xml' Size='7414' Type='Page' Build='20210224120125' />
+<Source FileName='TP01 LIGHTING.xml' Size='18250' Type='Subpage' Build='20210224120124' />
+<Source FileName='SOURCE - IDOC.xml' Size='15752' Type='Page' Build='20210224120121' />
+<Source FileName='IPOD NOT DOCKED.xml' Size='1127' Type='Subpage' Build='20210224120116' />
+<Source FileName='IPOD LOCAL.xml' Size='2078' Type='Subpage' Build='20210224120115' />
+<Source FileName='SOURCE - BLU-RAY.xml' Size='20732' Type='Page' Build='20210224120113' />
+<Source FileName='SOURCE - XM KEYPAD.xml' Size='17622' Type='Page' Build='20210224120109' />
+<Source FileName='XM INFO.xml' Size='4520' Type='Subpage' Build='20210224120104' />
+<Source FileName='SOURCE - XM.xml' Size='117892' Type='Page' Build='20210224120102' />
+<Source FileName='SOURCE - TIVO.xml' Size='22594' Type='Page' Build='20210224120115' />
+<Source FileName='_HVAC CONTROLS {2} SETPOINT.xml' Size='6708' Type='Subpage' Build='20210224120112' />
+<Source FileName='_HVAC CONTROLS {1} SETPOINT.xml' Size='3525' Type='Subpage' Build='20210224120110' />
+<Source FileName='_HVAC CONTROLS {0} SETPOINT.xml' Size='1111' Type='Subpage' Build='20210224120108' />
+<Source FileName='TP01 AUDIO ROOM SELECTION.xml' Size='18677' Type='Subpage' Build='20210224120106' />
+<Source FileName='_AUDIO SOURCE SELECTION.xml' Size='13827' Type='Page' Build='20210224120105' />
+<Source FileName='_BOTTOM BAR.xml' Size='3209' Type='Subpage' Build='20210224120104' />
+<Source FileName='_POWER.xml' Size='8744' Type='Page' Build='20210224120103' />
+<Source FileName='_SHADES.xml' Size='15121' Type='Page' Build='20210224120100' />
+<Source FileName='_TEMP.xml' Size='13016' Type='Page' Build='20210224120196' />
+<Source FileName='_LIGHTS.xml' Size='2271' Type='Page' Build='20210224120193' />
+<Source FileName='_VIDEO.xml' Size='11053' Type='Page' Build='20210224120192' />
+<Source FileName='_AUDIO ROOM SELECTION.xml' Size='2297' Type='Page' Build='20210224120177' />
+<Source FileName='_HOME.xml' Size='6662' Type='Page' Build='20210224120175' />
+</Sources>
+</Project>
+</File>
